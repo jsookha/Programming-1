@@ -1,0 +1,137 @@
+/*
+ * Program: cafirstprogram
+ * Date: 13/2/2019
+ * Programmer: J.Sookha
+ * Description: This is the first program we are typing with the lecturer because he asked us  
+*/
+
+package capfirstprogram;  //this is a short comment - allowed on the same line because of the 2 forward slashes 
+// This was the extra part he asked us to type and it was a mistake - until we added the 2 slashes the beginning 
+
+import java.util.Scanner; // adding a small comment to explain just one statement is better like this 
+
+public class cafirstprogram{
+
+	public static void main(String[] args){
+		
+		System.out.println("Joesph"); 
+		// The above line is printing a string of characters (better to say string)
+		// to the output window in Netbeans - in your textbook - the printing and displaying of 
+		// of our work happens in the Console Window
+
+		// println is a method - a block of code that someone coded to give us the ability to display 
+		// information on the Console/Output window -- also println is print line 
+		// so when a line is printed - then the next thing to be printed will be printed on a new line
+
+		// System.out is a reference to the Console Window... 
+
+		/*
+		 * In order to store information - we need VARIABLES
+		 * Variables are places in memory reserved for the purpose to store information 
+		 * Remember that variables are volatile - meaning that when the program is stopped/ended 
+		 * the values stored are lost and this would in-turn mean that when the program is 
+		 * is run again - the values will have to be entered all over again in order for further
+		 * processing to happen 
+		 * 
+		 * In order to use variables - VARIABLES need to have a type (or more importantly DATATYPE)
+		 * Remember in school you learnt - WHOLE numbers and REAL numbers 
+		 * 
+		 * In programming we have both whole and real numbers - but we have different variations 
+		 * These variations got something to do with the binary number system and the number of 
+		 * of bytes that are used on the harddrive/RAM chip 
+		 *
+		 * Integers (whole) - byte /short /integer /long 
+		 * Real - float double 
+     		 * 
+		 * To store alphanumeric characters - we have 2 different types
+		 * char (character) - store a single character only 'A' 'a' '1' '@' '&'
+		 * String - store an array of characters "John" "Jack" "Jane" "Jennifer" "Joe" 
+		
+		 * boolean - this one is interesting b/c it can only have one of two values
+		 * 	   - either true or false   
+
+		 *	The whole binary story was a little explained in class 
+		 *	1 & 0 are the digits in a Binary numbering system (like how Decimal contains 10 digits)
+		 *
+		 *	A combination of the 1's and 0's have names 
+		 *	1 digit is called a bit - 8 digits is called a byte - 
+		 	10101010 byte 11111111 
+		 *	
+		 * 	technically 1 + 1 = 10 in binary - and the decimal equivalent is 1 + 1 = 2
+		 * 	so when a byte is converted to a decimal value -
+		 * 	say 1111 1111 is equal to 255 - but a little more - from 0 to 255 - so that combination 
+		 * 	of 1's & 0's from 0000 0000 to 1111 1111 gives us 256 numbers   
+		 * 	and this increases a little something like this - 127 256 512 1024 2048 .... 
+		
+			kilobyte 
+			megabyte 
+			gigabyte
+			terabyte 
+			.... 
+		*/
+
+		// short shtSmallNumber;
+		short shtSmallNumber = 32766; // 40000;  
+		// short is only allowed to store a 16 bit binary number which gives a range from 
+		// -32767 to +32766 - so look at the above again - attempting to store 40000 in a variable 
+		// that is declared as short will result in an error - because the number is too big
+ 
+		int intNumber = 3456; // with variables - at the point of declaration - we are allowed to give 
+				      // a variable to "begin" with - a word we could use is initialize
+		
+		intNumber = 6;  
+
+		long lngTheBigNumber = 65445345; 
+
+		float fltSomething = 45F; 
+		// when we create a float type variable - java thinks that the number you are 
+		// giving a a double type and we need to force the idea that the number is a float 
+		// so the F is necessary 
+
+		double dblSomethingElse = 566.99; 
+
+		boolean blnThisThing = true; 
+
+		char chrOne = 'e'; // take note that char requires single inverted commas
+
+		String strName = "Jennifer"; // String is actually a class and not a datatype officially 
+		// we'll talk more about this later on in the semester 
+		// take note of the double inverted commas 
+
+		final int intCount = 9; 
+		// besides a variable being a variable - we have something called a Constant 
+		// Please note that the word constant can be used a little different to the explanation given here 
+		// Constants are also variables that are places in memory reserved to store a value 
+		// but the key difference is that the value cannot change during the processing of the program 
+		// has to be assigned a value at the point of declaration - also note the final keyword 
+
+		//intCount = 0; 
+ 		 
+		int intNumber1 = 4, intNumber2 =5;
+
+		//-------------------------------------------------------------------------------------------------
+		int intReam = 500; 
+		int intNumOfPeople; 
+		int intReportSize; 
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("How many pages is the report?");
+		
+		intReportSize = sc.nextInt();
+
+		System.out.println("How many people are coming to the meeting?");
+
+		intNumOfPeople = sc.nextInt(); 
+		//other methods to read in different types of values nextLong() next() nextDouble()
+
+		//int intSomethingBig; 
+		//intSomethingBig = intNumOfPeople * intReportSize; 
+
+
+		double dblAmountOfReams; 
+
+		dblAmountOfReams = ( intNumOfPeople * intReportSize)/ intReam;
+		//-------------------------------------------------------------------------------------------------
+	}
+}
