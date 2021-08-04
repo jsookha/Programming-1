@@ -1,0 +1,167 @@
+/*
+ * Program: Using Methods & Parameters
+ * Date: 5/3/2019
+ * Programmer: J.Sookha
+ * Description: 
+	Using both procedures and functions (or like how Java likes to call it - methods!)
+	including parameters this time
+*/
+
+package causingmethodsandparameters; 
+
+import java.util.Scanner; 
+
+public class causingmethodsandparameters{
+	static String strKicks;
+	static double dblPrice; 
+	static double dblPercOff;
+	//static double dblNewPrice;
+
+	public static void main(String[] args){
+		ReadKicks();
+		PrintDetails(strKicks, dblPrice, dblPercOff);
+	}
+	
+	public static void ReadKicks(){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Please enter the name of kicks: ");
+		strKicks = sc.nextLine();
+
+		System.out.print("Please enter the price: ");
+		dblPrice = sc.nextDouble();
+
+		System.out.print("Please enter the percentage discount being offered: ");
+		dblPercOff = sc.nextDouble();
+		
+	}
+
+	// public static double CalculateDiscountedPrice(double dblAmount)
+	
+	public static double CalculateDiscountedPrice(double dblAmount, double dblPecentage){
+		return (dblAmount * (dblPercentage/ 100));
+	}
+	
+	public static void PrintDetails(String strShoes, double dblAmount, double dblPercent){
+
+		//dblNewPrice = dblPrice - CalculateDiscountedPrice(dblPrice, dblPercOff);
+
+		System.out.println("The discounted price on the information provided is as follows \n" + 
+				   "Kicks: " + strKicks + "\n" + 
+				   "Price: " + dblPrice + "\n" +
+				   "Discount Percentage: " + dblPercOff + "\n" +
+				   "Discounted Amount: " + (dblPrice - CalculateDiscountedPrice(dblPrice, dblPercOff))); 
+	}
+}
+
+/* Version 1 
+public class causingmethodsandparameters{
+	
+	static String strKicks;
+	static double dblPrice; 
+	static double dblPercOff;
+	static double dblNewPrice;
+
+	public static void main(String[] args){
+		ReadKicks();
+		CalculateNewPrice();
+		PrintDetails();
+	}
+	
+	public static void ReadKicks(){
+		/*
+		String strKicks;
+		double dblPrice; 
+		double dblPercOff;
+		*/
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Please enter the name of kicks: ");
+		strKicks = sc.nextLine();
+
+		System.out.print("Please enter the price: ");
+		dblPrice = sc.nextDouble();
+
+		System.out.print("Please enter the percentage discount being offered: ");
+		dblPercOff = sc.nextDouble();
+		
+	}
+	
+	public static void CalculateNewPrice(){
+		// double dblNewPrice;
+
+		dblNewPrice = dblPrice - (dblPrice * (dblPercOff / 100));
+	}
+	
+	public static void PrintDetails(){
+		System.out.println("The discounted price on the information provided is as follows \n" + 
+				   "Kicks: " + strKicks + "\n" + 
+				   "Price: " + dblPrice + "\n" +
+				   "Discount Percentage: " + dblPercOff + "\n" +
+				   "Discounted Amount: " + dblNewPrice); 
+	}
+}
+*/
+
+/*
+Version 2
+public class causingmethodsandparameters{
+	
+	static String strKicks;
+	static double dblPrice; 
+	static double dblPercOff;
+	static double dblNewPrice;
+
+	public static void main(String[] args){
+		ReadKicks();
+		
+		PrintDetails();
+	}
+	
+	public static void ReadKicks(){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Please enter the name of kicks: ");
+		strKicks = sc.nextLine();
+
+		System.out.print("Please enter the price: ");
+		dblPrice = sc.nextDouble();
+
+		System.out.print("Please enter the percentage discount being offered: ");
+		dblPercOff = sc.nextDouble();
+		
+	}
+	
+	public static double CalculateDiscountedPrice(){
+		return (dblPrice * (dblPercOff / 100));
+	
+		/*
+			double dblDiscAmt; 
+			dblDiscAmt = dblPrice * (dblPercOff / 100);
+			return dblDiscAmt; 
+		*/
+	}
+	
+	public static void PrintDetails(){
+
+		dblNewPrice = dblPrice - CalculateDiscountedPrice();
+
+		System.out.println("The discounted price on the information provided is as follows \n" + 
+				   "Kicks: " + strKicks + "\n" + 
+				   "Price: " + dblPrice + "\n" +
+				   "Discount Percentage: " + dblPercOff + "\n" +
+				   "Discounted Amount: " + dblNewPrice); 
+	}
+}
+*/
+
+
+
+
+
+
+
+
+
+
+

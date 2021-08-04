@@ -1,0 +1,50 @@
+Questions 
+
+1. The Fantastic Floral Company sells to wholesale and retail buyers. The wholesale
+buyer needs a resale number in order to buy at no tax and to receive discounts. The retail
+buyer pays 6% tax. These are the discounts to the wholesale buyer:
+
+	Amount < R100			Discount = 2% 
+	Amount >= R100 AND < R500	Discount = 5%
+	Amount >= R500			Discount = 10%
+
+Given an amount of purchase, how much will the customer owe the company?
+
+2. Calculate the water bill given the cubic feet of water used for Eureka Water Company, 
+which charges the homeowner one of the following:
+a. A flat rate of R150.00 for usage up to and including 1000 cubic meters.
+b. R0.0175 per cubic meter for usage over 1000 cubic meters and up to and including 2000 cubic meters.
+c. R0.02 per cubic meter for usage over 2000 cubic meters and up to and including 3000 cubic meters.
+d. A flat rate of R700.00 for usage over 3000 cubic meters.
+
+
+3. An admission charge for The City Theater varies according to the age of the person. 
+Develop a solution to print the ticket charge given the age of the person.
+The charges are as follows:
+a. Over 55: R10.00
+b. 21–54: R15.00
+c. 13–20: R10.00
+d. 3–12: R5.00
+e. Under 3: Free
+
+4. A customer needs a specific amount of paper. The charges on the paper are R0.10 for
+single sheets, R0.055 for amounts in multiples of 100 sheets, R0.04 in multiples of
+500 sheets, and R0.03 in multiples of 1000 sheets. 
+
+Develop a solution to calculate the type and number of package(s) for the least amount 
+of money the customer should buy, given the minimum amount of sheets the customer needs. 
+
+(For example, if the customer needs 380 sheets, the amount she would pay when buying in 
+multiples of 100 would be R22.00. However, if the customer bought 500 sheets, the cost 
+would be R20.00. It would be cost effective for the customer to buy a package of 500 sheets.)
+
+5. A hotel has a pricing policy as follows:
+a. 2 people: R85
+b. 3 people: R90
+c. 4 people: R95
+d. Additional people: R6 per person
+
+If the customer is staying on company business, there is a 20% discount. If the customer
+is over 60 years of age, there is a 15% discount. A customer does not receive both discounts. 
+Given the above data, print the cost of the room.
+

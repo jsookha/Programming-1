@@ -1,0 +1,52 @@
+/*
+ * Program: Using a loop - but abruptly kicking you out of the loop
+ * Date: 25/3/2019
+ * Programmer: J.Sookha
+ * Description: when inside a for loop - it must run its full term before executing 
+ *		any other instructions outside the loop 
+ *		to stop the loop would mean to give the counter a value outside of the 
+ *		condition that is tested 
+*/
+package usingforloops5; 
+
+public class usingforloops5{
+
+	public static void main(String[] args){
+		
+		/*
+		for (int intCount5 = 1; intCount5 <= 10; intCount5++)
+		{
+			System.out.println(intCount5);
+		}
+		System.out.println(intCount5);
+		*/
+
+		/*
+		int intCount6; 
+
+		for (intCount6 = 1; intCount6 <= 10; intcount6++)
+		{
+			System.out.println(intCount6);
+		}
+		System.out.println("This is now outside the loop " + intCount6);
+		*/
+
+		int intCount7; 
+
+		for (intCount7 = 1; intCount7 <= 20; intCount7++)
+		{
+			if (intCount7 < 10)
+				System.out.println(intCount7);
+			else 
+				// intCount7 = 21; 
+				// give the counter a value outside of the range - when the condition is tested - 
+				// the result is false and the loop will end 
+				break; 
+				// break; is another way instead of change the count value - this kicks you out 
+				// and does not let the loop finish 
+		}
+
+		System.out.println("Outside the loop " + intCount7);
+		
+	}
+}

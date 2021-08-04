@@ -1,0 +1,67 @@
+/*
+ * Program: Decide highest and lowest values entered
+ * Date: 25/3/2019
+ * Programmer: J.Sookha
+ * Description: Determine the highest and lowest values entered by the user 
+*/
+package usingloops6; 
+
+import java.util.Scanner; 
+
+public class usingloops6{
+
+	public static void main(String[] args){
+
+		Scanner sc = new Scanner(System.in);		
+		int intNum; 
+		int intHigh, intLow;
+		
+		// position - not only do we wish to know what is the highest or lowest, but also 
+		// which number position was it entered at 
+		int intHPos, intLPos; 
+
+		// this will help so that when the loop runs - the high and low will reset itself based on the values entered
+		intHigh = -1; // always some low value that doesn't exist in the story
+		intLow = 999; // always some high value that doesn't exist in the story
+
+		intHPos = -1; 
+		intLPos = -1; 
+
+		for (int intCount = 1; intCount <= 10; intCount++)
+		{
+			System.out.print("Enter number ");
+			intNum = sc.nextInt();
+
+			if (intNum > intHigh)
+			{
+				intHigh = intNum; 
+				intHPos = intCount; 
+			}
+			if (intNum < intLow)
+			{
+				intLow = intNum; 
+				intLPos = intCount; 
+			}
+		} 
+		
+		System.out.println("High is " + intHigh + " position is " + intHPos);
+		System.out.println("Low is " + intLow + " position is " + intLPos);		
+	}
+}
+
+/*
+		Scanner sc = new Scanner(System.in);		
+		int intNum; 
+
+		System.out.print("Please enter a number ");
+		intNum = sc.nextInt();			
+		
+		int intNum2; 
+		System.out.print("Please enter a number ");
+		intNum2 = sc.nextInt();			
+		
+		if (intNum1 > intNum2)
+			System.out.println("Num 1 is bigger than Num 2");
+		else 		
+			System.out.println("Num 2 is bigger than Num 1");
+*/

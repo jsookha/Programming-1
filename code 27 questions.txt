@@ -1,0 +1,60 @@
+Questions
+
+1. The Last Stop Boutique is having a five-day sale. Each day, starting on Monday, the
+price will drop 10% of the previous day’s price. 
+
+For example, if the original price of a product is R20.00, the sale price on Monday 
+would be R18.00 (10% less than the original price). On Tuesday the sale price would be 
+R16.20 (10% less than Monday). On Wednesday the sale price would be R14.58; on 
+Thursday the sale price would be R13.12; and on Friday the sale price would be R11.81. 
+
+Develop a solution that will calculate the price of an item for each of the five days, 
+given the original price. 
+
+2. Make changes in the solution to problem 1 to set the price at wholesale when the sale
+price drops below the wholesale price. Request from the user the wholesale price along with 
+the original price (from question 1). 
+
+3. Develop a solution that will calculate the average temperature, given a set of
+temperatures. The number of temperatures may differ from time to time. 
+(Use a sentinel value to stop the processing of the loop.) 
+Test the solution with the following 10 temperatures:
+78° 90°
+85° 80°
+87° 83°
+75° 90°
+86° 70°
+
+4. Mr. Brown has given a test to his class. He would like to have the average score for
+the class as well as the highest and lowest scores. Develop a solution to calculate
+and print out these values. (Use a sentinel value to stop the processing of the loop.)
+
+5. Mary Smith, a student, has borrowed R3,000 to help pay her college expenses. After
+setting up a budget, R85 was the maximum monthly payment she could afford to
+make on the loan. 
+
+Develop a solution to calculate and print the interest, and the balance on the loan per 
+month. Other information she would like to know is the number of years and months it 
+will take to pay the loan back and the total interest she will pay during that period. 
+
+The interest rate is 1% per month on the unpaid balance. 
+
+6. Develop a solution to calculate a student’s grade average for 5 subjects in one semester. 
+The letter grades should be entered and the grade average printed out. 
+
+An A is equivalent to 4 grade points, a B is 3 grade points; a C is 2 grade points, 
+a D is 1 grade point, and an F is zero grade points.
+
+7. Write a solution to find the average km per litre on a car after six fillups at a garage. 
+Additional data kept included the number of litres of gas at each fillup, the starting odometer 
+reading, and the odometer reading at each fillup.
+
+8. In problem 7, which loop did you use? Justify why you used that particular loop
+and not one of the other two. Did you need all of the data that was collected? Why
+or why not?
+
+9. Mr. Jones, a history instructor, would like to know the percentage increase in the 
+population of South Africa per decade given the first decade and the last decade. Other 
+given data include the population at the beginning of each decade.
+Hint: percentage = (present decade population - previous decade population) / (present population * 100)
+

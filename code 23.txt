@@ -1,0 +1,62 @@
+/*
+ * Program: Using the do while Loop
+ * Date: 19/3/2019
+ * Programmer: J.Sookha
+ * Description: Learning to use the do..while loop (post-condition)
+ *		allow the user into the loop at least once 
+ *		take note of the logic and difference between this and 
+ *		the while loop 
+ *
+*/
+package usingdowhileloop; 
+
+import java.util.Scanner; 
+
+public class usingdowhileloop{
+
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+		int intAge, intCount; 
+		double dblSum, dblAvg; 
+
+		dblSum = 0.0; 
+		intCount = 0; 
+
+		do
+		{
+			System.out.print("Please enter the age: ");
+			intAge = sc.nextInt();
+
+			dblSum = dblSum + intAge; 
+			intCount = intCount + 1; 
+
+		}while (intAge != 999);
+
+		// the decisions to work out if there is an error in the calculation 
+		// how do we take care of it? 
+
+		// if (intCount != 1) // kind of but doesn't really work 
+		// if (intCount != 0) // doesn't really work 
+		// if (intCount >= 2) // this one works ! you have to try it
+ 		// if ((intAge == 999) && (intCount = 1)) // another possibility that could work
+
+		if (dblSum == 999) 
+		{
+			System.out.println("I got nothing for you");
+		}
+		else 
+		{
+			dblAvg = (dblSum - 999) / (intCount - 1); // remember the discussion about the logic of the loop  
+			System.out.println("The average is " + dblAvg);
+				
+		}
+
+	}
+}
+
+
+
+
+
+

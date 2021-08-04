@@ -1,0 +1,70 @@
+/*
+ * Program: Using the While Loop
+ * Date: 18/3/2019
+ * Programmer: J.Sookha
+ * Description: Learning to use the while loop (pre-condition)
+ *		2 parts
+ *		determine and print the factors of a number
+ *		determine if a number is a prime number or not
+*/
+package usingwhileloop2; 
+
+import java.util.Scanner; 
+
+public class usingwhileloop2{
+	
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int intNumber; 
+
+		System.out.print("Please enter any number: ");
+		intNumber = sc.nextInt();
+
+		// examples 
+		// 6 - 1 2 3 & 6 
+		// 10 - 1 2 5 & 10
+		
+		int intCount; 
+		intCount = 1; 
+
+		int intFactor; 
+		
+		// loop to run from 1 to the number entered / new condition is more efficient (runs only half)
+		// because there are no factors after the halfway point 
+
+		while (intCount <= (intNumber / 2)) // original condition (intCount <= intNumber)
+		{
+			if ((intNumber % intCount) == 0) // if the number is divisible - its a factor
+			{
+				// System.out.println(" Factor is " + intCount); // printing factors
+
+				intFactor = intCount; // keeping count instead of printing for 'prime numbers'
+			}
+			intCount = intCount + 1; // incrementing the count to test the next number
+		}	
+		
+		// this line below printed the number that was entered - the number is a factor of itself 
+		// and since the loop did not now run till the end - we needed to manually print the number 
+		// and make it look like we worked out that this is a factor
+
+		// System.out.println(" Factor is " + intNumber); 
+		
+		if (intFactor == 1) // this was my decision to work out if the number entered was a prime number or not 
+			System.out.println("Prime number");
+		else 
+			System.out.println("NOT a Prime number");		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

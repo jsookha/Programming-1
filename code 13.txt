@@ -1,0 +1,130 @@
+/*
+ * Program: Using Methods & Parameters
+ * Date: 5/3/2019
+ * Programmer: J.Sookha
+ * Description: 
+	Using both procedures and functions (or like how Java likes to call it - methods!)
+	including parameters this time
+*/
+
+package causingmethodsandparameters; 
+
+import java.util.Scanner; 
+
+public class causingmethodsandparameters{
+
+	static double dblHighestPerc, dblMyPerc;
+
+	public static void main(String[] args){
+		ReadPerc();
+		PrintDetails();
+	}
+	
+	public static void ReadPerc(){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Please enter the highest percentage attained: ");
+		dblHighestPerc = sc.nextDouble();
+
+		System.out.print("Please enter the percentage you attained: ");
+		dblMyPerc = sc.nextDouble();	
+	}
+	
+	public static double CalculateGradePerc(double dblHigh, double dblOther){
+		return ((dblHigh / dblOther) * 100);
+	}
+	
+	public static void PrintDetails(){
+		
+		
+
+		System.out.println("The student has the following: \n" + 
+				   "their percentage: " + dblMyPerc + "\n" + 
+				   "the highest percentage in the class: " + dblHighestPerc + "\n" +
+				   "and the Grade percentage: " + CalculateGradePerc(dblHighestPerc, dblMyPerc));
+	}
+}
+
+/*
+Version 1
+public class causingmethodsandparameters{
+	//static int intHighestPerc;
+	//static int intMyPerc; 
+	
+	static double dblHighestPerc, dblMyPerc, dblGradePerc;
+
+	public static void main(String[] args){
+		ReadPerc();
+		CalculateGradePerc();
+		PrintDetails();
+	}
+	
+	public static void ReadPerc(){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Please enter the highest percentage attained: ");
+		dblHighestPerc = sc.nextDouble();
+
+		System.out.print("Please enter the percentage you attained: ");
+		dblMyPerc = sc.nextDouble();
+		
+	}
+	
+	public static void CalculateGradePerc(){
+		dblGradePerc = (dblHighestPerc / dblMyPerc) * 100;
+	}
+	
+	public static void PrintDetails(){
+		System.out.println("The student has the following: \n" + 
+				   "their percentage: " + intMyPerc + "\n" + 
+				   "the highest percentage in the class: " + intHighestPerc + "\n" +
+				   "and the Grade percentage: " + dblGradePerc);
+	}
+}
+*/
+
+/*
+Version 2 
+
+public class causingmethodsandparameters{
+
+	static double dblHighestPerc, dblMyPerc;
+
+	public static void main(String[] args){
+		ReadPerc();
+		PrintDetails();
+	}
+	
+	public static void ReadPerc(){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Please enter the highest percentage attained: ");
+		dblHighestPerc = sc.nextDouble();
+
+		System.out.print("Please enter the percentage you attained: ");
+		dblMyPerc = sc.nextDouble();
+		
+	}
+	
+	public static double CalculateGradePerc(){
+		/*
+		double dblGradePerc;
+		dblGradePerc = (dblHighestPerc / dblMyPerc) * 100;
+		return dblGradePerc; 
+		*/
+		return ((dblHighestPerc / dblMyPerc) * 100);
+	}
+	
+	public static void PrintDetails(){
+		
+		//double dblPerc = CalculateGradePerc();
+
+		System.out.println("The student has the following: \n" + 
+				   "their percentage: " + intMyPerc + "\n" + 
+				   "the highest percentage in the class: " + intHighestPerc + "\n" +
+				   "and the Grade percentage: " + CalculateGradePerc());
+
+				// "and the Grade percentage: " + dblPerc);
+	}
+}
+*/

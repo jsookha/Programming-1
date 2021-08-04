@@ -1,0 +1,108 @@
+/*
+ * Program: Using methods 2 
+ * Date: 26/2/2019
+ * Programmer: J.Sookha
+ * Description: Writing a program using methods (procedures / functions) - but this time we are adding parameters 
+*/
+
+package causingmethods2; 
+
+import java.util.Scanner; 
+
+public class causingmethods2{
+
+	static int intLength; 	 
+
+	public static void main(String[] args){
+
+		ReadLen();
+		PrintArea();
+								
+	}
+
+	public static void ReadLen(){
+
+		Scanner sc = new Scanner(system.in);
+
+		System.out.print("Please enter the length of one side of the square: " );
+		intLength = sc.nextInt();
+	
+	}
+	
+	public static int CalculateArea(int intLen){
+ 
+		return intLen * intLen; 
+
+	}
+
+	public static void PrintArea(){
+
+		System.out.println ("The area of the square is " + CalculateArea(intLength));	
+	}
+
+}
+
+/*
+public class causingmethods2{
+
+	static int intLength;
+	static int intArea; 
+
+	public static void main(String[] args){
+	
+		ReadLen();
+		CalculateArea();
+		PrintArea();
+								
+	}
+
+	public static void ReadLen(){
+
+		Scanner sc = new Scanner(system.in);
+
+		System.out.print("Please enter the length of one side of the square: " );
+		intLength = sc.nextInt();
+	
+	}
+	
+	public static void CalculateArea(){
+ 
+		intArea =  intLength * intLength; 
+
+	}
+
+	public static void PrintArea(){
+
+		System.out.println ("The area of the square is " + intArea);	
+	}
+
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

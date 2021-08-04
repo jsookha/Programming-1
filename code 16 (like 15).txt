@@ -1,0 +1,200 @@
+	Mark		Grade
+	90 - 100	A
+	80 - 89 	B
+	70 - 79 	C
+	60 - 69		D
+	50 - 59		E
+	< 50		F
+
+
+	if mark >= 90 
+		print "A"
+	end if 
+
+	if salesamount >= 10000 then 
+		if salesperson = "manager" then 
+			discount = 20%
+		else 
+			discount = 10% 
+		end if 
+	else 
+		discount = 2% 
+	end if 
+
+package usingdecisions2; 
+import java.util.Scanner; 
+
+public class usingdecisions2{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int intMark; 
+
+		System.out.print("Please enter your mark: ");
+		intMark = sc.nextInt();
+
+		if ((intMark >= 90) && (intMark <= 100))
+		{
+			System.out.println("Grade A");
+		}
+
+		if ((intMark >= 80) && (intMark <= 89))
+		{
+			System.out.println("Grade B");
+		}		
+
+		if ((intMark >= 70) && (intMark <= 79))
+		{
+			System.out.println("Grade C");
+		}		
+
+		if ((intMark >= 60) && (intMark <= 69))
+		{
+			System.out.println("Grade D");
+		}		
+
+		if ((intMark >= 50) && (intMark <= 59))
+		{
+			System.out.println("Grade E");
+		}		
+
+		if (intMark < 50)
+		{
+			System.out.println("Grade F");
+		}		
+
+		//------------------------------------------------------------------
+		// Positive Logic 
+
+		if ((intMark >= 90) && (intMark <= 100))
+		{
+			System.out.println("Grade A");
+		}
+		else 
+		{
+			if ((intMark >= 80) && (intMark <= 89))
+			{
+				System.out.println("Grade B");
+			}
+			else 
+			{
+				if ((intMark >= 70) && (intMark <= 79))
+				{
+					System.out.println("Grade C");
+				}
+				else 
+				{
+					if ((intMark >= 60) && (intMark <= 69))
+					{
+						System.out.println("Grade D");
+					}
+					else 
+					{
+						if ((intMark >= 50) && (intMark <= 59))
+						{
+							System.out.println("Grade E");
+						}
+						else 
+						{
+							System.out.println("Grade F");
+						}
+					}
+				}
+			}		
+		}		
+		// ------------ more efficient version 
+
+		if (intMark >= 90)
+		{
+			System.out.println("Grade A");
+		}
+		else 
+		{
+			if (intMark >= 80)
+			{
+				System.out.println("Grade B");
+			}
+			else 
+			{
+				if (intMark >= 70)
+				{
+					System.out.println("Grade C");
+				}
+				else 
+				{
+					if (intMark >= 60)
+					{
+						System.out.println("Grade D");
+					}
+					else 
+					{
+						if (intMark >= 50)
+						{
+							System.out.println("Grade E");
+						}
+						else 
+						{
+							System.out.println("Grade F");
+						}
+					}
+				}
+			}		
+		}
+		//*****************************************************************************************
+		// negative logic 
+		if (intMark < 90)
+		{
+			if (intMark < 80)
+			{
+				if (intMark < 70)
+				{
+					if (intMark < 60)
+					{
+						if (intMark < 50)
+						{
+							System.out.println("Grade F");
+						}
+						else 
+						{
+							System.out.println("Grade E");
+						}
+					else 
+					{
+						System.out.println("Grade D");
+					}
+				else 
+				{
+					System.out.println("Grade C");
+				}
+			else 
+			{
+				System.out.println("Grade B");
+			}
+		else 
+		{
+			System.out.println("Grade A");		
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

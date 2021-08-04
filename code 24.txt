@@ -1,0 +1,72 @@
+/*
+ * Program: Using the do..while Loop
+ * Date: 19/3/2019
+ * Programmer: J.Sookha
+ * Description: Learning to use the do..while loop 
+ *		A better reason and scenario to want to use the do..while 
+ *		When you have a menu of choices - use a switch statement as well 
+*/
+package usingdowhileswitch; 
+
+import java.util.Scanner; 
+
+public class usingdowhileswitch{
+
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+		String strMenu; // instead of the println method looking complicated - using this variable, just makes the code look better
+		int intChoice; 
+ 
+		strMenu = "Menu \n" +
+			  "1. Menu Choice 1 \n" +  
+			  "2. Menu Choice 2 \n" +
+			  "3. Menu Choice 3 \n" +
+			  "4. Exit \n" + 
+			  "Please enter the number choice: ";
+		
+		do{
+			System.out.println(strMenu); // print the menu 
+			intChoice = sc.nextInt();	
+			switch (intChoice) // decide which choice 
+			{
+				case 1:
+					MenuChoice1();
+					break;
+				case 2:
+					MenuChoice2();
+					break;
+				case 3:
+					MenuChoice3();
+					break;
+				case 4: 
+					// System.exit(0); // to exit a program 
+					break; 
+				default:
+					//error
+			}			 
+		}while (intChoice != 4);
+
+	}
+
+	public static void MenuChoice1(){
+		// programming for choice 1 
+		System.out.println("You chose menu item 1");
+	}
+
+	public static void MenuChoice2(){
+		// programming for choice 2
+		System.out.println("You chose menu item 2");
+	}
+
+	public static void MenuChoice3(){
+		// programming for choice 3
+		System.out.println("You chose menu item 3");
+	}
+}
+
+
+
+
+
+

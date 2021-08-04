@@ -1,0 +1,114 @@
+/*
+ * Program: Using Decisions 4
+ * Date: 12/3/2019
+ * Programmer: J.Sookha
+ * Description: Using nested if..then statments and stuff 
+*/
+
+package usingdecisions4; 
+
+import javax.swing.JOptionPane; 
+
+public class usingdecisions3{
+
+	public static void main(String[] args){
+		/*
+			Sales			Discount
+			1 	- 10 000	5%
+			10 001  - 20 000	10%
+			20 001  - 30 000	15%
+			> 30 000		20%
+		*/
+
+		double dblSales, dblAmountOwed; 
+		String strSales; 
+		
+		dblAmountOwed = 0.0; 
+		
+		strSales = JOptionPane.showInputDialog(null, "Please enter the amount you have purchased for:");
+		dblSales = Double.parseDouble(strSales);
+		
+		if (dblSales <= 10000)
+		{
+			dblAmountOwed = dblSales - (dblSales * 0.05);
+		}
+		else 
+		{	
+			if (dblSales <= 20000)
+			{
+				dblAmountOwed = dblSales - (dblSales * 0.1);
+			}
+			else 
+			{
+				if (dblSales <= 30000)
+				{
+					dblAmountOwed = dblSales - (dblSales * 0.15);
+				}
+				else
+				{
+					dblAmountOwed = dblSales - (dblSales * 0.2);
+				} 
+			}
+		}
+		
+		JOptionPane.showMessageDialog(null,"The amount owed is " + dblAmountOwed);
+
+		if (dblSales > 10000)
+			if (dblSales > 20000)
+				if (dblSales > 30000)
+					dblAmountOwed = dblSales - (dblSales * 0.2);
+				else 
+					dblAmountOwed = dblSales - (dblSales * 0.15);
+			else 
+				dblAmountOwed = dblSales - (dblSales * 0.1);
+		else 
+			dblAmountOwed = dblSales - (dblSales * 0.05);
+
+		
+		/*
+			Sales			Discount
+			1 	- 10 000	5%
+			10 001  - 20 000	10%
+			20 001  - 30 000	15%
+			> 30 000		20%
+			
+			Go in the opposite direction
+			> 30 000		20%
+			20 001  - 30 000	15%
+			10 001  - 20 000	10%
+			1 	- 10 000	5%
+ 
+		*/
+
+		if (dblSales > 30000)
+			dblAmountOwed = dblSales - (dblSales * 0.2);
+		else 
+			if (dblSales > 20000)
+				dblAmountOwed = dblSales - (dblSales * 0.15);
+			else 
+				if (dblSales > 10000)
+					dblAmountOwed = dblSales - (dblSales * 0.1);
+				else
+					dblAmountOwed = dblSales - (dblSales * 0.05);
+		
+	
+		if (dblSales <= 30000)
+			if (dblSales <= 20000)
+				if (dblSales <= 10000)
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

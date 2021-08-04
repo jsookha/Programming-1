@@ -1,0 +1,59 @@
+/*
+ * Program: Using the for Loop
+ * Date: 19/3/2019
+ * Programmer: J.Sookha
+ * Description: Learning to use the for loop (automatic counter loop) 
+ *		When you know how many times you want the loop to run 
+*/
+package usingforloop; 
+
+import java.util.Scanner; 
+
+public class usingforloop{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+
+		int intAge, intCount, intNumberofStudents; 
+		double dblSum, dblAvg; 
+
+		dblSum = 0.0; 
+		
+		System.out.print("Enter the number of students in this class: ");
+		intNumberofStudents = sc.nextInt(); // this can be used to run the loop based on the user input 
+		
+		// for count = 1 to 10 Step 1 - algorithm 
+		// for count = 1 to 10 Step 1 - visual basic 
+		
+		// the loop syntax is built on 3 things 
+		// 1. where to start 2. condition to carry on processing 3. incrementing the counter  
+		
+		// for (intCount = 1; intCount <= 10; intCount = intCount + 1) 
+
+		// shorthand versions for the last part - all meaning slightly different things 
+
+		// for (intCount = 1; intCount <= 10; intCount++) // intCount++ // ++intCount // intCount--
+		// for (intCount = 1; intCount <= 10; intCount+= 1) //intCount-= 1 // another shorter version 
+		// for (intCount = 10; intCount >= 1; intCount--) // going backwards ??
+
+		//for (intCount = 1; intCount <= 10; intCount = intCount + 1) // i still prefer this version 
+
+		for (intCount = 1; intCount <= intNumberofStudents; intCount = intCount + 1) 
+		{
+			System.out.print("Please enter the age: ");
+			intAge = sc.nextInt();
+
+			dblSum = dblSum + intAge; // dblSum+= intAge; 
+		}
+		
+		// please print out the intCount variable and take note 
+		// that it is actually one more than the number of times the loop ran 
+		// so if I divide by the count - will the following be incorrect 
+		
+		dblAvg = dblSum / intCount; // could also write it like this ## dblAvg = dblSum / 10; // hardcode the 10
+
+		dblAvg = dblSum / intNumberofStudents; // this would actually be better 
+
+		System.out.println("The average is " + dblAvg); 		
+	}
+}

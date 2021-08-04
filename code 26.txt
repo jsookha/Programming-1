@@ -1,0 +1,42 @@
+/*
+ * Program: Using nested for loops
+ * Date: 19/3/2019
+ * Programmer: J.Sookha
+ * Description: Using nested for loops - 
+ *		The example is to print out the times tables we learnt during our primary school days 
+*/
+package usingforloop2; 
+
+public class usingforloop2{
+
+	public static void main(String[] args){
+				
+		int intNum, intCount; 
+
+		/*
+		// printing one times table only - in this case - the 13 times table 
+		// this for loop runs from 1 to 12 // 13 x 1 to 13 x 12
+
+		intNum = 13; 
+		for (intCount = 1; intCount <= 12; intCount++)
+		{
+			System.out.println(intNum + " * " + intCount + " = " + (intNum * intCount));
+		}
+		*/
+
+		// the following set of loops is to print out all the times tables from 1 to 12 
+
+		for (intNum = 1; intNum <= 12; intNum++) // this outside loop will handle each times table 
+		{
+			for (intCount = 1; intCount <= 12; intCount++) // this inside loop will handle from 1 to 12 for each times table 
+			{
+				System.out.println(intNum + " * " + intCount + " = " + (intNum * intCount));
+			}
+		}
+
+		// important to note 
+		// - that the outside loop will only run once from 1 to 12 
+		// - that the inside loop will run 12 full cycles from 1 to 12 each time 
+		// - the printing line runs for a total of 144 times 		
+	}
+}

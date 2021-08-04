@@ -1,0 +1,48 @@
+/*
+ * Program: TheClock
+ * Date: 27/2/2019
+ * Programmer: J.Sookha
+ * Question: 
+	An employee came in to work and clocked in at MorningIn, clocked out at
+	NoonOut for lunch, clocked back in at NoonIn, and clocked out to go home at	
+	NightOut (all in minutes since midnight). Set up equations to calculate the number
+	of hours and the number of minutes the employee worked for the day. (You will
+	develop two equations.)
+*/
+
+package theclock; 
+
+public class theclock{
+	
+	static int intMorningIn, intNoonOut, intNoonIn, intNightOut; 
+	static int intHours, intMins;
+
+	public static void main(String[] args){
+		ReadMins();
+		CalculateHrsMins();
+		PrintHrsMinsWorked();
+	}
+	
+	public static void ReadMins(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Plese enter the time you came into work (in mins since midnight): ");
+		intMorningIn = sc.nextInt();
+		System.out.print("Plese enter the time you left for Lunch (in mins since midnight): ");
+		intNoonOut = sc.nextInt();
+		System.out.print("Plese enter the time you came back to work from Lunch (in mins since midnight): ");
+		intNoonIn = sc.nextInt();
+		System.out.print("Plese enter the time you left work to go home (in mins since midnight): ");
+		intNighOut = sc.nextInt();	
+	}
+
+	public static void CalculateHrsMins(){
+		intHrs = ((intNoonOut - intMorningIn) + (intNightOut - intNoonIn)) / 60;  	
+		intMins = ((intNoonOut - intMorningIn) + (intNightOut - intNoonIn)) % 60; 
+	}
+
+	public static void PrintHrsMinsWorked(){
+	     System.out.println("The number of hours worked is " + intHrs + " and the num of mins worked is " + intMin);	
+	}
+
+
+}

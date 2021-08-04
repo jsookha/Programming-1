@@ -1,0 +1,77 @@
+/*
+ * Program: How much change
+ * Date: 4/3/2019
+ * Programmer: J.Sookha
+ * Question: 	Calculate and output the fewest number of coins in change for something bought that is 
+		less than R1 
+		Use 50c, 20c, 10c, 5c, 2c, 1c
+	
+*/
+
+package cahowmuchchange; 
+
+public class cahowmuchchange{
+	
+	static int intPrice, intChange;
+	static int int50c, int20c, int10c, int5c, int2c, int1c;  
+	
+	public static void main(String[] args){
+		ReadChange();
+		CalculateCoins();
+		PrintCoins();
+	}
+	
+	public static void ReadChange(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Plese enter the amount you bought something for (less than R1 in cents): ");
+		intPrice = sc.nextInt();
+	}
+
+	public static void CalculateCoins(){
+		intChange = 100 - intPrice; 
+
+		int50c = intChange / 50; 
+		intChange = intChange - (int50c * 50);
+
+		int20c = intChange / 20; 
+		intChange = intChange - (int20c * 20);
+
+		int10c = intChange / 10; 
+		intChange = intChange - (int10c * 10);
+
+		int5c = intChange / 5; 
+		intChange = intChange - (int5c * 5);
+
+		int2c = intChange / 2; 
+		intChange = intChange - (int2c * 2);
+
+		int1c = intChange / 1; 
+		//intChange = intChange - (int1c * 1);
+	}
+
+	public static void PrintCoins(){
+
+		
+		System.out.println("You bought something for " + intPrice + "c and \n" +
+				   "your change is " + (100 - intPrice) + "c \n" + 
+				   "Coins that need to be given is as follows \n" + 
+			    	   "50c x " + int50c + "\n" +  
+				   "20c x " + int20c + "\n" +
+				   "10c x " + int10c + "\n" +
+				   "5c x " + int5c + "\n" +
+				   "2c x " + int2c + "\n" +
+			           "1c x " + int1c);
+		/*
+		System.out.println("You bought something for " + intPrice + "c and \n" +
+				   "your change is " + intChange + "c \n" + 
+				   "Coins that need to be given is as follows \n" + 
+			    	   "50c x " + int50c + "\n" +  
+				   "20c x " + int20c + "\n" +
+				   "10c x " + int10c + "\n" +
+				   "5c x " + int5c + "\n" +
+				   "2c x " + int2c + "\n" +
+			           "1c x " + int1c);
+		*/
+		}
+
+}

@@ -1,0 +1,79 @@
+/*
+ * Program: Using Decisions 3
+ * Date: 12/3/2019
+ * Programmer: J.Sookha
+ * Description: Using nested if..then statments and stuff 
+*/
+
+package usingdecisions3; 
+
+import java.util.Scanner; 
+
+public class usingdecisions3{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		int intMark; 
+
+		System.out.print("Please enter your test mark: ");
+		intMark = sc.nextInt();
+		
+		//negative logic 
+
+		if (intMark < 90)
+		{
+			if (intMark < 80)
+			{
+				if (intMark < 70)
+				{
+					if (intMark < 60)
+					{
+						if (intMark < 50)
+						{
+							System.out.println("Grade F");
+						}
+						else 
+						{
+							System.out.println("Grade E");
+						}
+					}
+					else 
+					{
+						System.out.println("Grade D");
+					}
+				}
+				else 
+				{
+					System.out.println("Grade C");
+				} 
+			}
+			else 
+			{
+				System.out.println("Grade B");
+			}
+		}
+		else 
+		{
+			System.out.println("Grade A");
+		}		
+	}	
+}
+/*
+	Mark		Grade
+	90 - 100	A
+	80 - 89		B
+	70 - 79 	C
+	60 - 69 	D
+	50 - 59		E
+	< 50		F
+
+	< 50		F
+	50 - 59		E	
+	60 - 69 	D
+	70 - 79 	C
+	80 - 89		B
+	90 - 100	A
+		
+	
+*/
+

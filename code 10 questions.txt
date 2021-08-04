@@ -1,0 +1,18 @@
+1. Jane Porter needs to change a Fahrenheit temperature to Celsius. 
+
+2. A sweater is on sale for 25% off the original price. Request from the user the original price and proceed to write
+a solution to calculate and print the sale price.
+
+3. Jack would like to know what percentage of his income his rent is. Write a solution
+that would calculate and print this percentage.
+
+4. An instructor calculates the grade percentage based on the highest score on a test. Given the highest score and one student’s score, write a solution to calculate and print that student’s test percentage.
+
+5. Joe would like to build several bookcases that are different heights and widths. All
+will be 12 inches in depth. The bookcases will have three shelves, in addition to the
+bottom and the top. Write a solution to print the number of feet of 12-inch-wide
+boards that will Joe need to complete a bookcase, given the height and width.
+
+6. Sharon would like to know how much gas will cost for her to take a trip to her vacation
+home 180 km away. She knows the average price of gas and the average miles per litre for her car. Write a solution to calculate the cost of the gas for her trip. (Remember she has to travel back.)
+

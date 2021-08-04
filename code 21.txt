@@ -1,0 +1,47 @@
+/*
+ * Program: Using the While Loop
+ * Date: 18/3/2019
+ * Programmer: J.Sookha
+ * Description: Learning to use the while loop (pre-condition)
+ *		Ask first and if only the condition is true - do you allow the user inside the loop
+ *
+*/
+package usingwhileloop1; 
+
+import java.util.Scanner; 
+
+public class usingwhileloop1{
+
+	public static void main(String[] args){
+		int intAge, intSum, intCount; 
+		double dblAvg; 
+		
+		Scanner sc = new Scanner(System.in);
+
+		//initializing 
+		intSum = 0; 
+		// intCount = 0; // the original idea was to initialize to 0 - but this creates a possible divide by zero error 
+		intCount = 1; // 1 because of the divide story mentioned above and in class 
+
+		//These 2 lines below is only going to run once - here at the beginning of the program
+		System.out.print("Please enter the age <99 to stop>: ");
+		intAge = sc.nextInt();
+
+		while (intAge != 99) //99 is the sentinel value - once entered will render the condition to be false and exit the loop
+		{
+			intSum = intSum + intAge; //accumulating the ages
+			intCount = intCount + 1; //incrementing the number of students in this class 
+			
+			// These following 2 lines below is required because once I am inside the loop 
+			// I am stuck in the loop and the only way to stop processing is to ask for another age ? 
+
+			System.out.print("Please enter the age <99 to stop>: ");
+			intAge = sc.nextInt();
+		}
+
+		dblAvg = intSum / (intCount - 1); 
+		// the reason for the - 1 is to play with the idea of when exactly are the instructions executed and 
+		// what happens to relevant calculations thereafter - in this case - the calculation of the average
+		System.out.println("The average age for the " + intCount + " students in this class is " + dblAvg);		
+	}
+}

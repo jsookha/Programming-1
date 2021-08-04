@@ -1,0 +1,70 @@
+/*
+ * Program: Using Decisions 1
+ * Date: 11/3/2019
+ * Programmer: J.Sookha
+ * Description: Using if..then statments and stuff 
+*/
+
+package usingdecisions1; 
+
+import java.util.Scanner; 
+
+public class usingdecisions1{
+	
+	static double dblSales, dblDiscount, dblAmount; 
+
+	public static void main(String[] args){
+		ReadSales();
+		DecideCalculateDiscount();
+		PrintNewAmount();		
+	}	
+
+	public static void ReadSales(){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Please enter the Sales amount: "); 
+		dblSales = sc.nextDouble();
+	}
+
+	public static void DecideCalculateDiscount(){
+		dblDiscount = 20;
+		if (dblSales > 5000)
+		{	
+			dblAmount = dblSales - (dblSales * (dblDiscount / 100));
+		}
+		else 
+		{
+			dblAmount = dblSales; 
+		}	
+	}
+
+	public static void PrintNewAmount(){
+		System.out.println("The amount that needs to be paid is " + dblAmount);
+	}
+}
+
+/*
+		int intNumber; 
+		
+		intNumber = 100; // 67; // this 67 will result in the following if then statement being false  
+
+		if (intNumber == 100){
+			System.out.println("Numbers are equal");
+			System.out.println("Numbers are equal again");
+		}
+		//********************************************************************************************************
+		intNumber = 67; 
+
+		if (intNumber != 100)
+			System.out.println("Numbers are not equal");
+		
+		System.out.println("Some other line I thought was going to print out if the above true section ran");
+		//******************************************************************************************************
+		if (intNumber == 100)
+		{
+			System.out.println ("100 is equal to 100"); // technically not going to run b/c intNumber = 67
+		}
+		else
+		{
+			System.out.println("we know - 67 is not equal to 100"); // this is the false section 
+		}	
+*/

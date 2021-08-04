@@ -1,0 +1,77 @@
+/*
+ * Program: Calculate average using procedures
+ * Date: 27/2/2019
+ * Programmer: J.Sookha
+ * Description: Calculating the average mark for five test marks inputted by the user 
+*/
+
+package causingmethods2; 
+
+import java.util.Scanner; 
+
+public class causingmethods2{
+
+	static int intMark1, intMark2, intMark3, intMark4, intMark5;
+	static double dblAverage; 
+
+	public static void main(String[] args){
+		ReadMarks();
+		CalculateAverage();
+		PrintAverage();							
+	}
+
+	public static void ReadMarks(){
+		Scanner sc = new Scanner(system.in);
+
+		System.out.print("Please enter the percentage for Test 1: " );
+		intMark1 = sc.nextInt();
+		System.out.print("Please enter the percentage for Test 2: " );
+		intMark2 = sc.nextInt();
+		System.out.print("Please enter the percentage for Test 3: " );
+		intMark3 = sc.nextInt();
+		System.out.print("Please enter the percentage for Test 4: " );
+		intMark4 = sc.nextInt();
+		System.out.print("Please enter the percentage for Test 5: " );
+		intMark5 = sc.nextInt();
+
+	
+	}
+	
+	public static void CalculateAverage(){
+ 
+		dblAverage = (intMark1 + intMark2 + intMark3 + intMark4 + intMark5) / 5; 
+
+	}
+
+	public static void PrintAverage(){
+		System.out.println ("The average mark is  " + dblAverage);	
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

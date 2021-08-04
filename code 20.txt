@@ -1,0 +1,100 @@
+/*
+ * Program: Using the Swtich Statement
+ * Date: 13/3/2019
+ * Programmer: J.Sookha
+ * Description: Learning to use the swtich statement and also understanding the why of 
+ * 		why we need to know when to use the switch statement
+ *
+*/
+package usingswtich; 
+
+import java.util.Scanner; 
+
+public class usingswitch{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter the item number: ");
+		int intItem = sc.nextInt();
+
+		double dblPrice; 
+		dblPrice = 0.0; 
+
+		if (intItem >= 1) && (intItem <= 4)
+		{
+		
+			if (intItem == 1)
+			{
+				dblPrice = 10; 
+			}
+			else 
+			{
+				if (intItem == 2)
+				{
+					dblPrice = 20; 
+				}
+				else 
+				{
+					if (intItem == 3)
+					{
+						dblPrice = 30;
+					}
+					else 
+					{
+						dblPrice = 40; 
+					}
+				}
+			}	
+		}
+		else 
+		{
+			System.out.println("You entered an incorrect item number");
+		}
+		
+	
+		switch (intItem)
+		{
+			case 1:
+				dblPrice = 10; 
+				break;
+			case 2:
+				dblPrice = 20;
+				break;
+			case 3:
+				dblPrice = 30;
+				break;	
+			case 4:
+				dblPrice = 40;	
+				break;
+			default:
+				dblPrice = 0; 	
+				System.out.println("you most likely entered an item number that does not exist");
+				break;
+		} 
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}		
+}
