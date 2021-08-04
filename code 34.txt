@@ -1,0 +1,70 @@
+/*
+ * Program: Using 1 Dimensional Arrays again 
+ * Date: 3/4/2019
+ * Programmer: J.Sookha
+ * Description: Took the question from code 27 - about displaying the discounted price for 5 days
+ * 		given the original price from the user - this time however - we are saving the 
+ *		prices in an array so that the printing can happen elsewhere 
+*/
+package using1darrays2; 
+
+import java.util.Scanner; 
+
+public class using1darrays2{
+	
+	static double[] dblPrices = new double[5]; 	
+	static int intCount; 
+
+	static double dblOriginalPrice; 
+	static Scanner sc = new Scanner(System.in);
+
+	public static void main(String[] args){		
+		readPrice();
+		calcDiscounts();
+		printAllPrices();	
+	}		
+	
+	public static void readPrice(){
+		// read the original price from the user 
+		System.out.print("Please enter the original price of the product: ");
+		dblOriginalPrice = sc.nextDouble();
+	}
+	
+	public static void calcDiscounts(){
+		
+		// in order to make sense of this program - we need to calculate and store the 
+		// 1st discount in the first cell of the array - this is important because the 
+		// the remaining values that need to be calculated need to use the previous day's 
+		// price calculation - also take note of the index in the calculation 
+		// for example 
+		// Wednesday = Tuesday's Price - 10% of Tuesday's Price 
+	
+		dblPrices[0] = dblOriginalPrice - (dblOriginalPrice * 0.1);  // monday's discount
+		
+		for (intCount = 1; intCount <= 4; intCount++){ //tue to fri discounts 
+			dblPrices[intCount] = dblPrices[intCount - 1] - (dblPrices[intCount - 1] * 0.1);
+		}
+	
+	}
+	
+	public static void printAllPrices(){
+		System.out.println("Printing the discounted prices for the 5 days");
+		for (intCount = 0; intCount <= 4; intCount++){
+			System.out.println("Day " + (intCount + 1) + "s discount = " + dblPrices[intCount]);
+		}
+
+		// take note that many of when attempting this question for the homwork decided to 
+		// print manually (without a loop) 
+		// this actually made things a little better because you could state the name of the day 
+		// instead of my version above that just states "Day 1"
+
+		System.out.println("Monday's discount is " + dblPrices[0]);
+		System.out.println("Tuesday's discount is " + dblPrices[1]);
+		System.out.println("Wednesday's discount is " + dblPrices[2]);
+		System.out.println("Thursday's discount is " + dblPrices[3]);
+		System.out.println("Friday's discount is " + dblPrices[4]);
+	}
+}
+
+
+

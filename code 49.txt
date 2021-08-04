@@ -1,0 +1,165 @@
+/*
+ * Program: Insertion Sort
+ * Date: 14/5/2019
+ * Programmer: J.Sookha
+ * Description:  
+*/
+
+package insertionsort; 
+
+public class insertionsort{
+
+	public static void main(String[] args){
+		int[] intNumbers = new int[10]; 
+		int intCount, intCount2; 
+		int intLength, intLength2; 
+		int intKey; 
+		int intMin; 
+		int intTemp; 
+		int intFlag;
+		int intGap;  
+				
+
+		// before sort 
+		System.out.println("Before Insertion Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumbers[intCount] = (int)(Math.random() * 100);
+			System.out.print(intNumbers[intCount]);
+		}
+		
+		// sort 
+		// http://www.iti.fh-flensburg.de/lang/algorithmen/sortieren/insert/insertionen.htm
+		intLength = intNumbers.length; // gets the size? 
+		System.out.println("The length value for the array is " + intLength);
+
+		for (intCount = 1; intCount < intLength; intCount++){
+			intKey = intNumbers[intCount]; 
+
+			intCount2 = intCount - 1;
+			while ((intCount2 > -1) && (intNumbers[intCount2] > intKey)){
+				intNumbers[intCount2 + 1] = intNumbers[intCount2]; 
+				intCount2--; 
+			}
+			intNumbers[intCount2 + 1] = intKey; 
+		} 		
+
+		// after sort
+		System.out.println("After Insertion Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			System.out.println(intNumbers[intCount]);
+		}
+
+		//###############################################################################################
+		// before sort 
+		System.out.println("Before Selection Exhange Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumbers[intCount] = (int)(Math.random() * 100);
+			System.out.print(intNumbers[intCount]);
+		}
+		
+		// sort 
+		intMin = -1;
+		intTemp = -1;  		
+		intLength = intNumbers.length; // gets the size? 
+		for (intCount = 1; intCount <= intLength - 1; intCount++){
+			intMin = intCount; 
+			for (intCount2 = intCount + 1; intCount <= intLength; intCount2++){
+				if (intNumbers[intMin] > intNumbers[intCount2]){
+					intMin = intCount2;
+				}
+			}
+			if (intCount > intMin){
+				intTemp = intNumbers[intMin];
+				intNumbers[intMin] = intNumbers[intCount];
+				intNumbers[intCount] = intTemp; 
+			}		
+		}
+		
+		// after sort
+		System.out.println("After Selection Exchange Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			System.out.println(intNumbers[intCount]);
+		}
+
+		//###############################################################################################
+
+		// before sort 
+		System.out.println("Before Bubble Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumbers[intCount] = (int)(Math.random() * 100);
+			System.out.print(intNumbers[intCount]);
+		}
+		
+		// sort 
+		intTemp = -1;  		
+		intLength = intNumbers.length; // gets the size? 
+		intLength2 = intLength - 1;
+		intFlag = 1; 
+		while (intFlag == 1){
+			intFlag = 0; 
+			for (intCount = 0; intCount <= intLength2; intCount++){
+				if (intNumber[intCount] > intNumbers[intCount + 1]){
+					intTemp = intNumbers[intCount];
+					intNumbers[intCount] = intNumbers[intCount + 1];
+					intNumbers[intCount + 1] = intTemp; 
+					intFlag = 1;
+				}	
+			}
+			intLength2 = intLength -1; 
+		}		
+		
+		// after sort
+		System.out.println("After Bubble Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			System.out.println(intNumbers[intCount]);
+		}
+
+		//###############################################################################################
+		// before sort 
+		System.out.println("Before Shell Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumbers[intCount] = (int)(Math.random() * 100);
+			System.out.print(intNumbers[intCount]);
+		}
+		
+		// sort 
+		boolean blnFlag; 
+		blnFlag = false; 
+		intTemp = -1;  		
+		intLength = intNumbers.length;
+		intGap = intLength / 2; 
+		while (intGap > 0){
+			intLength2 = intLength - intGap;
+			
+			for (intCount2 = 0; intCount2 <= intLength2; intCount2++){
+				if (intNumbers[intCount2] > intNumbers[intCount2 + intGap]){
+					intCount = intCount2; 
+					blnFlag = true; 
+					while (blnFlag){
+						intTemp = intNumbers[intCount];
+						intNumbers[intCount] = intNumbers[intCount + intGap];
+						intNumbers[intCount + intGap] = intTemp; 
+						
+						intCount = intCount - intGap; 
+
+						if (intCount >= 1){
+							if (intNumbers[intCount] <= intNumbers[intCount + intGap]){
+								blnFlag = false; 
+							}
+						}
+						else{
+							blnFlag = false; 
+						} 
+					}
+				}
+			}
+			intGap = intGap / 2; 
+		}
+	
+		// after sort
+		System.out.println("After Shell Sort");
+		for (intCount = 0; intCount <= 9; intCount++){
+			System.out.println(intNumbers[intCount]);
+		}
+	}
+}

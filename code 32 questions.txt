@@ -1,0 +1,69 @@
+Please note that for the following question, you are required to use procedures or functions 
+in your program. 
+
+----------------------------
+1. Mr. Jones always gives True/False tests to his class. His tests always have 10 questions.
+The maximum class size is 15. He needs a program that will calculate and output
+each student’s number, their total score/percentage for a test and their grade. You are 
+also required to output the lowest and highest mark/percentage along with the student number 
+associated to those marks
+
+Develop a solution for Mr. Jones’s problem. The following 1-dimensional arrays are needed 
+
+Variable 		Description						Size 
+strStudentNum		to store the student numbers 				15
+intTestMark		to store the total mark for a test for a student	15
+strGrade		to store the grade equivalent to the mark received 	15 
+
+strTestAns		to store the correct answers for the test		10 
+
+When inputting the student's details, you are required to input each student's set of 
+answers for the 10 questions in the test. Using the strTestAns array, you need to compare 
+the input to the answers stated in the array. Accumulate the total mark of all correct answers
+and store this mark in the intTestMark array. 
+
+Store the following values for the strTestAns array, to be used for the comparison to the 
+student's set of answers  
+Question	Answer 
+1 		true
+2		true
+3		false
+4 		true
+5		false
+6		true
+7		false
+8		false
+9		true
+10		false 
+
+Using the intTestMark (total mark), store the student's grade using the following information 
+
+Percentage		Grade
+80 - 100		A
+70 - 79			B
+60 - 69			C
+50 - 59			D
+< 50 			F
+
+	
+2. a. The student names and the grades for four tests for Mr. Smith’s class have been
+placed in parallel arrays. Mr. Smith would like to have one student’s name and
+test scores printed. Develop a solution that will enter the student’s name, search
+for the name in the same array, and then print the name and test scores. Use the
+sequential-search method.
+
+b. Modify the solution in problem 2a to use a binary search instead of a sequential
+search.
+
+3. John has a weather station in his house. He has been keeping track of the fastest
+wind speed for each day for two weeks. He would like to know the average wind
+speed over the two weeks, the days on which the highest wind speed and the lowest
+wind speed were recorded, and the difference between the highest wind speed
+recorded and each day’s average wind speed.
+
+4. Create a solution to print the number of times a pair of dice would be rolled before
+there would be a duplicate number. (Hint: Store the values of each roll in an array (size 50)
+and check the values of the array each time the dice are rolled.)
+
+5. Expand problem 4 to print the average number of rolls over N times. N is an input
+value.

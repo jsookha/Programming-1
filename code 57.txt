@@ -1,0 +1,192 @@
+/*
+ * Program: exam 2018 question 4
+ * Date: 28/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package exam2018question4;
+
+import java.util.Scanner; 
+import java.text.DecimalFormat; 
+
+public class exam2018question4{
+
+	static Scanner sc = new Scanner(System.in);
+	
+	static String strPattern = "R ### ###.00"; 
+	static DecimalFormat df = new DecimalFormat(strPattern);
+		
+	static Employee emp1 = new Employee(); 
+	static Employee[] empArray; //= new Employee[10]; 
+
+`	public static void main(String[] args){
+		InitArray();
+		ReadName();
+		CalcTotalSales();
+		PrintEmpInformation();
+	}
+	
+	public static void InitArray(){
+		//empArray[0] = new Employee();
+
+		int intNumber = 10
+		empArray = new Employee[intNumber];
+
+		for (int intCount = 0; intCount <= 9; intCount++){
+			empArray[intCount] = new Employee();
+		}
+	}
+
+	public static void ReadName(){
+		System.out.print("Please enter the employee name: ");
+		emp1.setEmpName(sc.nextLine());
+
+		for (int intCount = 0; intCount <= 9; intCount++){
+			System.out.print("Please enter the employee name: ");
+			empArray[intCount].setEmpName(sc.nextLine());
+		}
+		
+	}
+
+	public static double ReadValidSales(){
+		double dblAmount; 
+		System.out.print("Please enter the sale " + (emp1.getCount() + 1) + " amount: ");
+		dblAmount = sc.nextDouble();
+		do{
+			if (dblAmount < 0){
+				System.out.println("You have entered an invalid sales amount");
+				System.out.print("Please enter the sale amount again: ");
+				dblAmount = sc.nextDouble();		
+			} 
+		}while (dblAmount < 0);
+
+		return dblAmount; 
+	}
+
+	public static void CalcTotalSales(){
+		
+		emp1.setSaleAmount(ReadValidSales());
+
+		while (emp1.getSaleAmount() != 0){
+			emp1.setSaleAmount(ReadValidSales());
+		}
+
+		for (int intCount = 0; intCount <= 9; intCount++){
+			empArray[intCount].setSaleAmount(ReadValidSales());
+			while (empArray[intCount].getSaleAmount() != 0){
+				empArray[intCount].setSaleAmount(ReadValidSales());
+			}
+		}
+	}
+
+	public static void PrintEmpInformation(){
+		 
+	
+		System.out.println("----------------------------------------");
+		System.out.println("EMPLOYEE SALES REPORT");
+		System.out.println("----------------------------------------");
+		
+		System.out.println();
+		System.out.println(String.format("%-20s : %20s","EMPLOYEE NAME", emp1.getEmpName()));
+		System.out.println(String.format("%-20s : %20s","TOTAL SALES", df.format(emp1.getTotal())));
+		System.out.println("----------------------------------------");
+		System.out.println(String.format("%-20s : %20s","SALES COUNT", (emp1.getCount())));
+		System.out.println(String.format("%-20s : %20s","AVERAGE SALES", df.format(emp1.getAvg())));
+
+		for (int intCount = 0; intCount <= 9; intCount++){
+			System.out.println();
+			System.out.println(String.format("%-20s : %20s","EMPLOYEE NAME", empArray[intCount].getEmpName()));
+			System.out.println(String.format("%-20s : %20s","TOTAL SALES", df.format(eempArray[intCount].getTotal())));
+			System.out.println("----------------------------------------");
+			System.out.println(String.format("%-20s : %20s","SALES COUNT", (empArray[intCount].getCount())));
+			System.out.println(String.format("%-20s : %20s","AVERAGE SALES", df.format(empArray[intCount].getAvg())));
+		}
+
+	}
+}
+
+//----------------------------------------------------------------------------------------------
+package exam2018question4;
+
+public class Employee{
+	//fields 
+	private String EmpName; 
+	private double SaleAmount; 	
+
+	private double dblTotal; 
+	private double dblAvg; 
+	private int intCount; 
+
+	//properties
+	public void setEmpName(String Name){
+		EmpName = Name; 
+	}
+	
+	public String getEmpName(){
+		return EmpName; 	
+	}
+
+	public void setSaleAmount(double Amount){
+		SaleAmount = Amount;
+		AccumulateSales();
+	}
+
+	public double getSaleAmount(){
+		return SaleAmount;
+	}
+	public double getTotal(){ 
+		return dblTotal;
+	}
+	public int getCount(){ 
+		return intCount;
+	}
+
+	public double getAvg(){ 
+		return dblTotal / intCount ;
+	}
+	//constructors
+	public Employee(){
+		dblTotal = 0.0; 
+		intCount = 0; 
+	}
+	//methods
+	private void AccumulateSales(){
+		dblTotal = dblTotal + SaleAmount; 
+		intCount = intCount + 1;		
+	}
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+/*
+ * Program: loadArrays Idea
+ * Date: 28/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package loadArraysIdea;
+
+import java.util.Scanner; 
+
+public class loadArraysIdea{
+
+	static int[] intProdID = new int[3]; 
+	//static String[] strProdName = new String[3]; 
+	//static double[] dblProdPrice = new double[3]; 
+	
+	static String[] strProdName; 
+
+	//-----------------------------------------------------------------------------------
+	// this is technically the wrong thing to do and you will lose marks because of it 
+	// static int[] intPID = {101,102,103};
+
+	public static void main(String[] args){
+		loadArrays();
+	}
+
+	public static void loadArrays(){
+		
+		intProdID[0] = 101;
+		intProdID[1] = 102;
+		intProdID[2] = 103;
+
+		strProdName = new String[]{"Dell", "Acer", "HP"};
+		
+	}
+}
+
+

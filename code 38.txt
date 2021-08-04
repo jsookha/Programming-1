@@ -1,0 +1,75 @@
+/*
+ * Program: Past paper 2015 
+ * Date: 11/4/2019
+ * Programmer: J.Sookha
+ * Description: past paper 2015 done in class - including the use of the DecimalFormat
+ *		for printing the amounts in a neat way 
+*/
+package cas12015test; 
+
+import java.util.Scanner; 
+import java.text.DecimalFormat;
+
+public class cas12015test{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+
+
+		String strPattern = "R####.00"; // pattern to be used for formatting the number	
+		// remember what we discussed about the 0 (zero) and what it means 
+		DecimalFormat df = new DecimalFormat(strPattern); // instantiated df with the pattern
+
+		double dblHrs, dblRate; 
+	
+		System.out.print("Enter hours: ");
+		dblHrs = sc.nextDouble();
+		System.out.print("Enter rate: ");
+		dblRate = sc.nextDouble();
+	
+		double dblPay; 
+
+		dblPay = dblHrs * dblRate;
+		
+		String strOutput; 
+
+		//strOutput = df.format(dblPay); // df.format is going to format dblPay to the pattern		
+		strOutput = "The pay is: " + df.format(dblPay);
+
+		System.out.println(strOutput);
+	
+	}
+}
+
+//*******************************************************************************************************
+// below is the correct way that the program needed to be code - since the question asked for a function
+// just need to mention and show that ways we code - but more importantly realise that you could lose 
+// marks if we do not follow the instructions in the question paper 
+
+package weeklypay; 
+
+import java.util.Scanner; 
+import java.text.DecimalFormat;
+
+public class weeklypay{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		String strPattern = "R####.00"; 	
+		DecimalFormat df = new DecimalFormat(strPattern);
+		double dblHrs, dblRate; 
+		System.out.print("Enter hours: ");
+		dblHrs = sc.nextDouble();
+		System.out.print("Enter rate: ");
+		dblRate = sc.nextDouble();
+	
+		double dblPay = CalcPay(dblHrs, dblRate);	
+		String strOutput; s	
+		strOutput = "The pay is: " + df.format(dblPay);
+
+		System.out.println(strOutput);	
+	}
+	public static double CalcPay(double Hrs, double Rate){
+		return Hrs * Rate; 
+	}
+}

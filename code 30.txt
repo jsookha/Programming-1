@@ -1,0 +1,118 @@
+/*
+ * Program: Using a Class 
+ * Date: 26/3/2019
+ * Programmer: J.Sookha
+ * Description: Using classes to create a structure for an entity that will allow 
+ *		us to manage the amount of information for one "thing"/object a little better  
+*/
+
+package usingclasses1; 
+
+
+public class usingclasses1{
+
+	public static void main(String[] args){
+		
+		clsStudent Student1 = new clsStudent(); // Student1 is the object 
+		// ^ accessing the empty constructor 
+
+		clsStudent Student2 = new clsStudent("1234","Jack Grey", "BCAD", "jackgrey@greys.com");
+		// ^ accessing the constructor that has parameters 
+
+		// Student1.strStudentNumber = "12345"; // this line can't work 
+		// read page 156 understanding data hiding
+
+		Student1.setStudentNumber("12345");
+		Student1.setName("Jennifer Beaufont");
+		Student1.setCourse("BCAD");
+		Student1.setEmail("jb@jb.com);
+
+		//Student1.setCourse(strNewCourse);
+
+		/*
+		// another way to create / instantiate an object 
+
+		clsStudent Student3; 
+
+		// would have writtern code to asked the user for Student 3's information 
+		
+		Student3 = new clsStudent(strNumber, strName, strCourse, strEmail);
+		*/
+
+		System.out.println(Student1.getName()); // accessing the get method to get a value from one property
+
+		Student1.PrintStudentInfo();
+		Student2.PrintStudentInfo();
+	}
+}
+
+=============================================================================================================
+
+package usingclasses1; 
+
+
+public class clsStudent{
+	// private fields
+	private String strStudentNumber; 
+	private String strName; 
+	private String strCourse; 
+	private String strEmail; 
+ 
+	// public properties - 
+		
+	// the following is known as instance methods - and have broken them into 2 names mutator methods (set) / accessor methods (get)
+
+	public void setStudentNumber(String StudentNumber){
+		strStudentNumber = StudentNumber; // field = parameter 
+	}
+	public String getStudentNumber(){
+		return strStudentNumber; 
+	}	
+	
+	public void setName(String Name){
+		strName = Name; // field = parameter 
+	}
+	public String getName(){
+		return strName; 
+	}
+
+	public void setCourse(String Course){
+		strCourse = Course; // field = parameter 
+	}
+	public String getCourse(){
+		return strCourse; 
+	}
+
+	public void setEmail(String Email){
+		strEmail = Email; // field = parameter 
+	}
+	public String getEmail(){
+		return strEmail; 
+	}
+
+	// public constructors 
+	
+	public clsStudent(){
+		//at the moment - this is an empty constructor 
+		// empty refers to the fact that there are no parameters 
+		// we can still write code here to do stuff - if we wanted to 
+	}
+
+	public clsStudent(String number, String nme, String crse, String em){
+		strStudentNumber = number; // field = parameter 
+		strName = nme; 
+		strCourse = crse; 
+		strEmail = em; 
+	}
+
+	// more than one version of the constructor is called overloading a constructor ^^
+
+	// public methods (some can be private) // both procedures and functions 
+
+	public void PrintStudentInfo(){
+		System.out.println("Student Number: " + strStudentNumber + "\n" + 
+				   "Name: " + strName + "\n" + 
+				   "Course: " + strCourse + "\n" + 
+				   "Email: " + strEmail);
+	}	
+}

@@ -1,0 +1,66 @@
+/*
+ * Program: Bubble sort
+ * Date: 16/4/2019
+ * Programmer: J.Sookha
+ * Description:  
+*/
+
+package bubblesort; 
+
+
+public class bubblesort{
+		
+	static int[] intNum = new int[10];
+
+	public static void main(String[] args){
+		loadArray();
+
+		System.out.println("Unsorted Array Values");
+		printArray();
+
+		sortArray();
+
+		System.out.println("Sorted Array Values");
+		printArray();				
+	}
+
+	public static void sortArray(){
+		int intFlag; // 0 = stop - finish sorting 1 = might still have some sorting to do 
+		int intNumofCells;
+
+		int intTemp; 
+
+		intFlag = 1; 
+		intNumofCells = 8; 
+		
+		while (intFlag == 1){
+			intFlag = 0;
+			
+			for (int intCount = 0; intCount <= intNumofCells; intCount++){
+				if (intNum[intCount] > intNum[intCount + 1]){ // < is for descending | > is for ascending
+					intTemp = intNum[intCount]; 
+					intNum[intCount] = intNum[intCount + 1];
+					intNum[intCount + 1] = intTemp; 
+
+					intFlag = 1; 
+				}
+			}
+			intNumofCells = intNumofCells - 1;  
+		}	
+	}
+
+	public static void loadArray(){
+		for (int intCount = 0; intCount <= 9; intCount++){
+			intNum[intCount] = (int)(Math.random() * 100);
+		}
+	}
+
+	public static void printArray(){
+		for (int intCount = 0; intCount <= 9; intCount++){
+			System.out.println("Cell [" + intCount + "] - " + intNum[intCount]);
+		}
+	}
+}
+
+
+

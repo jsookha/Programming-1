@@ -1,0 +1,63 @@
+/*
+ * Program: Past Paper 2018 
+ * Date: 5/4/2019
+ * Programmer: J.Sookha
+ * Description: The past paper practical we did in class
+*/
+package caS12018Test; 
+import java.util.Scanner; 
+
+public class cas12018test{
+
+	public static void main(String[] args){
+				
+		Scanner sc = new Scanner(System.in);
+		String strPName; 
+		double dblThisPrice; 
+				
+		System.out.print("Please enter the product name: ");
+		strPName = sc.nextLine();
+
+		System.out.print("Please enter the price of the product: ");
+		dblThisPrice = sc.nextDouble();
+		
+		Products p1 = new Products(strPName);
+		
+		System.out.println("Product name:  \t " + p1.getProductName());
+		System.out.println("Product price: \t " + p1.CalcPrice(dblThisPrice));
+	}
+}
+
+==========================================================
+
+package caS12018Test; 
+
+public class Products{
+	
+	private String strProductName; 
+	private double dblPrice; 
+
+	private final double dblVAT = 0.15; 
+ 
+	public String getProductName(){
+		return strProductName;
+	}
+	
+	public Products(String ProdName){
+		strProductName = ProdName; 
+	}
+
+	public double CalcPrice(double dblOldPrice){
+		double dblNewPrice; 
+
+		dblPrice = dblOldPrice; 
+		dblNewPrice = dblPrice + (dblPrice * 0.15);
+		//dblNewPrice = dblPrice + (dblPrice * dblVAT); // could use the constant variable
+
+		if (dblNewPrice >= 10000)
+			dblNewPrice = dblNewPrice - (dblNewPrice * 0.05);
+
+		return dblNewPrice; 		
+	}
+
+}

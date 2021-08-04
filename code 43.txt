@@ -1,0 +1,101 @@
+/*
+ * Program: 
+ * Date: 16/4/2019
+ * Programmer: J.Sookha
+ * Description: Kind of the answer for the PRLD Assignment
+*/
+
+package usingprldassignment1; 
+
+import java.util.Scanner; 
+import java.text.DecimalFormat; 
+
+public class usingprldassignment1{
+
+		
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		
+		String[] strPName = new String[100]; 
+		double[] dblPrice = new double[100];	
+
+		double dblSum; 
+
+		int intCount, intNumberOfProducts; 
+		String strPattern = "R####.00";
+		DecimalFormat df = new DecimalFormat(strPattern);
+		
+		intCount = 0; 		
+		String strContinue; 
+		strContinue = ""; 
+			
+		System.out.println("Welcome to Mr Williams Hardware Shop");
+		System.out.println();
+
+		System.out.println("Good day - would you like to begin? <Y/N>");
+		strContinue = sc.nextLine();
+
+		while (strContinue.equals("Y")){
+			dblSum = 0.0; 
+			System.out.print("Please can you count how many products you have in the basket: ");
+			intNumberOfProducts = sc.nextInt();
+		
+
+			if (intNumberOfProducts <= 100){
+
+				System.out.print("Please enter the product name: <Enter ZZ to end> ");
+				strPName[intCount] = sc.nextLine();
+				
+				while (!(strPName.equals("ZZ")){
+					System.out.print("Enter the price for " + strPName[intCount] + ": ");
+					dblPrice[intCount] = sc.nextDouble();
+
+					dblSum = dblSum + dblPrice[intCount];
+ 	
+					intCount = intCount + 1; 
+					System.out.print("Please enter the product name: <Enter ZZ to end> ");
+					strPName[intCount] = sc.nextLine();			
+				}
+				
+				System.out.println("Williams Hardware \n " + 
+						   "VAT nr: 12345678  \n\n " + 
+						   "Product \t\t\t Price \n" + 
+						   "________________________");
+
+				for (int intCount2 = 0; intCount2 <= (intNumberOfProducts - 1); intCount2++){
+					System.out.println(strPName[intCount2] + "\t\t\t" + df.format(dblPrice[intCount2]));
+				} 
+				
+				System.out.println("__________________________");
+				System.out.println("TOTAL \t\t\t " + df.format(dblSum));
+				intCount = 0; 
+			} 
+
+			System.out.print("Is there another customer in the queue? <Y/N> : ");
+			strContinue = sc.nextLine();
+		}
+
+		System.out.println("Have a nice day - Goodbye");							
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

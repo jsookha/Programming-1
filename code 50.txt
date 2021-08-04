@@ -1,0 +1,76 @@
+package passingparameters; 
+
+public class passingparameters{
+
+	static int intNumber; 
+
+	public static void main(String[] args){
+		int intNum1, intNum2; 
+
+		intNum1 = 25; 
+		intNum2 = 30; 
+	
+		PrintNumbers(intNum1, intNum2);
+
+		int[] intNumArr = {1,2,3,4,5};
+		
+		PrintArray(intNumArr);
+
+		Computer pc1 = new Computer();
+		pc1.setProcessor("i7");
+		pc1.setRam("8GB");
+
+		PrintObject(pc1);
+		
+		Computer[] pcArr = new Computer[2]; 
+		
+		pcArr[0] = new Computer();
+		pcArr[0].setProcessor("i3");
+		pcArr[0].setRam("4GB");
+
+		pcArr[1] = new Computer();
+		pcArr[1].setProcessor("i5");
+		pcArr[1].setRam("6GB");
+
+		PrintObjectArray(pcArr);
+			
+	}
+
+	public static void PrintNumbers(int N1, int N2){
+		System.out.println("Number 1 is " + N1 + " & Number 2 is " + N2);	
+	}
+
+	public static void PrintArray(int[] NA){
+		for (int intCount = 0; intCount <= 4; intCount++)
+			System.out.println("Cell [" + intCount + "] is " + NA[intCount]);
+	}
+
+	public static void PrintObject(Computer CX){
+		System.out.println("This computer is an " + CX.getProcessor() + " & has " + CX.getRam() + "RAM");
+	}
+
+	public static void PrintObjectArray(Computer[] CX){
+		for (int intCount = 0; intCount <= 1; intCount++)
+			System.out.println("This computer is an " + CX[intCount].getProcessor() + " & has " + CX[intCount].getRam() + "RAM");
+					
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+/*
+ * Program: Using Classes 
+ * Date: 5/4/2019
+ * Programmer: J.Sookha
+ * Description: using classes - BUT - the wrong way - instead of creating private "fields"
+ *		we created public "fields" (variables) / and in the other class at the bottom
+ *		we creates static variables - note the use of the variables in main method/program
+*/
+package usingclasses56; 
+
+public class usingclasses56{
+	
+	public static void main(String[] args){
+		
+		clsComputer c1 = new clsComputer();
+	
+		//clsComputer.strProcessorChip = "i7"; 
+
+		c1.strProcessorChip = "i7"; 
+		System.out.println(c1.strProcessorChip);
+
+		//c1.setProcessorChip("i7");
+		//c1.getProcessorChip();
+
+		clsSomething56.intNumber = 56; 
+		clsSomething56.intNumber2 = 57; 
+	}
+}
+
+=========================================================================================
+
+package usingclasses56; 
+
+public class clsComputer{
+	
+	//private String strProcessorChip; 
+
+	public String strProcessorChip; 
+}
+
+=========================================================================================
+
+package usingclasses56; 
+
+public class clsSomething56{
+	
+	public static int intNumber; 
+	static int intNumber2; 	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

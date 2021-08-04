@@ -1,0 +1,105 @@
+﻿/*
+ * Program: 2018 Prac Past paper
+ * Date: 2/5/2019
+ * Programmer: J.Sookha
+ * Description: -- just what was done in class ...
+*/
+
+package test2018s1; 
+
+import java.util.Scanner; 
+
+public class test2018s1{
+
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+		String strProduct; 
+		double dblPrice; 
+
+		System.out.print("Please enter the name of the product: ");
+		strProduct = sc.nextLine();
+
+		System.out.print("Please enter the price: ");
+		dblPrice = sc.nextDouble();
+	
+		Product thisProduct = new Product(strProduct, dblPrice); 
+
+		System.out.println("Product Name: " + thisProduct.getProdName());
+		System.out.println("Final Price: R" + thisProduct.CalcPrice());
+
+		// if I did not create a constructor to load the values - here I am using the set methods 
+		// to load the values - remember - in the question - it was not asked for - but needed in 
+		// me attempting this work 
+
+		Product thisOtherProduct = new Product();
+
+		thisOtherProduct.setProdName(strProduct);
+		thisOtherProduct.setPrice(dblPrice);
+	}
+
+}
+
+
+//==========================================================================================
+package test2018s1; 
+
+public class Product{
+
+	private String strProdName; 
+	private double dblPrice; 
+
+	public String getProdName(){
+		return strProdName;
+	}
+
+	public void setProdName(String PN){
+		strProdName = PN; 
+	}
+
+	public void setPrice(double Price){
+		dblPrice = Price; 
+	}
+
+	public Product(String strPName, double dblPrc){
+		strProdName = strPName; 
+		dblPrice = dblPrc; 
+	}
+
+	public double CalcPrice(){
+		double dblFinalPrice; 
+
+		dblFinalPrice = dblPrice + (dblPrice * 0.14);
+
+		if (dblFinalPrice > 10000) 
+			dblFinalPrice = dblFinalPrice - (dblFinalPrice * 0.05);
+
+		return dblFinalPrice;  
+	}
+}
+//==========================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

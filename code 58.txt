@@ -1,0 +1,89 @@
+/*
+ * Program: exam 2016 question 4
+ * Date: 29/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package exam2016question4;
+
+import javax.swing.JOptionPane; 
+
+public class exam2016question4{
+
+
+`	public static void main(String[] args){
+
+		WelcomeMessage();
+		CountLeftRight();
+
+	}
+
+	public static void WelcomeMessage(){
+		String strDisplay; 
+		
+		strDisplay = "WELCOME TO THE STUDENT HAND SIDE PROGRAM \n\n" + 
+			     "Enter L for left-handed \n" + 
+			     "Enter R for right-handed \n" + 
+			     "Enter X to quit"; 
+
+		JOptionPane.showMessageDialog(null, strDisplay); 		
+	}
+		
+	public static void CountLeftRight(){
+		int intCountLeft, intCountRight, intTotalCount; 
+		
+		intCountLeft = 0; 
+		intCountRight = 0; 
+		intTotalCount = 0; 
+		String strInput; 
+			
+		strInput = JOptionPane.showInputDialog(null,"[" + (intTotalCount + 1) + "] Enter an L if you are left-handed or R if you are right-handed or X to quit");
+		strInput = strInput.toUpperCase();
+		
+		// if the input was a char, the code would be -- chrInput = Character.toUpperCase(chrInput);
+		//while ((!strInput.equals("X")) || (!strInput.equals("x")))
+ 
+		while (!strInput.equals("X")){ // while (chrInput != 'X')
+			if (strInput.equals("L")
+				intCountLeft++;
+			if (strInput.equals("R")
+				intCountRight++;
+
+			intTotalCount++; 
+			strInput = JOptionPane.showInputDialog(null,"[" + (intTotalCount + 1) + "] Enter an L if you are left-handed or R if you are right-handed or X to quit");
+			strInput = strInput.toUpperCase();
+		}
+
+		PrintLeftRight(intCountLeft, intCountRight, (intCountLeft + intCountRight));
+	}
+	
+	public static void PrintLeftRight(int intCLeft, int intCRight, int intTCount){
+		String strDisplayAnswer; 
+		
+		strDisplayAnswer = "Total Number of students: " + intTCount + "\n"
+				   "Number of left-handed students: " + intCLeft + "\n" +
+				   "Number of right-handed students: " + intCRight;
+
+		JOptionPane.showMessageDialog(null,strDisplayAnswer); 
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

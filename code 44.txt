@@ -1,0 +1,72 @@
+/*
+ * Program: 
+ * Date: 16/4/2019
+ * Programmer: J.Sookha
+ * Description:  
+*/
+
+package bubblesort; 
+
+import java.lang.Math; 
+
+public class bubblesort{
+
+	static int[] intNumArr = new int[10]; 
+	static int intCount; 
+
+	public static void main(String[] args){
+		loadArray();
+		sortArray();
+	}
+
+	public static void sortArray(){
+		int intFlag; 
+		int intNumOfCells; 
+		int intCount2; 
+		int intTemp; 
+
+		intTemp = 0; 
+		intFlag = 1;
+		intNumOfCells = 8; 
+
+		while (intFlag == 1){
+			intFlag = 0; 
+			for (intCount2 = 0; intCount2 <= intNumOfCells; intCount2++){
+				if (intNumArr[intCount2] > intNumArr[intCount2 + 1]){
+					intTemp = intNumArr[intCount2]; 
+					intNumArr[intCount2] = intNumArr[intCount2 +1];
+					intNumArr[intCount2 + 1] = intTemp; 
+				
+					intFlag = 1;					
+				}
+			}
+			intNumOfCells = intNumOfCells - 1; 
+		}
+
+		for (intCount = 0; intCount <= 9; intCount++){
+			System.out.println(intCount + " - " + intNumArr[intCount]);
+		}
+	}
+
+	public static void loadArray(){
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumArr[intCount] = intCount + 1; 
+		}
+		
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumArr[intCount] = (int)(Math.Random() * 100); 
+			System.out.println(intCount + " - " + intNumArr[intCount]);
+		}
+
+		
+	}
+}		
+
+
+
+
+
+
+
+
+

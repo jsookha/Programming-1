@@ -1,0 +1,155 @@
+/*
+ * Program: exam 2018 question 4
+ * Date: 28/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package exam2018question4;
+
+import java.util.Scanner; 
+import java.text.DecimalFormat; 
+
+public class exam2018question4{
+
+	static Scanner sc = new Scanner(System.in);
+	static String strName; 
+	static double dblSales; 
+	static double dblTotal; 
+	static int intCount; 
+	static double dblAvgSales; 
+
+	static String strPattern = "R ####.00"; 
+	static DecimalFormat df = new DecimalFormat(strPattern);
+	
+`	public static void main(String[] args){
+		ReadName();
+		CalcTotalSales();
+		PrintEmpInformation();
+	}
+
+	public static void ReadName(){
+		System.out.print("Please enter the employee name: ");
+		strName = sc.nextLine();
+	}
+
+	public static double ReadValidSales(){
+		double dblAmount; 
+		System.out.print("Please enter the sale " + intCount  + " amount: ");
+		dblAmount = sc.nextDouble();
+		do{
+			if (dblAmount < 0){
+				System.out.println("You have entered an invalid sales amount");
+				System.out.print("Please enter the sale amount again: ");
+				dblAmount = sc.nextDouble();		
+			} 
+		}while (dblAmount < 0);
+
+		return dblAmount; 
+	}
+
+	public static void CalcTotalSales(){
+		intCount = 1; // 0; 
+		dblTotal = 0.0; 
+		
+		dblSales = ReadValidSales();
+
+		while (dblSales != 0){
+			dblTotal = dblTotal + dblSales; 
+			intCount = intCount + 1;
+			dblSales = ReadValidSales();
+		}
+	}
+
+	public static void PrintEmpInformation(){
+		dblAvgSales = dblTotal / (intCount -1); 
+	
+		System.out.println("----------------------------------------");
+		System.out.println("EMPLOYEE SALES REPORT");
+		System.out.println("----------------------------------------");
+		
+		System.out.println();
+		System.out.println(String.format("%-20s : %20s","EMPLOYEE NAME", strName));
+		System.out.println(String.format("%-20s : %20s","TOTAL SALES", df.format(dblTotal)));
+		System.out.println("----------------------------------------");
+		System.out.println(String.format("%-20s : %20s","SALES COUNT", (intCount - 1)));
+		System.out.println(String.format("%-20s : %20s","AVERAGE SALES", df.format(dblAvgSales)));
+
+	}
+}
+
+/*
+package exam2018question4;
+
+import java.util.Scanner; 
+import java.text.DecimalFormat; 
+
+public class exam2018question4{
+
+	static Scanner sc = new Scanner(System.in);
+	static String strName; 
+	static double dblSales; 
+	static double dblTotal; 
+	static int intCount; 
+	static double dblAvgSales; 
+
+	static String strPattern = "R ####.00"; 
+	static DecimalFormat df = new DecimalFormat(strPattern);
+	
+`	public static void main(String[] args){
+		ReadName();
+		CalcTotalSales();
+		PrintEmpInformation();
+	}
+
+	public static void ReadName(){
+		System.out.print("Please enter the employee name: ");
+		strName = sc.nextLine();
+	}
+
+
+	public static void CalcTotalSales(){
+		intCount = 1; // 0; 
+		dblTotal = 0.0; 
+		
+		System.out.print("Please enter the sale " + intCount  + " amount: ");
+		dblSales = sc.nextDouble();
+		do{
+			if (dblSales < 0){
+				System.out.println("You have entered an invalid sales amount");
+				System.out.print("Please enter the sale amount again: ");
+				dblSales = sc.nextDouble();		
+			} 
+		}while (dblSales < 0);
+
+		while (dblSales != 0){
+			dblTotal = dblTotal + dblSales; 
+			intCount = intCount + 1;
+			System.out.print("Please enter the sale " + intCount  + " amount: ");
+			dblSales = sc.nextDouble(); 
+			do{
+				if (dblSales < 0){
+					System.out.println("You have entered an invalid sales amount");
+					System.out.print("Please enter the sale amount again: ");
+					dblSales = sc.nextDouble();		
+				} 
+			}while (dblSales < 0);
+		}
+	}
+
+	public static void PrintEmpInformation(){
+		dblAvgSales = dblTotal / (intCount -1); 
+	
+		System.out.println("----------------------------------------");
+		System.out.println("EMPLOYEE SALES REPORT");
+		System.out.println("----------------------------------------");
+		
+		System.out.println();
+		System.out.println(String.format("%-20s : %20s","EMPLOYEE NAME", strName));
+		System.out.println(String.format("%-20s : %20s","TOTAL SALES", df.format(dblTotal)));
+		System.out.println("----------------------------------------");
+		System.out.println(String.format("%-20s : %20s","SALES COUNT", (intCount - 1)));
+		System.out.println(String.format("%-20s : %20s","AVERAGE SALES", df.format(dblAvgSales)));
+
+	}
+}	
+*/	

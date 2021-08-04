@@ -1,0 +1,83 @@
+/*
+ * Program: Binary Search of a 1D array
+ * Date: 11/4/2019
+ * Programmer: J.Sookha
+ * Description: Binary search of a 1 dimensional array - more efficient than the sequential search 
+ *		take note of the code and have an understanding of it because its not just a simple 
+ *		for loop this time around 
+*/
+package searchingarrays2; 
+
+import javax.swing.JOptionPane; 
+
+public class searchingarrays2{
+	
+	static int[] intNumArr = {1,2,3,4,5,6,7,8,9,10};
+	
+	static String[] strNamesArr = {"John", "Jack", "Joe", "Jane", "Jennifer", "Joesph", "Jackie", "Jessica"};
+	
+	static int intSearch; 
+	static String strSearch; 
+	
+	static int intLB, intUB; // lower boundary index and upper boundary index 
+	
+	static int intFlag; 	
+	static int intElement; 
+
+	public static void main(String[] args){
+		
+		strSearch = JOptionPane.showInputDialog(null, "Please enter the number you are looking for");
+		intSearch = Integer.parseInt(strSearch);
+
+		intLB = 0; 
+		intUB = 9; 
+
+		intFlag = 0; // not yet been found
+		
+		// loop is in charge of whether the number has been found or not 
+		while (intFlag == 0){
+			intElement = (intLB + intUB) / 2; 
+			if (intNumArr[intElement] == intSearch){ // if (strSearch.equals(strNameArr[intElement])) // if we attempt to search for a string 
+				intFlag = 1; // value has been found
+			}
+			else{
+				if (intSearch < intNumArr[intElement]){
+					intUB = intElement - 1; // changing the UB boundary b/c the search is in the bottom half
+				}
+				else{
+					intLB = intElement + 1; // changing the LB boundary b/c the search is in the top half 
+				}
+			
+				if (intLB > intUB){
+					intFlag = 2; // never going to be found 
+				}
+			}			
+		}
+
+		if (intFlag == 1){
+			System.out.println("Number has been found " + intElement);
+		}
+		else{
+			System.out.println("Number was never found");	
+		}	
+				
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

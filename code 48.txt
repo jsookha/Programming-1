@@ -1,0 +1,28 @@
+﻿/*
+ * Program: Passing Arrays
+ * Date: 7/5/2019
+ * Programmer: J.Sookha
+ * Description:  
+*/
+
+package passingarrays; 
+
+public class passingarrays{
+
+	
+	public static void main(String[] args){
+
+		int[] intNumbers = new int[10];
+
+		for (int intCount = 0; intCount <= 9; intCount++)
+			intNumbers[intCount] = intCount + 1; 
+
+		PrintInfo(intNumbers);		
+	}
+
+	public static void PrintInfo(int[] intTemp){
+		
+		for (int intCount = 0; intCount <= 9; intCount++)
+			System.out.println(intTemp[intCount]);
+	}
+}

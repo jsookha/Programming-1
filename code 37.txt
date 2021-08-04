@@ -1,0 +1,58 @@
+/*
+ * Program: Past Paper 2017 
+ * Date: 5/4/2019
+ * Programmer: J.Sookha
+ * Description: Past paper practical we did in class
+*/
+
+package cas12017test; 
+
+import java.util.Scanner; 
+
+public class package cas12017test{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter name: ");
+		String strName = sc.nextLine();
+
+		System.out.print("Enter mark: ");
+		double dblMark = sc.nextDouble();
+
+		System.out.print("Enter percentage increase: ");
+		double dblPerc = sc.nextLine();
+
+		Results r1 = new Results(strName, dblMark, dblPerc);
+
+		System.out.println("Name: " + r1.getName());		
+		System.out.println("Mark: " + r1.CalcPercentageIncrease());
+	}
+}
+
+======================================================================
+
+package cas12017test; 
+
+public class Results{
+	
+	private String strName; 
+	private double dblMark; 
+	private double dblPercInc; 
+
+	public String getName(){
+		return strName; 
+	}
+
+	public Results(String nme, double mrk, double perc){
+		strName = nme; 
+		dblMark = mrk; 
+		dblPercInc = perc; 
+	}
+
+	public double CalcIncreasedPercentage(){
+		double dblNewPerc; 
+		dblNewPerc = dblMark + (dblMark * (dblPercInc / 100)); 
+		return dblNewPerc; 
+	}	
+}

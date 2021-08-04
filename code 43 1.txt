@@ -1,0 +1,103 @@
+/*
+ * Program: 
+ * Date: 16/4/2019
+ * Programmer: J.Sookha
+ * Description: Another kind of answer for the PRLD assignment 
+*/
+
+package usingprldassignment1; 
+
+import java.util.Scanner; 
+import java.text.DecimalFormat; 
+
+public class usingprldassignment1{
+		
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		String strPattern = "R####.00";
+		DecimalFormat df = new DecimalFormat(strPattern); 
+
+		String[] strPName = new String[100]; 
+		double[] dblPrice = new double[100]; 
+		
+		int intNumOfProducts; 
+		int intCount; 
+		intCount = 0; 
+		double dblSum; 
+		String strContinue; 
+		
+		String strTillSlip; 
+		strTillSlip = ""; 
+		
+		System.out.println("Welcome to Williams and Son Hardware Shop");
+		System.out.println();
+
+		System.out.print("Good day, would you like to begin the day <y/n>: ");
+		strContinue = sc.nextLine();
+
+		while ((strContinue.equals("y")){
+			dblSum = 0.0;
+
+			System.out.print("How many items do you have in your basket? ");
+			intNumOfProducts = sc.nextInt();
+
+			if (intNumOfProducts <= 100){
+				sc.nextLine();
+				System.out.print("Enter the product name: <ZZZ to end>" );
+				strPName[intCount] = sc.nextLine();
+				
+				while (!(strPName[intCount].equals("ZZZ")){
+					System.out.print("Enter the product price: ");
+					dblPrice[intCount] = sc.nextDouble();
+
+					strTillSlip = strTillSlip + strPName + "			" + dblPrice + "\n"; 	
+					dblSum = dblSum + dblPrice[intCount];
+					intCount = intCount + 1;
+					sc.nextLine();
+					System.out.print("Enter the product name: <ZZZ to end>" );
+					strPName[intCount] = sc.nextLine();
+				}
+				
+				System.out.println("Williams and Son Hardware");
+				System.out.println("VAT Num: 123456789");
+				System.out.println("");
+				System.out.println("Product			Price");
+				System.out.println("---------------------------------");
+				System.out.println(strTillSlip);
+				for (int intCount2 = 0; intCount2 <= (intCount - 1); intCount2++){
+					System.out.println(strPName[intCount2] + 
+							   "			" + 
+							   df.format(dblPrice[intCount2]));
+				}	
+
+				System.out.println("---------------------------------");
+				System.out.println("TOTAL			" + df.format(dblSum));
+				
+			}
+
+			System.out.print("Is there another customer in the queue <y/n>: ");
+			strContinue = sc.nextLine();			
+		}										
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

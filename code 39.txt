@@ -1,0 +1,104 @@
+/*
+ * Program: Using Classes Again 
+ * Date: 10/4/2019
+ * Programmer: J.Sookha
+ * Description: Students asked in class to go over classes - so used the idea to calculate
+ *		your CASS mark to see if you are getting exam entry - however - we made 
+ * 		some weightings along the way 
+*/
+package usingclasses100; 
+
+import java.util.Scanner; 
+
+public class usingclasses100{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		String strSNum; 
+		double dblT, dblA, dblI; 
+
+
+		System.out.print("Enter student number: ");
+		strSNum = sc.nextLine();
+		
+		System.out.print("Enter test 1 mark: ");
+		dblT = sc.nextDouble();
+
+		System.out.print("Enter assignment 1 mark: ");
+		dblA = sc.nextDouble();
+
+		System.out.print("Enter Ice mark: ");
+		dblI = sc.nextDouble();
+
+		// Student student1 = new Student(); // won't work b/c we don't have an empty constructor		
+		Student s1 = new Student(strSNum, dblT, sblA, dblI);
+
+		String strOutput; 
+
+		strOutput = "CASS Mark: " + s1.CalcCASS() + "\n" +
+			    s1.ExamEntry(); // s1.getSNum() s1.getT1()
+
+		System.out.println(strOutput); 
+	
+	}
+}
+===================================================================================================
+package usingclasses100; 
+
+public class Student{
+
+	//fields 
+	private String strNumber; //student number 
+	private double dblT1; 
+	private double dblA1; 
+	private double dblIce; 
+
+	//properties
+	// nothing here ... 
+
+	//constructors
+	// only one constructor and loaded with parameters 
+	// meaning that when an object is created - we need to pass parameters (cannot leave it empty)
+	public Student(String sn, double t1, double a1, double ice){
+		strNumber = sn; 
+		dblT1 = t1; 
+		dblA1 = a1; 
+		dblIce = ice; 
+	}
+
+	//methods	
+	public double CalcCASS(){		
+		double dblMark; 
+		dblMark = (dblIce * 0.1) + (dblT1 * 0.3) + (dblA1 * 0.25);
+		return dblMark; 
+	}
+
+	public String ExamEntry(){
+		
+		String strAnswer = ""; 
+		if (CalcCASS() >= 40)
+			strAnswer = "You have exam entry";
+		else 
+			strAnswer = "No exam entry";
+
+		return strAnswer;
+		//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+		/*
+		if (CalcCASS() >= 40)
+			return "You have exam entry";
+		else 
+			return "No exam entry";
+		*/
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,150 @@
+/*
+ * Program: exam 2016 question 5
+ * Date: 29/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package exam2016question5;
+
+import java.util.Scanner; 
+
+public class exam2016question4{
+
+	static Scanner sc = new Scanner(System.in);
+
+`	public static void main(String[] args){
+	
+		mnuMain();
+	
+	}
+
+	public static void mnuMain(){
+		int intMenuChoice; 
+		String strDispMain; 
+		String strFormat = "%5s - %15s \n %5s - %15s \n %5s - %15s \n %5s - %15s \n %5s - %15s"; 
+
+		strDispMain = String.format(strFormat,"1", "Balances", "2", "Buy Data", "3", "Buy Airtime", "4", "Buy SMS", "5", "Quit");
+
+		String strBeginCode;
+		System.out.print("Enter USSD code: ");
+		strBeginCode = sc.nextLine();
+
+		if (strBeginCode.equals("*800#")){
+			System.out.println(strDispMain);
+			System.out.print("Enter Menu Choice: "); 
+			intMenuChoice = sc.nextInt();
+		
+			switch (intMenuChoice){
+				case 1: mnuBalance();
+					break;
+				case 2: mnuBuyData();
+					break;
+				case 3: mnuBuyAirtime();
+					break;
+				case 4: mnuBuySMS();
+					break;
+				case 5: mnuExit();
+					break;	
+			}
+		}
+		else{
+			System.out.println("ERROR - USSD code incorrect");
+		}
+	}
+	
+	public static void mnuExit(){
+		System.out.println("Thank you and Goodbye");
+	}
+
+	public static void mnuBuySMS(){
+		int intMenuChoice; 
+		String strDispSMS; 
+		String strFormat = "%5s - %15s \n %5s - %15s \n %5s - %15s \n"; 
+
+		strDispSMS = String.format(strFormat,"1", "50 SMS Bundle", "2", "100 SMS Bundle", "3", "Quit");
+
+		System.out.println(strDispSMS);
+		System.out.print("Enter Menu Choice: "); 
+		intMenuChoice = sc.nextInt();
+		
+		switch (intMenuChoice){
+			case 1: System.out.println("You have purchased the 50 SMS Bundle");
+				break;
+			case 2: System.out.println("You have purchased the 100 SMS Bundle");
+				break;
+		}
+	}
+
+	public static void mnuBuyAirtime(){
+		int intMenuChoice; 
+		String strDispAirtime; 
+		String strFormat = "%5s - %15s \n %5s - %15s \n %5s - %15s \n"; 
+
+		strDispAirtime = String.format(strFormat,"1", "R 20.00", "2", "R 40.00", "3", "Quit");
+
+		System.out.println(strDispAirtime);
+		System.out.print("Enter Menu Choice: "); 
+		intMenuChoice = sc.nextInt();
+		
+		switch (intMenuChoice){
+			case 1: System.out.println("You have purchased Airtime for R20.00");
+				break;
+			case 2: System.out.println("You have purchased Airtime for R40.00");
+				break;
+		}
+	}
+
+	public static void mnuBuyData(){
+		int intMenuChoice; 
+		String strDispData; 
+		String strFormat = "%5s - %15s \n %5s - %15s \n %5s - %15s \n"; 
+
+		strDispData = String.format(strFormat,"1", "500 MB", "2", "1 GB", "3", "Quit");
+
+		System.out.println(strDispData);
+		System.out.print("Enter Menu Choice: "); 
+		intMenuChoice = sc.nextInt();
+		
+		switch (intMenuChoice){
+			case 1: System.out.println("You have purchased a Data bundle for 500MB");
+				break;
+			case 2: System.out.println("You have purchased a Data bundle for 1GB");
+				break;
+		}
+	}
+
+	public static void mnuBalance(){
+		int intMenuChoice; 
+		String strDispBalance; 
+		String strFormat = "%5s - %15s \n %5s - %15s \n %5s - %15s \n"; 
+
+		strDispBalance = String.format(strFormat,"1", "Talk Balance", "2", "Data Balance", "3", "Quit");
+
+		System.out.println(strDispBalace);
+		System.out.print("Enter Menu Choice: "); 
+		intMenuChoice = sc.nextInt();
+		
+		switch (intMenuChoice){
+			case 1: System.out.println("You have requested a balance for Talk");
+				break;
+			case 2: System.out.println("You have requested a balance for Data");
+				break;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

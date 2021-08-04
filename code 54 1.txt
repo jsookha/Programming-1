@@ -1,0 +1,164 @@
+/*
+ * Program: exam 2018 question 4
+ * Date: 27/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package exam2018question4;
+
+import java.util.Scanner; 
+
+public class exam2018question4{
+
+	static Scanner sc = new Scanner(System.in);
+	static String strEmpName; 
+	static double dblSales; 
+
+	static double dblTotalSales; 
+	static double dblAvgSales; 
+	static int intCount; 
+
+`	public static void main(String[] args){
+
+		ReadEmpData();
+		CalcTotalSales();
+		PrintEmpInformation();
+	}
+
+	public static void ReadEmpData(){
+		System.out.print("Please enter the employee name: ");
+		strEmpName = sc.nextLine();
+	}
+	
+	public static void CalcTotalSales(){
+		dblTotalSales = 0.0; 
+		intCount = 1;
+
+		dblSales = ReadSalesAmount();
+
+		while (dblSales != 0){
+			dblTotalSales = dblTotalSales + dblSales; 
+			intCount = intCount + 1; 
+			dblSales = ReadSalesAmount(); 		
+		}
+	}
+		
+	public static double ReadSalesAmount(){
+		double dblAmount; 
+
+		System.out.print("Enter sale " + intCount + " amount: ");
+		dblAmount = sc.nextDouble();
+		do{
+			if (dblAmount < 0){
+				System.out.println("You have entered an invalid sales amount");
+				System.out.print("Please enter the sale amount again: ");
+				dblAmount = sc.nextDouble();
+			} 
+		}while(dblAmount < 0);		
+		
+		return dblAmount; 
+	}
+	
+	public static void PrintEmpInformation(){
+		dblAvgSales = dblTotalSales / (intCount - 1); 
+
+		System.out.println("---------------------");
+		System.out.println("EMPLOYEE SALES REPORT");
+		System.out.println("---------------------");
+
+		System.out.println(String.format("%-20s : %20s", "EMPLOYEE NAME", strEmpName));
+		System.out.println(String.format("%-20s : %20s", "Total Sales", dblTotalSales));
+		System.out.println("---------------------------------");
+		System.out.println(String.format("%-20s : %20s", "Sales Count", (intCount - 1)));
+		System.out.println(String.format("%-20s : %20s", "Average Sales", dblAvgSales));
+	}
+
+}
+
+/* // Original version 
+package exam2018question4;
+
+import java.util.Scanner; 
+
+public class exam2018question4{
+
+	static Scanner sc = new Scanner(System.in);
+	static String strEmpName; 
+	static double dblSales; 
+
+	static double dblTotalSales; 
+	static double dblAvgSales; 
+	static int intCount; 
+
+`	public static void main(String[] args){
+
+		ReadEmpData();
+		CalcTotalSales();
+		PrintEmpInformation();
+	}
+
+	public static void ReadEmpData(){
+		System.out.print("Please enter the employee name: ");
+		strEmpName = sc.nextLine();
+	}
+	
+	public static void CalcTotalSales(){
+		dblTotalSales = 0.0; 
+		intCount = 1;
+
+		System.out.print("Enter sale " + intCount + " amount: ");
+		dblSales = sc.nextDouble();
+		
+		do{
+			if (dblSales < 0){
+				System.out.println("You have entered an invalid sales amount");
+				System.out.print("Please enter the sale amount again: ");
+				dblSales = sc.nextDouble();
+			} 
+		}while(dblSales < 0);
+		
+		while (dblSales != 0){
+			dblTotalSales = dblTotalSales + dblSales; 
+			intCount = intCount + 1; 
+			System.out.print("Enter sale " + intCount + " amount: ");
+			dblSales = sc.nextDouble();
+			do{
+				if (dblSales < 0){
+					System.out.println("You have entered an invalid sales amount");
+					System.out.print("Please enter the sale amount again: ");
+					dblSales = sc.nextDouble();
+				} 
+			}while(dblSales < 0);
+		}
+	}
+	
+	public static void PrintEmpInformation(){
+		dblAvgSales = dblTotalSales / (intCount - 1); 
+
+		System.out.println("---------------------");
+		System.out.println("EMPLOYEE SALES REPORT");
+		System.out.println("---------------------");
+
+		System.out.println(String.format("%-20s : %20s", "EMPLOYEE NAME", strEmpName));
+		System.out.println(String.format("%-20s : %20s", "Total Sales", dblTotalSales));
+		System.out.println("---------------------------------");
+		System.out.println(String.format("%-20s : %20s", "Sales Count", (intCount - 1)));
+		System.out.println(String.format("%-20s : %20s", "Average Sales", dblAvgSales));
+	}
+
+}
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+

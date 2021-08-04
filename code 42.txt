@@ -1,0 +1,108 @@
+/*
+ * Program: Using Classes Again -- copy of code 39
+ * Date: 10/4/2019
+ * Programmer: J.Sookha
+ * Description: Students asked in class to go over classes - so used the idea to calculate
+ *		your CASS mark to see if you are getting exam entry - however - we made 
+ * 		some weightings along the way 
+*/
+package causingclassesfortestprep; 
+
+public class causingclassesfortestprep{
+
+	public static void main(String[] args){
+		
+		String strSNumber = "20190000"; 
+		String strName = "Jack"; 
+
+		double dblTest1 = 65.0; 
+		double dblAssignment = 80.0; 
+		double dblIce = 75.0;
+
+		Student s1 = new Student(strSNumber, strName, dblTest1, dblAssignment, dblIce);
+
+		String strOutput; 
+
+		strOutput = "Student Number: " + s1.getStudentNumber() + "\n" + 
+			    "Name: " + s1.getName() + "\n" + 
+			    "CASS Mark: " + s1.CalcCASS() + "% \n" + 
+			    s1.decideExamEntry(); 
+
+		System.out.println(strOutput);
+
+		
+	}
+}
+
+================================================================
+package causingclassesfortestprep; 
+
+public class Student{
+	// fields 
+	private String strStudentNumber; 
+	private String strName; 
+	private double dblTest1; 
+	private double dblAssign1; 
+	private double dblIce; 
+		
+	// properties 
+	public String getStudentNumber(){
+		return strStudentNumber;
+	}
+	
+	public String getName(){
+		return strName; 
+	}
+	
+	// constructors 
+	
+	public Student(String snum, String name, double t1, double a1, double ice1){
+		strStudentNumber = snum; 
+		strName = name; 
+		dblTest1 = t1; 
+		dblAssign1 = a1; 
+		dblIce = ice1;  
+	}
+	
+	// methods 
+
+	public double CalcCASS(){
+		double dblCASS; 
+
+		dblCASS = (dblTest1 * 0.3) + (dblAssign1 * 0.2) + (dblIce * 0.1) + (exam * 0.4); 
+		return dblCASS; 
+	}
+
+	public String decideExamEntry(){
+		
+		if (CalcCASS() < 40)
+			return "No Exam Entry; 
+		else 
+			return "Exam Entry"; 
+		/*
+		String strAnswer = ""; 
+		if (CalcCASS < 40)
+			strAnswer = "No Exam Entry";
+		else 
+			strAnswer = "Exam Entry";
+		
+		return strAnswer; 
+		*/
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

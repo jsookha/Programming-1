@@ -1,0 +1,150 @@
+/*
+ * Program: Sequential Search of a 1D array
+ * Date: 11/4/2019
+ * Programmer: J.Sookha
+ * Description: Sequential (or Linear) searching of a 1 dimensional array 
+ *		take note of the different way in which we choose implement this search 
+ *		depending on the data we are searching 
+ *		The key point is that the sequential search goes through every element of the array 
+ *		in looking for the value - there are thoughts on how we could make the code efficient
+ *		and that is partly shown below
+*/
+
+package searchingarrays1; 
+
+import java.util.Scanner; 
+
+public class searchingarrays1{
+	
+	static int[] intNumArr = new int[10]; 
+	static int intCount; 
+	static int intSearch; 	
+	static boolean blnFlag; 
+	static int intFoundIndex; 
+	
+	public static void main(String[] args){
+		loadArray();
+		searchArray();				
+	}
+
+	public static void loadArray(){
+		// loading the array with numbers from 1 to 10 into cells 0 to 9 		
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumArr[intCount] = intCount + 1; 
+		}
+	}
+
+	public static void searchArray(){
+	// Version 4 - 	a little better now 
+	// 		we created a variable called intFoundIndex - and when the searched value has been found
+	//		we save the index (position/location) in this new variable
+	// 		The reason is simple - once a search is done - what do we really want to display 
+	//		not just that we found something - but in the future to give related information 
+	//		using that index ... 
+		Scanner sc = new Scanner(System.in);
+		blnFlag = false; 
+		
+		System.out.print("Please enter the value you are looking for: ");
+		intSearch = sc.nextInt();
+
+		for (intCount = 0; intCount <= 9; intCount++){
+			if (intSearch == intNumArr[intCount]){
+				intFoundIndex = intCount; 			
+				blnFlag = true; 
+				// break; // know this is a way - but do not prefer this line 
+				// much prefer the line below 
+				intCount = 10; 	
+			}
+		}
+		
+		if (blnFlag == false){
+			System.out.println("Number has not been found in the array");
+		}
+		else{
+			System.out.println("Number has been found at position " + intFoundIndex);
+		}		
+	}
+}
+
+//============================================================================================================
+/*
+// Version 1 - 	searching the array but not displaying anything if we do not find the value 
+		
+public static void searchArray(){
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Please enter the value you are looking for: ");
+		intSearch = sc.nextInt();
+
+		
+		for (intCount = 0; intCount <= 9; intCount++){
+			if (intSearch == intNumArr[intCount]){
+				System.out.println("Number has been found at position " + intCount);	
+			}
+		}		
+	}
+*/
+//============================================================================================================
+/*
+// Version 2 -	searching the array and attempting to display that we did not find anything when the number
+//		being searched does not exist - this version does not executes in an efficient way
+
+public static void searchArray(){
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Please enter the value you are looking for: ");
+		intSearch = sc.nextInt();
+
+		for (intCount = 0; intCount <= 9; intCount++){
+			if (intSearch == intNumArr[intCount]){
+				System.out.println("Number has been found at position " + intCount);	
+			}
+			else {
+				// this will display each time the if..then condition is false 
+				// so not what we are looking for 
+				System.out.println("Number has not been found");	
+			}
+		}		
+	}
+*/
+//============================================================================================================
+/*
+// Version 3 -	this version works nicely and makes use of a flag to guide us in knowing if a number searched
+//		has been found or not - 
+	public static void searchArray(){
+		Scanner sc = new Scanner(System.in);
+		blnFlag = false; 
+		
+		System.out.print("Please enter the value you are looking for: ");
+		intSearch = sc.nextInt();
+
+		for (intCount = 0; intCount <= 9; intCount++){
+			if (intSearch == intNumArr[intCount]){
+				System.out.println("Number has been found at position " + intCount);
+				blnFlag = true; 	
+			}
+		}
+		
+		if (blnFlag == false){
+			System.out.println("Number has not been found in the array");
+		}		
+	}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

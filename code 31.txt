@@ -1,0 +1,232 @@
+/*
+ * Program: Using a Class 
+ * Date: 27/3/2019
+ * Programmer: J.Sookha
+ * Description: Using one of the old questions about paying an employee 
+ *		but this time, we employ a class called Employee to handle some of the programming 
+*/
+
+package usingclasses2; 
+
+import javax.swing.JOptionPane; 
+
+public class usingclasses2{
+
+	public static void main(String[] args){
+		
+		clsEmployee emp1;		
+		String strName, strType, strPosition; 
+		int intHours; 
+		double dblRate; 
+		String strHours, strRate; 
+
+		strName = JOptionPane.showInputDialod(null, Please enter your name");
+		strPosition = JOptionPane.showInputDialod(null, Please enter your position in the company");				
+		strType = JOptionPane.showInputDialod(null, Please enter <salary> or <wages> for the type of employee");
+		
+		if (strType.equals("salary")){
+			emp1 = new clsEmployee(strName, strType);
+			String strOutput; 
+			strOutput = "Name: " + emp1.getName() + "\n" + 
+			    "Position: " + emp1.getPosition() + "\n" + 
+			    "Type: " + emp1.getType() + "\n" +
+			    "Pay: " + emp1.getPay();
+
+			JOptionPane.showMessageDialog(null, strOutput);		
+		}
+		else{
+			strHours = JOptionPane.showInputDialog(null, Please enter the hours worked for the week");
+			intHours = Integer.parseInt(strHours);
+
+			strRate = JOptionPane.showInputDialog(null, Please enter the rate of pay per hour");
+			dblRate = Double.parseDouble(strRate);
+
+			clsEmployee emp1 = new clsEmployee(strName, strType, intHours, dblRate);
+
+			String strOutput; 
+			strOutput = "Name: " + emp1.getName() + "\n" + 
+				    "Position: " + emp1.getPosition() + "\n" + 
+			    	    "Type: " + emp1.getType() + "\n" +
+			    	    "Pay: " + emp1.getPay();
+
+			JOptionPane.showMessageDialog(null, strOutput);		
+
+		}
+
+		//emp1.CalcPay();
+		//Print "The pay is " + emp1.getPay()
+
+		//pay = emp1.ReturnPay()
+		//Print "The pay is " + emp1.ReturnPay()			
+		
+		JOptionPane.showMessageDialog(null, "The pay is " + emp1.getPay());
+		
+		String strOutput; 
+		strOutput = "Name: " + emp1.getName() + "\n" + 
+			    "Position: " + emp1.getPosition() + "\n" + 
+			    "Type: " + emp1.getType() + "\n" +
+			    "Pay: " + emp1.getPay();
+
+		JOptionPane.showMessageDialog(null, strOutput);		
+	}
+}
+
+===================================================================================================================================
+
+package usingclasses1; 
+
+
+public class clsEmployee{
+	// private fields
+	
+	private String strName;		// get set 
+	private String strPosition; 	// get set
+	private String strType; 	// get set (wages or salary) 
+	private int intHours; 		// get set 
+	private double dblRate; 	// get set 
+	private double dblPay; 		// get 
+	
+	private int intOvertimeHours; 
+
+	// public properties 
+	public void setName(String Name){
+		strName = Name; 
+	}		
+	public String getName(){
+		return strName; 
+	}
+
+	public void setPosition(String Position){
+		strPosition = Position; 
+	}		
+	public String getPosition(){
+		return strPosition; 
+	}
+
+	public void setType(String Type){
+		strType = Type; 
+	}		
+	public String getType(){
+		return strType; 
+	}
+
+	public void setHours(int Hours){
+		intHours = Hours; 
+	}		
+	public int getHours(){
+		return intHours; 
+	}
+
+	public void setRate(double Rate){
+		dblRate = Rate; 
+	}		
+	public double getRate(){
+		return dblRate; 
+	}
+		
+	public double getPay(){
+		return dblPay; 
+	}
+	// public constructors 
+
+
+	public clsEmployee(){
+
+	}
+	
+	public clsEmployee(String nme, String typ){
+		// salary employee
+		strName = nme;
+		strType = typ; 	
+		SalaryPay();			
+	}
+
+	public clsEmployee(String nme, String typ, int hrs, double rte){
+		// wages employee
+		strName = nme; 
+		strType = typ; 
+		intHours = hrs; 
+		dblRate = rte; 	
+		WagesPay();
+	}
+
+	// methods  
+
+	public void CalcPay(){
+		// if (strType == "salary")
+		if (strType.Equals("salary")){
+			dblPay = 20000; 
+		}
+		else{
+			// wages calculation 
+			if (intHours <= 40){
+				dblPay = intHours * dblRate; // normal pay 
+			}
+			else{
+				intOvertimeHours = intHours - 40; // overtime pay  
+				dblPay = (intOvertimeHours * 1.5 * dblRate) + (40 * dblRate);
+			}
+		}
+	}
+
+	public double ReturnPay(){
+		dblPay = 0.0; 
+		if (strType.Equals("salary")){
+			dblPay = 20000;
+			//return dblPay;  
+		}
+		else{
+			// wages calculation 
+			if (intHours <= 40){
+				dblPay = intHours * dblRate; // normal pay
+				//return dblPay;  
+			}
+			else{
+				intOvertimeHours = intHours - 40; // overtime pay  
+				dblPay = (intOvertimeHours * 1.5 * dblRate) + (40 * dblRate);
+				//return dblPay; 
+			}
+		}
+		
+		return dblPay; 
+	}
+
+	private void SalaryPay(){
+		dblPay = 20000; 
+	}	
+
+	private void WagesPay(){
+		if (intHours <= 40){
+			dblPay = intHours * dblRate; // normal pay
+			}
+		else{
+			intOvertimeHours = intHours - 40; // overtime pay  
+			dblPay = (intOvertimeHours * 1.5 * dblRate) + (40 * dblRate);
+		}		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,130 @@
+/*
+ * Program: Using a Class 
+ * Date: 26/3/2019
+ * Programmer: J.Sookha
+ * Description: Using classes to create a structure for an entity that will allow 
+ *		us to manage the amount of information for one "thing"/object a little better 
+ * 		*** this was the same example - but with another group  
+*/
+
+package usingclasses1; 
+
+
+public class usingclasses1{
+
+	public static void main(String[] args){
+
+		clsStudent Student1 = new clsStudent(); // Student1 is the object 
+		// we created an instance of the clsStudent Class 
+
+		// ask the user for the values - number name course and email 
+
+		// Student1.strStudentNumber = "12345678"; 
+		// ^ cannot speak directly to a private variable (field)
+		
+		Student1.setStudentNumber("12345678");
+		Student1.setName("John Hammond");
+		Student1.setCourse("BCAD");
+		Student1.setEmail("john@hammond.com");
+
+		Student1.setCourse("BAC");
+
+		clsStudent Student2 = new clsStudent("87878787", "Jennifer Grey", "BCAD", "jen@grey.com");
+
+		/*
+		clsStudent Student3; 
+		
+		String strNumber; 
+		System.out.print("Enter Student Number: ");
+		strNumber = sc.next();
+
+		Student3 = new clsStudent(strNumber, Name, Course, Email);
+		*/ 
+
+		System.out.println("Student 1's name is : " + Student1.getName()); 
+
+		//System.out.println(Student1.PrintStudentInfo());		
+	
+		Student1.PrintStudentInfo();
+		Student2.PrintStudentInfo();
+	}
+}
+
+=================================================================
+
+package usingclasses1;
+	
+	public class clsStudent{
+		
+		//private fields  
+		private String strStudentNumber; 
+		private String strName; 
+		private String strCourse; 
+		private String strEmail; 	
+
+		//public properties (doesn't exist - instance methods (mutator / accessor))
+
+		public void setStudentNumber(String StudentNumber){
+			strStudentNumber = StudentNumber; // field = parameter 
+		}
+		public String getStudentNumber(){
+			return strStudentNumber; // returning the private field value
+		}
+		
+		public void setName(String Name){
+			strName = Name; // field = parameter 
+		}
+		public String getName(){
+			return strName; 
+		}
+
+		public void setStudentNumber(String Course){
+			strCourse = Course; // field = parameter 
+		}
+		public String getCourse(){
+			return strCourse; 
+		}
+
+		public void setEmail(String Email){
+			strEmail = Email; // field = parameter 
+		}
+		public String getEmail(){
+			return strEmail; 
+		}
+
+		//public constructors
+
+		public clsStudent(){
+			// empty or default constructor - no parameters 
+		}
+
+		public clsStudent(String num, String nm, String crs, String em){
+			strStudentNumber = num; 
+			strName = nm; 
+			strCourse = crs; 
+			strEmail = em; 
+		}
+
+		// ^ just overloaded the constructor 
+
+		// public methods (or private)		
+
+		public void PrintStudentInfo(){
+			System.out.println("Student Number: " + strStudentNumber + "\n" + 
+					   "Name: " + strName + "\n" + 
+				   	   "Course: " + strCourse + "\n" + 
+					   "Email: " + strEmail); 
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+/*
+ * Program: exam 2018 question 5
+ * Date: 22/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package exam2018question5;
+
+import javax.swing.JOptionPane; 
+
+public class exam2018question5{
+	
+	static int[] intDID = new int[3];
+	static String[] strDName = new String[3]; 
+	static double[] dblDPrice = new double[3]; 
+
+	static int intCount; 
+
+
+	public static void main(String[] args){
+		int intChoice; 
+		
+		do {
+			intChoice = Integer.parseInt(JOptionPane.showInputDialog(null,"1 - Load Arrays \n 2 - Search \n 3 - Display \n 0 - Exit"));			
+			switch intChoice{
+				case 1: loadArrays();
+				case 2: searchArray();
+				case 3: DisplayALL();
+				case 0: // do you want to continue? (must still do this part)
+			}
+			
+		}while (intChoice != 0);
+
+	}
+
+	public static void loadArrays(){
+				
+		for (intCount = 0; intCount <= 2; intCount++){
+			intDID[intCount] = Integer.parseInt(JOptionPane.showInputDialog(null,"Please enter the Device ID"));
+			strDName[intCount] = JOptionPane.showInputDialog(null,"Please enter the name for Device " + intDID[intCount]);
+			dblDPrice[intCount] = Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter the price for Device " + intDID[intCount]));
+		}
+	}
+
+	public static void searchArray(){
+		int intFlag; 
+		int intFoundIndex; 
+		
+		int intSearchID; 
+		String strAnswer;
+		strAnswer = "";  
+		intFlag = 0; 
+		intFoundIndex = -1; 
+
+		intSearchID = Integer.parseInt(JOptionPane.showInputDialog(null,"Please enter the device ID you are looking for?");			
+
+		for (intCount = 0; intCount <= 2; intCount++){
+			if (intSearch == intDID[intCount]){
+				intFlag = 1; 
+				intFoundIndex = intCount; 
+				intCount = 99;
+			}
+		}
+		
+		if (intFlag == 0){
+			JOptionPane.showMessageDialog(null,"Sorry - the device doesn't exist");
+		}
+		else{
+			strAnswer = String.format("%-15s %-15s \n %-15s %-15s \n %-15s %-15s","PRODUCT ID:", intDID[intFoundIndex],"PRODUCT:", strDName[intFoundindex],"PRICE:, dblDPrice[intFoundIndex]);						
+			JOptionPane.showMessageDialog(null,strAnswer);
+		} 
+
+	}
+
+	public static void DisplayALL(){
+		String strAnswer; 
+		
+		strAnswer = String.format("%15s %15s %15s","Device ID", "Name", "Price");
+		strAnswer = strAnswer + "\n -----------------------------------------------\n";
+	
+		for (intCount = 0; intCount <= 2; intCount++){
+			strAnswer = strAnswer + String.format("%15s %15s %15s \n",intDID[intCount], strDName[intCount], dblDPrice[intCount]);	
+		}
+
+		JOptionPane.showMessageDialog(null, strAnswer);	
+	}
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

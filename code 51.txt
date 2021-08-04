@@ -1,0 +1,81 @@
+/*
+ * Program: code 32 question 2
+ * Date: 20/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+	2. a. The student names and the grades for four tests for Mr. Smith’s class have been
+	placed in parallel arrays. Mr. Smith would like to have one student’s name and
+	test scores printed. Develop a solution that will enter the student’s name, search
+	for the name in the same array, and then print the name and test scores. Use the
+	sequential-search method.
+
+	b. Modify the solution in problem 2a to use a binary search instead of a sequential
+	search.
+*/
+package code32question2; 
+
+import javax.swing.JOptionPane; 
+
+public class code32question2{
+
+	static int intCount; 
+
+	public static void main(String[] args){
+		String[] strStudent = new String[5]; 
+		int[] intT1 = new int[5];
+		int[] intT2 = new int[5];
+		int[] intT3 = new int[5];
+		int[] intT4 = new int[5];
+		
+		for (intCount = 0; intCount <= 4; intCount++){
+			strStudent[intCount] = JOptionPane.showInputDialog(null, "Enter Name " + (intCount + 1));
+			intT1[intCount] = Integer.parseInt(JOptionPane.showInputDialog(null, strStudent[intCount] + "'s Test 1 mark"));
+			intT2[intCount] = Integer.parseInt(JOptionPane.showInputDialog(null, strStudent[intCount] + "'s Test 2 mark"));
+			intT3[intCount] = Integer.parseInt(JOptionPane.showInputDialog(null, strStudent[intCount] + "'s Test 3 mark"));
+			intT4[intCount] = Integer.parseInt(JOptionPane.showInputDialog(null, strStudent[intCount] + "'s Test 4 mark"));
+		}
+
+		int intFound = SeqSearch(strStudent);
+		
+		if (intFound < 0)
+			JOptionPane.showMessageDialog(null, "This name does not exist in this class");
+		else 
+			DisplayMarks(intFound, strStudent, intT1, intT2, intT3, intT4);
+		
+						
+	}
+
+	public static void DisplayMarks(int intCount2, String[] stud, int[] T1, int[] T2, int[] T3, int[] T4){
+		String strDisplay; 
+
+		strDisplay = String.format("%-20s : %-20s \n %-20s : %-20s \n %-20s : %-20s \n %-20s : %-20s \n %-20s : %-20s", "Name", stud[intCount2], "Test 1", T1[intCount2], "Test 2", T2[intCount2],"Test 3", T3[intCount2],"Test 4", T4[intCount2]); 
+		JOptionPane.showMessageDialog(null,strDisplay);
+	}
+
+	public static int SeqSearch(String[] theseStudents){
+		String strSearch; 
+		int intFoundIndex; 
+		
+		intFoundIndex = -1; 
+		strSearch = JOptionPane.showInputDialog("Please enter the name you are looking for");
+
+		for (intCount = 0; intCount <= 4; intCount++){
+			if (strSearch.equals(theseStudents[intCount])
+				intFoundIndex = intCount; 			
+		}
+		
+		return intFoundIndex; 
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

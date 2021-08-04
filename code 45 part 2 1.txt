@@ -1,0 +1,322 @@
+﻿/*
+ * Program: Using parallel arrays - with the Premier League Table 
+ * Date: 30/4/2019
+ * Programmer: J.Sookha
+ * Description:  
+*/
+
+package usingparallelarrays;
+ 
+import java.util.Scanner; 
+
+public class usingparallelarrays{
+
+	static String[] strTeams = new String[20]; 
+	static int[] intPlayed = new int[20];
+	static int[] intWon = new int[20];
+	static int[] intLost = new int[20];
+	static int[] intDraw = new int[20];
+	static int[] intGF = new int[20];
+	static int[] intGA = new int[20];
+	static int[] intGD = new int[20];
+	static int[] intPoints = new int[20];
+
+	static int intCount; 
+	static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args){
+		loadArrays();
+		CalculatePoints();
+		CalculateGoalDifference();
+		SearchOneTeamSeq();
+		SearchOneTeamBin();
+		HighLowPoints();
+	}
+	
+	public static void HighLowPoints(){
+		int intHigh, intHIndex; 
+		int intLow, intLIndex; 
+
+		intHigh = -1; 
+		intLow = 999; 
+
+		intHIndex = -1; 
+		intLIndex = -1; 
+
+		for (intCount = 0; intCount <= 19; intCount++){
+			if (intPoints[intCount] > intHigh){
+				intHigh = intPoints[intCount]; 
+				intHIndex = intCount; 
+			} 
+
+			if (intPoints[intCount] < intLow){
+				intLow = intPoints[intCount]; 
+				intLIndex = intCount; 
+			}
+		}
+
+		System.out.println(String.format("%-30s %7s","Teams", "Points"));			
+		System.out.println(String.format("%-30s %7s %7s",strTeams[HIndex],intPoints[intHIndex], "Highest Points"));
+		System.out.println(String.format("%-30s %7s %7s",strTeams[LIndex],intPoints[intLIndex], "Lowest Points"));
+	}
+			
+	public static void SearchOneTeamBin(){
+		String strSearch; 
+		int intFlag, intLB, intUB; 
+
+		int intMiddle; 
+
+		intFlag = 0; 
+		intLB = 0; 
+		intUB = 19; 
+
+		intMiddle = -1; 
+
+		System.out.println("Binary Search of Teams");
+		System.out.println("======================");
+
+		System.out.print("Please enter the team name: ");
+		strSearch = sc.nextLine();
+
+		while (intFlag == 0){
+			intMiddle = (intLB + intUB) / 2; 
+
+			if (strSearch.equals(strTeams[intMiddle])){
+				intFlag = 1; 
+			}
+			else {
+				if ((strSearch.compareTo(strTeams[intMiddle])) > 0){ // if (strSearch > strTeams[intMiddle])	
+					intLB = intMiddle + 1; 
+				}
+				else {
+					intUB = intMiddle - 1; 
+				}
+			
+				if (intLB > intUB){
+					intFlag = 2; 
+				}
+			}			
+		}
+
+		if (intFlag == 2){
+			System.out.println("The team does not exist in the table");
+		}		
+		else {
+			System.out.println(String.format("%-30s %7s %7s","Teams","Played", "Points"));			
+			System.out.println(String.format("%-30s %7s %7s",strTeams[intMiddle],intPlayed[intMiddle], intPoints[intMiddle]));
+		}
+	}
+
+	public static void SearchOneTeamSeq(){
+		int intFlag, intFoundIndex; 
+		String strSearch; 
+		intFlag = 0; 
+		intFoundIndex = -1;		
+		
+		System.out.println("Sequential Search of Teams");
+		System.out.println("==========================");
+
+		System.out.print("Please enter the team name: ");
+		strSearch = sc.nextLine();
+
+		for (intCount = 0; intCount <= 19; intCount++){
+			if (strSearch.equals(strTeams[intCount]){
+				intFlag = 1; 
+				intFoundIndex = intCount; 
+				intCount = 21; 
+			}
+		}		
+
+		if (intFlag == 0){
+			System.out.println("The team does not exist in the table");
+		}		
+		else {
+			System.out.println(String.format("%-30s %7s %7s","Teams","Played", "Points"));			
+			System.out.println(String.format("%-30s %7s %7s",strTeams[intFoundIndex],intPlayed[intFoundIndex], intPoints[intFoundIndex]));
+		
+	}
+
+	public static void CalculateGoalDifference(){
+		for (intCount = 0; intCount <= 19; intCount++){
+			intGD[intCount] = intGF[intCount] - intGA[intCount];
+		}
+
+		System.out.println(String.format("%-30s %15s %15s %15s","Teams","Goals For", "Goals Against", "Goal Difference"));
+ 
+
+		for (intCount = 0; intCount <= 19; intCount++){
+			System.out.println(String.format("%-30s %15s %15s %15s",strTeams[intCount],intGF[intCount], intGA[intCount], intGD[intCount]));
+		}	
+		 	
+	}
+
+	public static void CalculatePoints(){
+		
+		for (intCount = 0; intCount <= 19; intCount++){
+			intPoints[intCount] = (intWon[intCount] * 3) + (intDraw[intCount] * 1);
+		}
+
+		System.out.println(String.format("%-30s %7s %7s %7s %7s %7s","Teams","Played","Won","Draw","Lost","Points"));
+
+		String strAns; 
+		strAns = ""; 
+
+		for (intCount = 0; intCount <= 19; intCount++){
+					
+			strAns = String.format("%-30s %7s %7s %7s %7s %7s",strTeams[intCount],intPlayed[intCount],intWon[intCount],intDraw[intCount],intLost[intCount],intPoints[intCount]);
+			
+			System.out.println(strAns);	
+		}
+		
+	}
+
+	public static void loadArrays(){
+		strTeams[0] = "Manchester City" ;
+		strTeams[1] = "Liverpool" ;
+		strTeams[2] = "Tottenham Hotspur" ;
+		strTeams[3] = "Chelsea" ;
+		strTeams[4] = "Arsenal" ;
+		strTeams[5] = "Manchester United" ;
+		strTeams[6] = "Wolverhampton Wanderers" ;
+		strTeams[7] = "Leicester City" ;
+		strTeams[8] = "Everton" ;
+		strTeams[9] = "Watford" ;
+		strTeams[10] = "West Ham United" ;
+		strTeams[11] = "Crystal Palace" ;
+		strTeams[12] = "Newcastle United" ;
+		strTeams[13] = "Bournemouth" ;
+		strTeams[14] = "Burnley" ;
+		strTeams[15] = "Southampton" ;
+		strTeams[16] = "Brighton & Hove Albion" ;
+		strTeams[17] = "Cardiff City" ;
+		strTeams[18] = "Fulham" ;
+		strTeams[19] = "Huddersfield Town" ;
+	
+		intPlayed[0] = 36;
+		intPlayed[1] = 36;
+		intPlayed[2] = 36;
+		intPlayed[3] = 36;
+		intPlayed[4] = 36;
+		intPlayed[5] = 36;
+		intPlayed[6] = 36;
+		intPlayed[7] = 36;
+		intPlayed[8] = 36;
+		intPlayed[9] = 36;
+		intPlayed[10] = 36;
+		intPlayed[11] = 36;
+		intPlayed[12] = 36;
+		intPlayed[13] = 36;
+		intPlayed[14] = 36;
+		intPlayed[15] = 36;
+		intPlayed[16] = 36;
+		intPlayed[17] = 36;
+		intPlayed[18] = 36;
+		intPlayed[19] = 36;
+	
+		intWon[0] = 30;
+		intWon[1] = 28;
+		intWon[2] = 23;
+		intWon[3] = 20;
+		intWon[4] = 20;
+		intWon[5] = 19;
+		intWon[6] = 15;
+		intWon[7] = 15;
+		intWon[8] = 14;
+		intWon[9] = 14;
+		intWon[10] = 13;
+		intWon[11] = 12;
+		intWon[12] = 11;
+		intWon[13] = 12;
+		intWon[14] = 11;
+		intWon[15] = 9;
+		intWon[16] = 9;
+		intWon[17] = 9;
+		intWon[18] = 7;		
+		intWon[19] = 3;
+	
+		intDraw[0] = 2;
+		intDraw[1] = 7;
+		intDraw[2] = 1;
+		intDraw[3] = 8;
+		intDraw[4] = 6;
+		intDraw[5] = 8;
+		intDraw[6] = 9;
+		intDraw[7] = 6;
+		intDraw[8] = 8;
+		intDraw[9] = 8;
+		intDraw[10] = 7;
+		intDraw[11] = 7;
+		intDraw[12] = 9;
+		intDraw[13] = 6;
+		intDraw[14] = 7;
+		intDraw[15] = 11;
+		intDraw[16] = 8;	
+		intDraw[17] = 4;
+		intDraw[18] = 5;
+		intDraw[19] = 5;
+
+		intLost [ 0] = 4;
+		intLost [ 1] = 1;
+		intLost [ 2] = 12;
+		intLost [ 3] = 8;
+		intLost [ 4] = 10;
+		intLost [ 5] = 9;
+		intLost [ 6] = 12;
+		intLost [ 7] = 15;
+		intLost [ 8] = 14;
+		intLost [ 9] = 14;
+		intLost [ 10] = 16;
+		intLost [ 11] = 17;
+		intLost [ 12] = 16;
+		intLost [ 13] = 18;
+		intLost [ 14] = 18;
+		intLost [ 15] = 16;
+		intLost [ 16] = 19;
+		intLost [ 17] = 23;
+		intLost [ 18] = 24;
+		intLost [ 19] = 28;
+
+		intGF [0] = 90;
+		intGF [1] = 84;
+		intGF [2] = 65;
+		intGF [3] = 60;
+		intGF [4] = 69;
+		intGF [5] = 64;
+		intGF [6] = 46;
+		intGF [7] = 51;
+		intGF [8] = 50;
+		intGF [9] = 51;
+		intGF [10] = 45;
+		intGF [11] = 43;
+		intGF [12] = 36;
+		intGF [13] = 52;
+		intGF [14] = 44;
+		intGF [15] = 44;
+		intGF [16] = 33;
+		intGF [17] = 30;
+		intGF [18] = 34;
+		intGF [19] = 20;
+		
+		intGA [ 0] = 22;
+		intGA [ 1] = 20;		
+		intGA [ 2] = 36;
+		intGA [ 3] = 39;
+		intGA [ 4] = 49;
+		intGA [ 5] = 51;
+		intGA [ 6] = 44;
+		intGA [ 7] = 47;
+		intGA [ 8] = 44;
+		intGA [ 9] = 52;
+		intGA [ 10] = 54;
+		intGA [ 11] = 48;
+		intGA [ 12] = 45;
+		intGA [ 13] = 65;
+		intGA [ 14] = 63;
+		intGA [ 15] = 61;
+		intGA [ 16] = 55;
+		intGA [ 17] = 66;
+		intGA [ 18] = 76;
+		intGA [ 19] = 74;
+	}
+}
+

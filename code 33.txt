@@ -1,0 +1,184 @@
+/*
+ * Program: Using 1 Dimensional Arrays 
+ * Date: 3/4/2019
+ * Programmer: J.Sookha
+ * Description: Using 1 dimensional arrays to store values and perform calculations/decisions  
+ *		on the values - take note that the work is now separated into different 
+ *		procedures - also take note of the variables and the declarations 
+*/
+package using1darrays1; 
+
+import java.util.Scanner; 
+
+public class using1darrays1{
+	
+	// declaring variables globally so it is accessible to all the methods (procedures and functions)
+	static Scanner sc = new Scanner(System.in); // as always - for reading the input from the screen
+
+	static int[] intNumArr = new int[10]; // index is from 0 to 9 
+	// the array is declared and initialized to be size 10 
+
+	static int intCount; 
+	// the counter to assist with handling the loop & to be used to refer to the cells/elements in the array 
+
+	static double dblSum, dblAvg; // variables to handle the accumulating and calculating the average 
+
+	static int intHigh, intLow; // variables to store the values when deciding on the highest & lowest values 
+	static int intHIndex, intLIndex; // variables to store the positoin of where the values are found  
+
+	//========================================================================================================
+	// let's say you already know the values to load into an array - we can then code the following line 
+	// static String[] strNames = {"Jack", "Jane", "Joe, "John", "Jennifer"};
+	// this line creates a one dimensional array - but no size is stated - however the values are loaded 
+	// at the point of declaration - the size is then set because of the number of items loaded 
+	// -- N.B. now I need to state something here - I don't mind this code and I do see the benefit 
+	//         in using this line - however in the past, I have seen tests and exams asking the student 
+	//	   to load the array using a loadArray() method - if you code this line inside the method 
+	//	   then the variable will be local to the method and the rest of the program will not be able 
+	//	   to reference the variable - declaring the variable up here and making it global and loading 
+	//	   the values will be fine - but then no marks will be awared because you did not follow 
+	//	   the instructions of creating the loadArray() method ... 
+	//========================================================================================================
+
+	public static void main(String[] args){
+		// calling the methods to do whatever work we want 
+		// makes this main method (procedure) look much neater 
+		
+		loadArray();  	// loading the content into the one dimensional array
+		printArray(); 	// printing the content from the array 
+		calcAvg();	// calculating the average of the numbers stored 
+		calcHighLow();	// deciding on the highest & lowest values in the array	
+	}
+
+	public static void loadArray(){
+
+		// the following lines will manually load each element of the array one at a time
+		intNumArr[0] = 1; // [0] this refers directly to the index in the array 
+		intNumArr[1] = 2; // [1] this number is always an integer 
+		intNumArr[2] = 3; // [intCount] allowed to use a variable instead of a constant value [2] 
+		intNumArr[3] = 4; // [intCount + 1] can play with mathematical expressions as well - BUT 
+		intNumArr[4] = 5; // 		    the result must ALWAYS be an integer 
+		intNumArr[5] = 6;
+		intNumArr[6] = 7;
+		intNumArr[7] = 8;
+		intNumArr[8] = 9;
+		intNumArr[9] = 10;
+
+
+		// the following lines will ask the user to load the elements of the array for us 
+		// take note of the printout - stating the element/index/subscript to make the 
+		// statement look a little better 
+	
+		for (intCount = 0; intCount <= 9; intCount++){	
+			System.out.print("Please enter a value for cell [" + intCount + "]: ");
+			intNumArr[intCount] = sc.nextInt(); //reading each value into a cell 
+		} 
+
+		// randomly generate 10 numbers and load into the array 
+		// sometimes when you need to load an array but don't want to ask the user 
+		// and if you want it to be random and a little realistic when executing the the rest
+		// of the program
+
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumArr[intCount] = (int)(Math.random() * 100); // 0.84334343 * 100 = 84.334343
+		}
+	} 
+
+	public static void printArray(){
+		System.out.println();
+		System.out.println("Printing the contents of the Array");
+		
+		for (intCount = 0; intCount <= 9; intCount++){	
+			System.out.print("Cell [" + intCount + "] = " + intNumArr[intCount]);
+		} 	
+	}
+
+	public static void calcAvg(){
+		dblSum = 0.0; // initializing the accumulating variable
+
+		for (intCount = 0; intCount <= 9; intCount++){
+			dblSum = dblSum + intNumArr[intCount]; // same like how we learnt it 
+		}
+		
+		// dblAvg = dblSum / 10; // since we know the size - divide by the constant 10
+		dblAvg = dblSum / intCount;  // could also use the intCount variable 
+		
+		// regarding the above - dividing by intCount is possible 
+		// remember this - in a for loop - 2 things are done in the process of working out 
+		// the need to repeat the loop - incrementing first - then the decision to find 
+		// out if we need to repeat - so when the counter is for example - 9 in this case 
+		// it will increment to 10 and then the decision - is 10 <= 9 - which results in 
+		// false - and then the loop will end - now take note - intCount is now 10 
+		// the size of the array - so dividing by intCount is possible 
+
+		// also note that intCount is declared globally - so we okay with using the variable
+
+		System.out.println("The average of the 10 numbers is " + dblAvg);
+	}
+
+	public static void calcHighLow(){
+		
+		// following our knowledge of the previous example of working out the highest 
+		// and lowest - we would initialize the high to some low value and low to some high 
+		// value - since we randomly generated numbers - the low is set to 100 because 
+		// I only generated 2 digit numbers - the largest could only be 99 - so 100 is out 
+		// of the range we are dealing with 
+
+		//intHigh = -1; 
+		//intLow = 100;
+
+		//intHIndex = -1; 
+		//intLIndex = -1; 
+		
+		// if we don't want to figure out the initializing ourself - we set the high and low variables 
+		// to the 1st element of the array - and we set the High & Low INDEX to 0 (being the 1st index)
+
+		intHigh = intNumArr[0]; 
+		intLow = intNumArr[0]; 
+
+		intHIndex = 0; 
+		intLIndex = 0; 
+
+		// for (intCount = 0; intCount <= 9; intCount++){ // the original idea is to run the loop from 
+		// the first element to the last element in the array 
+
+		// however below we are running the loop from 1 to 9 (9 times) because the high and low is set to 
+		// to the 1st element 
+
+		for (intCount = 1; intCount <= 9; intCount++){
+			if (intNumArr[intCount] > intHigh){
+				intHigh = intNumArr[intCount];
+				intHIndex = intCount; 
+			}
+
+			if (intNumArr[intCount] < intLow){
+				intLow = intNumArr[intCount];
+				intLIndex = intCount; 
+			}
+		}
+
+		System.out.println("The highest number is " + intHigh + " in cell + intHIndex);
+		System.out.println("The highest number is " + intLow + " in cell + intLIndex);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

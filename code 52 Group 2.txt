@@ -1,0 +1,182 @@
+/*
+ * Program: code 32 question 1
+ * Date: 21/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package code32question1; 
+
+import java.util.Scanner; 
+
+public class code32question1{
+
+	static int intNumOfStudents; 
+
+	public static void main(String[] args){
+		intNumOfStudents = 2; // suppose to be 15 
+		Scanner sc = new Scanner(System.in);
+		String[] strStudentNum = new String[intNumOfStudents]; 
+		int[] intTestMark = new int[intNumOfStudents]; 
+		String[] strGrade = new String[intNumOfStudents]; 
+
+		String[] strTestAns = new String[10]; 
+		strTestAns = loadTestAns();
+		//System.out.println(strTestAns[9]);
+
+		int intCorrectCount; 
+		intCorrectCount = 0; 
+		String strAnswer; 
+		strAnswer = ""; 
+
+		for (int intCount = 0; intCount <= (intNumOfStudents - 1); intCount++){
+			System.out.print("Enter student number [" + (intCount + 1) + "] - ");
+			strStudentNum[intCount] = sc.nextLine();
+			intCorrectCount = 0; 	
+			for (int intCount2 = 0; intCount2 <= 9; intCount2++){
+				System.out.print("Enter answer for question [" + (intCount2 + 1) + "] - ");
+				strAnswer = sc.nextLine();
+				if (strAnswer.equals(strTestAns[intCount2])){
+					intCorrectCount = intCorrectCount + 1; 
+				}				
+			}
+			intTestMark[intCount] = intCorrectCount; 		
+		}
+		strGrade = CalcGrades(intTestMark);
+		
+		PrintStudentResults(strStudentNum, intTestMark, strGrade);
+		CalcHigh(strStudentNum, intTestMark);
+		CalcLow(strStudentNum, intTestMark);
+	}
+
+	public static void CalcHigh(String[] strStudentNumber, int[] intMarks){
+		int intHigh, intHIndex; 
+		intHigh = intMarks[0]; 
+		intHIndex = 0; 
+
+		for (int intCount = 1; intCount <= (intNumOfStudents - 1); intCount++){
+			if (intMarks[intCount] > intHigh){
+				intHigh = intMarks[intCount];
+				intHIndex = intCount; 
+			}	
+		}
+		PrintHLResults(strStudent[intHIndex], intHigh, "highest");
+	}
+
+	public static void CalcLow(String[] strStudentNumber, int[] intMarks){
+		int intLow, intLIndex; 
+		intLow = intMarks[0]; 
+		intLIndex = 0; 
+
+		for (int intCount = 1; intCount <= (intNumOfStudents - 1); intCount++){
+			if (intMarks[intCount] < intLow){
+				intLow = intMarks[intCount];
+				intLIndex = intCount; 
+			}	
+		}
+		PrintHLResults(strStudent[intLIndex], intLow, "lowest");
+	}
+
+	public static void PrintHLResults(String strNumber, int intMark, String strWord){
+		System.out.println(strNumber + " got the " + strWord + " mark - " + intMark); 
+	}
+
+	public static void PrintStudentResults(String[] strStudentNumber, int[] intMarks, String[] strGrade){
+		double dblPerc; 
+		dblPerc = 0.0; 
+
+		System.out.println(String.format("%-10s %-10s %-10s %-10s", "Student #", "Mark", "Perc", "Grade");
+
+		for (int intCount = 0; intCount <= (intNumOfStudents - 1); intCount++){
+			dblPerc = (intMarks[intCount] * 100) / 10; // (intMarks[intCount] / 10) * 100; 
+			System.out.println(String.format("%-10s %-10s %-10s %-10s", strStudentNumber[intCount], intMarks[intCount], dblPerc, strGrade[intCount]);
+		}
+	}
+	
+	public static String[] CalcGrades(int[] intMarks){
+		String[] strGrades = new String[2]; 
+		double dblPerc; 
+		dblPerc = 0.0; 
+
+		for (int intCount = 0; intCount <= (intNumOfStudents - 1); intCount++){
+			dblPerc = (intMarks[intCount] * 100) / 10; // (intMarks[intCount] / 10) * 100; 
+			
+			if (dblPerc >= 80) 
+				strGrades[intCount] = "A"; 
+			else 
+				if (dblPerc >= 70) 
+					strGrades[intCount] = "B";
+				else 
+					if (dblPerc >= 60) 
+						strGrades[intCount] = "C";
+					else 
+						if (dblPerc >= 50) 
+							strGrades[intCount] = "D";
+						else 
+							strGrades[intCount] = "F";
+		}
+		return strGrades; 
+	
+	}
+
+	public static String[] loadTestAns(){
+		String[] strAns = new String[10]; 
+
+		strAns[0] = "true";
+		strAns[1] = "true";
+		strAns[2] = "false";
+		strAns[3] = "true";
+		strAns[4] = "false";
+		strAns[5] = "true";
+		strAns[6] = "false";
+		strAns[7] = "false";
+		strAns[8] = "true";
+		strAns[9] = "false"; 
+
+		return strAns; 
+	}
+}
+/*
+1. Mr. Jones always gives True/False tests to his class. His tests always have 10 questions.
+The maximum class size is 15. He needs a program that will calculate and output
+each student’s number, their total score/percentage for a test and their grade. You are 
+also required to output the lowest and highest mark/percentage along with the student number 
+associated to those marks
+
+Develop a solution for Mr. Jones’s problem. The following 1-dimensional arrays are needed 
+
+Variable 		Description						Size 
+strStudentNum		to store the student numbers 				15
+intTestMark		to store the total mark for a test for a student	15
+strGrade		to store the grade equivalent to the mark received 	15 
+
+strTestAns		to store the correct answers for the test		10 
+
+When inputting the student's details, you are required to input each student's set of 
+answers for the 10 questions in the test. Using the strTestAns array, you need to compare 
+the input to the answers stated in the array. Accumulate the total mark of all correct answers
+and store this mark in the intTestMark array. 
+
+Store the following values for the strTestAns array, to be used for the comparison to the 
+student's set of answers  
+Question	Answer 
+1 		true
+2		true
+3		false
+4 		true
+5		false
+6		true
+7		false
+8		false
+9		true
+10		false 
+
+Using the intTestMark (total mark), store the student's grade using the following information 
+
+Percentage		Grade
+80 - 100		A
+70 - 79			B
+60 - 69			C
+50 - 59			D
+< 50 			F
+
+*/

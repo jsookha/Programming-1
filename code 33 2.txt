@@ -1,0 +1,80 @@
+package using1darrays1;
+import java.util.Scanner; 
+public class using1darrays1{
+	
+	static int intCount; 
+	static double dblSum, dblAvg; 
+
+	static int[] intNumArr = new int[10]; 
+	
+	//static String[] strNames = new String[10];
+	//static String[] strNames = {"Jack", "Joe", "Jane", "Jennifer", Jackie", "John"}; 
+
+	static String[] strNames; 
+
+	public static void main(String[] args){
+		
+		loadArray();
+		printArray();
+		calcAvg();	
+	}
+
+	public static void loadArray(){
+		
+		//strNames = {"df","df","fg"};
+			
+		input size 10
+		
+		strNames = new String[size]; 
+		for 
+			read 		
+	
+		intNumArr[0] = 1; 
+		intNumArr[1] = 2;
+		intNumArr[2] = 3;
+		intNumArr[3] = 4;
+		intNumArr[4] = 5;
+		intNumArr[5] = 6;
+		intNumArr[6] = 7;
+		intNumArr[7] = 8;
+		intNumArr[8] = 9;
+		intNumArr[9] = 10;		
+
+		for (intCount = 0; intCount <= 9; intCount++){
+			
+			intNumArr[intCount] = intCount + 1; 
+		}
+
+		Scanner sc = new Scanner(System.in);
+		
+		for (intCount = 0; intCount <= 9; intCount++){
+			
+			System.out.print("Please enter a value for cell [" + intCount + "] : ");
+			intNumArr[intCount] = sc.nextInt();
+		}
+		
+		for (intCount = 0; intCount <= 9; intCount++){
+			intNumArr[intCount] = (int)(Math.random() * 100); 
+		}								
+	}
+
+	public static void printArray(){
+		for (intCount = 0; intCount <= 9; intCount++){
+			System.out.println("Cell [" + intCount + "] = " + intNumArr[intCount]);
+		}
+
+	}
+
+	public static void calcAvg(){
+		dblSum = 0.0; 
+		
+		for (intCount = 0; intCount <= 9; intCount++){
+			
+			dblSum = dblSum + intNumArr[intCount];
+		}
+		
+		dblAvg = dblSum / 10; 
+		
+		System.out.println("The average is " + dblAvg);
+	}
+}
