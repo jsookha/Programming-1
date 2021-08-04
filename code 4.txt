@@ -1,0 +1,74 @@
+/*
+ * Program: Calculating Wages
+ * Date: 20/2/2019
+ * Programmer: J.Sookha
+ * Description: Writing a program to calculate the wages for the week for an employee based on the 
+ *		number of hours worked and the hourly rate that they get paid 
+*/
+
+package cacalculatewages; 
+
+import java.util.Scanner; 
+
+public class cacalculatewages{
+
+	public static void main(String[] args){
+			
+		Scanner sc = new Scanner (System.in);
+		int intHours; 
+		double dblRate; 
+
+		double dblAmount; 
+
+		System.out.println("Calculating Wages");
+		System.out.println();
+
+		System.out.print("Enter the hours worked for the week: ");
+		intHours = sc.nextInt();
+
+		System.out.println();
+
+		System.out.print("Enter the rate of pay: R");
+		dblRate = sc.nextDouble();
+
+		dblAmount = intHours * dblRate; 
+
+		
+
+		System.out.println("The total wages for the week is R" + dblAmount);
+
+		System.out.println(String.format("Total wages is %f", dblAmount)); //what did the %f do to the printout? 
+		
+	}
+}
+
+/*
+	what if the employee might have worked overtime? 
+	same code - but take note of what is going to be different !!!
+
+		Scanner sc = new Scanner (System.in);
+		int intHours; 
+		int intOvertimeHours; 
+		double dblRate; 
+
+		double dblAmount; 
+
+		System.out.println("Calculating Wages");
+		System.out.println();
+
+		System.out.print("Enter the hours worked for the week (if they have worked overtime - enter only 40: ");
+		intHours = sc.nextInt();
+
+		System.out.print("Enter the overtime hours worked for the week (if they have not worked overtime - enter only 0: ");
+		intOvertimeHours = sc.nextInt();
+
+		System.out.println();
+
+		System.out.print("Enter the rate of pay: R");
+		dblRate = sc.nextDouble();
+
+		// dblAmount = intHours * dblRate; 
+		dblAmount = (intHours * dblRate) + (intOvertimeHours * 1.5 * dblRate);
+			
+		System.out.println("The total wages for the week is R" + dblAmount);
+*/

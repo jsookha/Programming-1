@@ -1,0 +1,90 @@
+/*
+ * Program: Using methods
+ * Date: 26/2/2019
+ * Programmer: J.Sookha
+ * Description: Writing a program using methods (procedures / functions)
+*/
+
+package causingmethods; 
+
+
+public class causingmethods{
+
+	static int intNumber3; // this idea fixes intNumber2
+
+	public static void main(String[] args){
+		
+		int intNumber1; 
+		// int intNumber2; 
+		// Thought it was ok to declare the variable here and access it in another method down below -
+		// this is a local variable and unfortunately not accessible elsewhere 
+
+		intNumber1 = 23; 
+
+		System.out.println("The first number is " + intNumber1);
+
+		intNumber3 = 123; 
+
+		//call the other method / procedure  
+		printTheOtherNumber();
+
+		//call the other other method / the function
+ 		// CalculateSomething(); // this worked but didn't 
+
+		int intNumber5; 
+		intNumber5 = CalculateSomething();
+		
+		System.out.println("The answer from the function is  " + intNumber5);
+
+	}
+
+	//This is a procedure 
+	public static void printTheOtherNumber() {
+	
+		// intNumber2 = 566; // there is a problem - the intNumber2 declared in main is not accessible here  
+
+
+		intNumber3 = 786; 
+
+		System.out.println("The other number is " + intNumber3); 
+	}
+
+	//This is a function 
+	public static int CalculateSomething()
+
+		intNumber3 = 4; 
+		
+		int intNumber4; 
+		intNumber4 = intNumber3 * intNumber3; 
+		
+		return intNumber4; 
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

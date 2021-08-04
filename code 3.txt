@@ -1,0 +1,48 @@
+/*
+ * Program: cainputoutput again
+ * Date: 19/2/2019
+ * Programmer: J.Sookha
+ * Description: Using the String.format method to help make the printing a little neater   
+ *		Also learning how to properly layout this 'arguments' for printing using numbers to space out the work
+*/
+
+package cainputoutputagain; 
+
+import java.util.Scanner; 
+//import java.util.*; // remember why we learnt this ? 
+
+public class cainputoutputagain{
+
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+		String strName, strSurname; 
+		
+		System.out.print("Please enter your full name (firstname and surname): ");
+		
+		strName = sc.next();  	// what is the difference between next() and nextLine() - and 
+		strSurname = sc.next(); // why do we have 2 lines here and only one question 
+
+
+		// System.out.println("Your \"name\" is " + strName + "\nSurname: " + strSurname);
+
+		System.out.println("Name:    " + strName + "\n" + 
+				   "Surname: " + strSurname);
+			
+
+		String strOutput; 
+
+		// strOutput = String.format("Name: |%-10s| \n Surname: |%-10s|",strName, strSurname); 
+		// 1 version - worked - but not so nice
+		
+		/*
+			Name: 	Jessel 
+			Surname:	 Sookha
+		*/
+
+		strOutput = String.format("%10s %10s \n%10s %10s","Name: ", strName, "Surname: ", strSurname);
+
+		System.out.println(strOutput); 
+	}
+}
+

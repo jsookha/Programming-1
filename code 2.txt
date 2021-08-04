@@ -1,0 +1,57 @@
+/*
+ * Program: cainputoutput
+ * Date: 26/2/2019
+ * Programmer: J.Sookha
+ * Description: Using the Scanner class to act as a middle man to accept input from the Console Window
+ *		Also using the String.format method to help make the printing a little neater   
+*/
+
+package cainputoutput; 
+
+import java.util.Scanner; 
+//import java.util.*;
+
+public class cainputoutput{
+
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+		String strName; 
+
+		//System.out.println("Please enter your name: ");
+		
+		System.out.print("Please enter your name: ");
+		
+		// strName = sc.next();
+
+		strName = sc.nextLine();
+
+		System.out.println("Your name is " + strName);
+
+
+		String strFirstName, strSurname; 
+		
+		System.out.print ("Please enter your full name: ");
+		strFirstName = sc.next();
+		strSurname = sc.next();
+
+		System.out.println("Your  name is now " + strFirstName + " " + strSurname);
+	
+		System.out.println("First name: \t" + strFirstName + "\n" + "Surname   : \t" + strSurname);
+
+		String strOutput; 
+		strOutput = String.format("Name: %s \n Surname: %s", strFirstName, strSurname);
+		System.out.println(strOutput);
+		
+	}
+}
+
+//************************************************************************
+/* These are the escape sequences 
+ \n	- go to a new line
+ \t 	- tab a space
+ \\	- forcably put a \ black slash in the printing string
+ \r	- carriage return - still haven't explained this to you 
+ \f	- ??
+ \"	- forcable print a double inverted commas - because its usually used differently  
+*/

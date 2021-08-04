@@ -1,0 +1,164 @@
+/*
+  Program: caWages
+  Date: 11/03/2019
+  Programmer: J.Sookha 
+  Description: Learning a little more in Sequential Logic and then converting the program
+	       to use Decision Logic 
+*/
+
+package cawages; 
+
+import java.util.Scanner; 
+
+public class cawages{
+	
+	public static void main(String[] args){
+		int intHrs; 
+		double dblRate, dblAmount; 
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Please enter the number of hours worked: ");
+		intHrs = sc.nextInt();
+
+		System.out.print("Please enter the rate per hour: ");
+		dblRate = sc.nextDouble();
+
+		//dblAmount = intHrs * dblRate; 
+		//dblAmount = (40 * dblRate) + ((intHrs - 40) * 1.5 * dblRate);	
+		
+		if (intHrs <= 40)
+		{
+			dblAmount = intHrs * dblRate; //normal pay			
+		}
+		else 
+		{
+			dblAmount = (40 * dblRate) + ((intHrs - 40) * 1.5 * dblRate); //overtime pay
+		}
+		//****************************************************************************************
+		if (intHrs <= 40) 
+		{
+			dblAmount = intHrs * dblRate;
+		}
+		//****************************************************************************************		
+		if (intHrs > 40)
+		{
+			dblAmount = (40 * dblRate) + ((intHrs - 40) * 1.5 * dblRate); //overtime pay
+		}
+		else 
+		{
+			dblAmount = intHrs * dblRate; //normal pay			
+		}
+		//****************************************************************************************
+		System.out.println("The pay for the week is: " + dblAmount);
+					
+	}
+}
+
+
+/*
+	Condition / Expression
+	A = B + C
+
+	Conditions are meant to be logically - i.e. the answer from the evaluating of the expression is going to be 
+	either true or false 
+
+	if (A + B) - this is wrong - not allowed to only use a mathematical expression 
+
+	1. relational expression - A > B - both A and B must be the same data type - number or a character or a string 
+				   'a' > 'h' a 10 h 18 "Jack" > "Jane"
+	2. logical expression - 
+				NOT D
+				E AND F 
+				X OR Y 
+			variables can only be of the boolean data type 
+			NOT gives you the opposite - NOT true = false / NOT false = true 
+			AND - both the values on either side must be true in order for the result to be true 
+			OR - either value on either side can be true in order for the result to be true 
+
+			if (intMarks >= 90) && (intMarks <= 100)
+
+	3. mix of mathematical , relational and logical -but if this is the case 
+		mathatical is first - relational is second and logical is third 
+		((A + B) >= 234) AND E) 
+	4. an expression of a boolean data type 
+		if age >= 18 
+			AllowedToVote = true
+		else 
+			AllowedToVote = false 
+		end if 
+
+		if AllowedToVote = true
+			do something b/c its true 
+
+		if AllowedToVote
+			do something b/c its true 
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
