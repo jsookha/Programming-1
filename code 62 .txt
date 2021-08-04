@@ -1,0 +1,91 @@
+// Exam 2015 Question 5 
+
+Algorithm - pseudocode using 2D arrays 
+//------------------------------------------------------------------------------------------------------------------------
+0. START
+1. Declarations 
+	string medicalplans[4][2]
+2. loadArray()
+3. searchArray()
+4. STOP
+//------------------------------------------------------------------------------------------------------------------------
+0. loadArray()
+1. 	medicalplans[0][0] = "Best Health Basic"
+2. 	medicalplans[0][1] = "R450.00"
+3. 	medicalplans[1][0] = "Best Health Basic Plus"
+4. 	medicalplans[1][1] = "R575.00"
+5. 	medicalplans[2][0] = "Best Health Premium"
+6. 	medicalplans[2][1] = "R700.00"
+7. 	medicalplans[3][0] = "Best Health Premium Plus"
+8. 	medicalplans[3][1] = "R950.00"
+9. return
+//------------------------------------------------------------------------------------------------------------------------
+0. searchArray()
+1. Declarations
+	string search
+	num flag, foundindex, count
+2. flag = 0
+3. foundindex = -1 
+4. output "Enter the type of medical plan to view the premium per month"
+5. input search 
+6. for count = 0 to 3 step 1
+	if search = medicalplans[count][0] then 
+		flag = 1
+		foundindex = count
+	end if 
+   end for 
+7. if flag = 0 then 
+	output "sorry - no such medical plan listed"
+   else 
+	output "Medical Plan: " + medicalplans[foundindex][0] + " costs " + medicalplans[foundindex][1] + " per month" 
+   end if 
+8. return
+//------------------------------------------------------------------------------------------------------------------------ 
+
+Java Code 
+
+package exam2015question5; 
+
+import javax.swing.JOptionPane; 
+
+public class exam2015question5{
+
+	static String[][] strMedicalplans = new String[4][2]; 
+
+	public static void main(String[] args){
+		loadArray();
+		searchArray();
+	}
+
+	public static void loadArray(){
+		strMedicalplans[0][0] = "Best Health Basic";
+		strMedicalplans[0][1] = "R450.00";
+		strMedicalplans[1][0] = "Best Health Basic Plus";
+		strMedicalplans[1][1] = "R575.00";
+		strMedicalplans[2][0] = "Best Health Premium";
+		strMedicalplans[2][1] = "R700.00";
+		strMedicalplans[3][0] = "Best Health Premium Plus";
+		strMedicalplans[3][1] = "R950.00";;
+	}
+
+	public static void searchArray(){
+		String strSearch;
+		int intFlag, intFoundindex, intCount;
+		
+		intFlag = 0;
+		intFoundindex = -1; 
+		strSearch = JOptionPane.showInputDialog(null,"Enter the type of medical plan to view the premium per month");
+
+		for (intCount = 0; intCount <= 3; intCount++){
+			if (strSearch.equals(strMedicalplans[intCount][0]){ 
+				intFlag = 1;
+				intFoundindex = intCount;
+			} 
+   		}
+ 
+		if (intFlag == 0)  
+			JOptionPane.showMessageDialog(null, "sorry - no such medical plan listed");
+   		else 
+			JOptionPane.showMessageDialog(null, "Medical Plan: " + strMedicalplans[intFoundindex][0] + " costs " + strMedicalplans[intFoundindex][1] + " per month"); 	
+	}
+}

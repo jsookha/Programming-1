@@ -1,0 +1,103 @@
+
+package calculateCASS; 
+
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat; 
+
+public class calculateCASS{
+
+	static String[] strStudNum = new String[3]; 	
+	static double[] dblTask1 = new Double[3]; 
+	static double[] dblIce = new Double[3]; 
+	static double[] dblAssess1= new Double[3]; 
+	static double[] dblCASS = new Double[3]; 
+
+	public static void main(String[] args){
+		loadValues();			
+		CalculateCASS();
+		DecideExamEntry();
+	}
+
+	public static void loadValues(){
+
+		for (int intCount = 0; intCount <= 2; intCount++){
+			strStudNum[intCount] = JOptionPane.showInputDialog(null,"Please enter student number [" + intCount + "]");
+			dblTask1[intCount] = Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter your Task 1 percentage [" + intCount + "]"));
+			dblIce[intCount] = Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter your ICE percentage [" + intCount + "]"));
+			dblAssess1[intCount] = Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter your Assessment 1 percentage [" + intCount + "]"));
+		}
+
+	}
+
+	public static void CalculateCASS(){
+		for (int intCount = 0; intCount <= 2; intCount++){
+			dblCASS[intCount] = (dblTask1[intCount] *  0.25) + (dblIce[intCount] * 0.1) + (dblAssess1[intCount] * 0.3); 
+		}
+	}
+
+	public static void DecideExamEntry(){
+		int intFlag, intFoundIndex; 
+		String strSearch, strMsg; 
+		strMsg = ""; 
+		intFlag = 0; 
+		intFoundIndex = -1;
+		
+		strSearch = JOptionPane.showInputDialog(null,"Please enter the student number you wish to view");
+		
+		for (int intCount = 0; intCount <= 2; intCount++){
+			if (strSearch.equals(strStudNum[intCount]){
+				intFlag = 1; 
+				intFoundIndex = intCount; 
+			}
+		}		
+
+		if (intFlag == 0){
+			JOptionPane.showMessageDialog(null,"The student you are looking for doesn't exist in this class");			
+		}
+		else {
+			strMsg = "Student " + strStudNum[intFoundIndex] + " has been found and the result is \n";					if (dblCASS[intFoundIndex] >= 40) 
+				strMsg = strMsg + "Student has exam entry with " + dblCASS[intFoundIndex] + "%";
+			else 
+				strMsg = strMsg + "Student does not have exam entry with their mark of " + dblCASS[intFoundIndex] + "%";
+			JOptionPane.showMessageDialog(null,strMsg);	
+		}
+	}
+}
+
+/*
+package calculateCASS; 
+
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat; 
+
+public class calculateCASS{
+
+	static double dblTask1, dblIce, dblAssess1; 
+	static double dblCASS; 
+
+	public static void main(String[] args){
+		loadValues();			
+		CalculateCASS();
+		DecideExamEntry();
+	}
+
+	public static void loadValues(){
+		dblTask1 = Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter your Task 1 percentage"));
+		dblIce = Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter your ICE percentage"));
+		dblAssess1 = Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter your Assessment 1 percentage"));
+	}
+
+	public static void CalculateCASS(){
+		dblCASS = (dblTask1 *  0.25) + (dblIce * 0.1) + (dblAssess1 * 0.3); 
+	}
+
+	public static void DecideExamEntry(){
+		if (dblCASS >= 40) 
+			JOptionPane.showMessageDialog(null,"You have EXAM ENTRY");
+		else 
+			JOptionPane.showMessageDialog(null,"You DO NOT HAVE EXAM ENTRY");	
+	}
+}
+
+
+*/

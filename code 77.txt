@@ -1,0 +1,44 @@
+// Assignment 1 Question 1
+
+/*
+ * Program: task 1 question 1
+ * Date: 25/8/2019
+ * Programmer: J.Sookha
+ * Description: Calculating Repayment (Inheritance)
+*/
+
+3 Classes are needed 
+-- Customer
+	- (private) protected fields 
+		customer name 
+		contact number
+		product price 
+		number of months
+	- properties
+		get / set for the above 4 
+		(in the set methods - do not ask the user for the values here ... just set the values in the 		private fields)
+	- methods
+		getMonthlyRepayment() (divide the price by months)
+
+-- Finance_Period (Inherting from Customer)
+	- private fields
+		(since there are no extra fields to create - nothing needs to be here) 
+	- properties 
+		get / set methods to access the Customer fields ...
+	- methods
+		getMonthlyRepayment() (override from the Customer class)
+			do the extra calculation as requested in the question
+------------------------------------------------------------------------------------------------------------ 
+-- Customer Finance (name of the program)
+	-- main method 
+		programming to test the above 2 classes	
+		Instantiate the Customer class 
+			Ask the user and read in the 4 values 
+			send the values - accessing the set methods 
+			get the monthly repayment
+			print all the values accessing the get methods (including the repayment) 
+		Instantiate the Finance_Period class 
+			Ask the user and read in the 4 values 
+			send the values - accessing the set methods 
+			get the monthly repayment
+			print all the values accessing the get methods (including the repayment) 

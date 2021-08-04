@@ -1,0 +1,185 @@
+/*
+	Program: 2017 Q1
+*/
+package Exam2017Q1; 
+
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
+import javax.swing.JOptionPane; 
+
+
+public class grid1 extends JFrame implements ActionListener {
+	// **** Menu variables 
+	JMenuBar mainBar = new JMenuBar();
+	
+	JMenu mnuFile = new JMenu("File");
+	JMenu mnuTools = new JMenu("Tools");
+
+	JMenuItem mnuFileExit = new JMenuItem("Exit");
+
+	JMenuItem mnuToolsCalculate = new JMenuItem("Calculate");
+	JMenuItem mnuToolsClear = new JMenuItem("Clear");
+	// **** End of Menu variables 
+
+	GridLayout g1 = new GridLayout(4,2,10,10);
+	Container con = getContentPane();
+
+	// row 1
+	JLabel lblCustName = new JLabel("Customer Name");
+	JTextField txtCustName = new JTextField();
+	
+	// row 2
+	JLabel lblAmount = new JLabel("Enter Amount");
+	JTextField txtAmount = new JTextField();
+
+	// row 3
+	JLabel lblType = new JLabel("Select Type");
+	JComboBox cboType = new JComboBox();
+	
+	// row 4
+	JLabel lblTerm = new JLabel("Select Term");
+	JPanel pnlTerm = new JPanel();
+	GridLayout g2 = new GridLayout(3,1);
+	JRadioButton rdoFive = new JRadioButton("5 years");
+	JRadioButton rdoTen = new JRadioButton("10 years");
+	JRadioButton rdoFifteen = new JRadioButton("15 years");
+	ButtonGroup bgTerms = new ButtonGroup();
+
+	public grid1(){
+		super("Investment Calculation");
+		setSize(400,350);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		setJMenuBar(mainBar); //The main bar for the empty menu
+
+		mainBar.add(mnuFile); //take note of where File and Tools is added - into the mainBar
+		mainBar.add(mnuTools);
+		
+		mnuFile.add(mnuFileExit); //take note that the Exit "button" is added to File or INSIDE File
+
+		mnuTools.add(mnuToolsCalculate); //Calculate and Clear is added to Tools
+		mnuTools.add(mnuToolsClear);
+
+		
+
+		con.setLayout(g1);
+
+		con.add(lblCustName);
+		con.add(txtCustName);
+
+		con.add(lblAmount);
+		con.add(txtAmount);
+		
+		con.add(lblType);
+		cboType.addItem("Aggressive");
+		cboType.addItem("Moderate");
+		con.add(cboType);
+
+		con.add(lblTerm);
+		pnlTerm.setLayout(g2);
+		bgTerms.add(rdoFive);
+		bgTerms.add(rdoTen);
+		bgTerms.add(rdoFifteen);
+		pnlTerm.add(rdoFive);
+		pnlTerm.add(rdoTen);
+		pnlTerm.add(rdoFifteen);
+		con.add(pnlTerm);
+
+		mnuFileExit.addActionListener(this);
+		mnuToolsCalculate.addActionListener(this);
+		mnuToolsClear.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//lblAboveAverage.setText("This is the answer I want to display");	
+		
+		Object source = e.getSource();
+	
+		if (source == mnuFileExit){
+			System.exit(0);		
+		} 
+
+		if (source == mnuToolsCalculate){
+			//System.out.println(" This will run the Calculatecode(); method");
+			String strCustName = txtCustName.getText();		
+			double dblAmount = Double.parseDouble(txtAmount.getText());
+			String strType = cboType.getSelectedItem();
+			dobule dblPercent = 0; 
+					
+			if (strType.equals("Aggressive"){
+				dblPercent = 0.15; 
+			}
+			if (strType.equals("Moderate"){
+				dblPercent = 0.1; 
+			}
+	
+			if (rdoFive.isSelected()){
+				intYear = 5; 
+			}
+			if (rdoTen.isSelected()){
+				intYear = 10; 
+			}
+			if (rdoFifteen.isSelected()){
+				intYear = 15; 
+			}
+
+			double dblFinalAmount; 
+			/*
+			   Compound interest - got the formula online
+ 			   https://www.thecalculatorsite.com/articles/finance/compound-interest-formula.php
+			   A future value | dblFinalAmount
+			   P principal investment amount (initial deposit) | dblAmount
+			   r interest rate (decimal) | dblPercent
+			   n number of times that interest is compounded per unit t | 12 - months in the year
+			   t the time the money is invested or borrowed for | intYear
+			
+			A = P * (1 + r / n) ^ (n * t)
+		
+			I was reminded that compund interest is adding intrest and then calculating on top of that
+			So another long way of calculating 
+
+			for (int intCount = 1; intCount < intYear; intCount++){
+				dblFinalAmount = dblFinalAmount + (dblFinalAmount * dblPercent);
+			}
+			// please - you need to test both versions out first before choosing one 			
+			*/
+
+			dblFinalAmount = dblAmount * (1 + (dblPercent / 12)) ^ (12 * intYear);
+
+			String strMessage; 
+			
+			strMessage = "INVESTMENT REPORT" + "\n\n" + 
+				     "CUSTOMER NAME: " + strCustName + "\n" + 
+				     "ORIGINAL AMOUNT: " + dblAmount + "\n" +
+				     "YEARS INVESTED: " + intYear + "\n" +
+				     "FINAL AMOUNT: " + dblFinaAmount; 
+			// I have not formatted the 2 amounts above - so please do that as well 
+
+			JOptionPane.showMessageDialog(null, strMessage, "Message", JOptionPane.INFORMATION_MESSAGE);
+
+			
+		}
+
+		if (source == mnuToolsclear){
+			txtCustName.setText("");
+			txtAmount.setText("");
+			cboType.setSelected(1);
+			bgTerm.clearSelection(); //set all the radiobuttons in the ButtonGroup to false
+		}	
+		
+	}
+
+}
+
+//----------------------------------------------------------
+
+public class Exam2017Q1{
+	
+	public static void main(String[] args){
+		grid1 ThisMenuForm = new grid1();
+		
+		ThisMenuForm.setVisible(true);
+	}
+}

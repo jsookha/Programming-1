@@ -1,0 +1,50 @@
+package PastPaper2018Q1;
+
+public class PastPaper2018Q1{
+	
+	static String[] Phones = new String[3]; 
+	static String[] Months; 
+	
+	static int[][] Sales; 
+	static int[] SumPhones = new int[3]; 
+	static int[] SumMonths = new int[3]; 
+
+	public static void main(String[] args){
+		loadArrays();
+		CalcAndPrint();	
+	}
+
+	public static void CalcAndPrint(){
+
+		for (int C1 = 0; C1 <= 2; C1++){
+			SumPhones[C1] = 0; 
+			SumMonths[C1] = 0; 
+			for (int C2 = 0; C2 <= 2; C2++){
+				SumPhones[C1] += Sales[C1][C2];
+				SumMonths[C1] += Sales[C2][C1]; 
+			}
+		}
+		
+
+		System.out.println("TOP CELLPHONE SALES REPORT - 2018");
+		System.out.println("*********************************");
+		System.out.println(Months[0] + Months[1] + Months[2] + "TOTAL");
+		
+		for (int C1 = 0; C1 <= 2; C1++){
+			System.out.println(Phones[C1] + Sales[C1][0] + Sales[C1][1] + Sales[C1][2] + SumPhone[C1]);
+		}
+		System.out.println("*********************************");
+		System.out.println(SumMonths[0] + SumMonths[0] + SumMonths[0]);	
+		System.out.println("*********************************");		
+	}
+
+	public static void loadArrays(){
+		Phones[0] = "iPhone 7"; 
+		Phones[1] = "Samsung S8"; 
+		Phones[2] = "Huawei Mate 10"; 
+
+		Months = new String[]{"JAN", "FEB", "MAR"};
+		
+		Sales = new int[][]{{30,15,35},{20,25,30},{25,11,32}};
+	}
+} 

@@ -1,0 +1,42 @@
+// Assignment 1 Question 2
+
+/*
+ * Program: task 1 question 2
+ * Date: 25/8/2019
+ * Programmer: J.Sookha
+ * Description: Word Wars 
+*/
+
+Display the Welcome Message 
+Menu (to start or end the game)
+
+********************************
+Enter player names 
+
+Start Game 
+	Display alphabets 
+	Player 1 enters a word 
+	Both players must agree on the word 
+	(first check to see all the alphabets are in the list - if not - display error and request a new word)
+	(accumulate points)
+	(take out the letters but not the vowels)
+	
+	Display (remaining) alphabets
+
+	**repeat and let Player 2 play their turn
+
+	Player 2 enters a word 
+	Both players must agree on the word 
+	(first check to see all the alphabets are in the list - if not - display error and request a new word)
+	(accumulate points)
+	(take out the letters but not the vowels)
+	Display (remaining) alphabets
+
+	**repeat and let Player 1 play their turn  
+
+	*** ??? sentinel value 
+	Display winner and their score 
+	Display game over message ... 
+
+	You need to display the main menu again - if the users wish to start a new game
+end program 

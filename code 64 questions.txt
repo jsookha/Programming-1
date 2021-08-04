@@ -1,0 +1,18 @@
+1. Read in a word (or phrase) and determine if its a palindrome. 
+(I have not taught you how to manipulate strings, but it would be interesting for you to figure out how to do this)
+
+2. Calculate the mass of air in a car tyre, using the formula
+	PV = 0.37,(T + 460)
+	P = pressure, pounds per inch
+	V = volume, cubic feet
+	m = mass of air, pounds
+	T = temperature, degrees Fahrenheit
+The tyre contains 2 cubic feet of air. Assume that the pressure is 32 pounds per square inch at room temperature. 
+
+3. Calculate the sum of the first n odd integers. Test the program by calculating the first 100 odd integers. 
+
+4. Write a program to read into two 1D Arrays (sized 10), the student numbers (4 digits long) and the full name 
+of the student. Request from the user if they wish to sort the sort the class list by student number or by name
+and proceed to use the Bubble-Sort method to sort the class list. Using another method, print the class list after 
+the data has been sorted. Please make sure to pass the 2 arrays as arguments to the print method. After the sort, 
+request once again from the user if they wish to sort. Kepp on asking until the user chooses to end the program. 

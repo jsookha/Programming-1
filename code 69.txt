@@ -1,0 +1,59 @@
+// The following code is an interesting example 
+// let's say we have a class similar to the previous 
+// program - but instead of storing the marks in separate 
+// properties - we could create an array in the Class 
+
+package exampractice3; 
+
+public class exampractice3{
+
+	public static void main(String[] args){
+	
+		Student stud1 = new Student();
+
+		double[] dblMarks = new double[4]; 
+
+		// read in the marks;
+		dblMarks[0] = 90;
+		dblMarks[1] = 90;
+		dblMarks[2] = 90;
+		dblMarks[3] = 90;
+			
+		stud1.setMarks(dblMarks); // sending the marks to the objects
+
+		dblMarks = stud1.getMarks(); // getting the marks from the object
+
+		System.out.printn("The students CASS Mark is " + student1.CalcCASS());
+	}
+}
+
+------------------------------------------------------------------------------------
+
+package exampractice3; 
+
+public class Student{
+
+	// fields 
+
+	private double[] Marks = new Double[4]; // each cell would be 1 mark - like - test, assignment, ice, exam
+
+	// properties 
+	public void setMarks(double[] m1){
+		Marks = m1;	
+	}
+	
+	public double[] getMarks(){
+		return Marks;
+	}	
+
+	// constructors
+
+	// methods
+		
+	public double CalcCASS(){
+		return ((Marks[0] * 0.2)) + (Marks[1] * 0.3) + (Marks[2] * 0.1) + (Marks[3] * 0.4)); 
+	}
+		
+}
+
+

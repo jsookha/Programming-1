@@ -1,0 +1,170 @@
+/*
+	Program: 2018 Q3
+*/
+package Exam2018Q3; 
+
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
+
+import java.nio.file.*;
+import java.io.*;
+
+public class grid1 extends JFrame implements ActionListener {
+	
+	ArrayList StudentNumber = new ArrayList(); 
+	ArrayList TestResult = new ArrayList(); 
+	ArrayList AssignmentResult = new ArrayList(); 
+	ArrayList ExamResult = new ArrayList();
+  
+	String[] array = new String[4]; //4 fields in each record
+	String s = ""; 
+	String delimiter = ",";
+	Path file = Paths.get("C:\\Whatever\\Location\\students.txt");
+
+	int intNumStud;
+	double dblAvg, dblHigh, dblLow; 
+
+	GridLayout g1 = new GridLayout(3,2,10,10); 
+	Container con = getContentPane();
+
+	//row 1
+	JLabel lblTitle = new JLabel("Select Student"); 
+
+	//row 2
+	JList lstStudentNumber; //add the student numbers in the constructor 
+
+	JPanel pnlDetails = new JPanel();
+	GridLayout g2 = new GridLayout(3,2); 	
+	
+	JLabel lblAverage = new JLabel("Average Result");
+	JLabel lblAverageResult = new JLabel();
+	
+	JLabel lblHigh = new JLabel("Highest Result");
+	JLabel lblHighResult = new JLabel();
+	
+	JLabel lblLow = new JLabel("Lowest Result");
+	JLabel lblLowResult = new JLabel();
+	
+	//row 3
+	JButton btnSearch = new JButton("Search");
+	
+	public grid1(){
+		//Call Method to retrieve all information from the text file
+		loadFromTextFile();
+		
+		lstStudentNumber = new JList(StudentNumber); // load contacts into the listbox
+
+		super("Student Results");
+		setSize(400,350); // would have to experiment to know the proper size
+			
+		con.setLayout(g1); //using the grid layout because its easier to visualize & doing this manually
+
+		ucon.add(lblTitle);
+		con.add(""); // adding nothing here so the title should take up the whole 1st row
+
+		con.add(lstStudentNumber);
+				
+		pnlDetails.setLayout(g2); 
+		pnlDetails.add(lblAverage);
+		pnlDetails.add(lblAverageResult);
+
+		pnlDetails.add(lblHigh);
+		pnlDetails.add(lblHighResult);
+
+		pnlDetails.add(lblLow);
+		pnlDetails.add(lblLowResult);
+		con.add(pnlDetails); 
+
+		con.add(btnSearch);
+		con.add("");
+		
+		btnSearch.addActionListener(this);	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		Object source = e.getSource();
+	
+		if (source == btnSearch){
+			int intChoice = lstStudentNumber.getSelectedIndex();
+			dblHigh = -1; 
+			dblLow = 999; 
+
+			dblAvg = (TestResult.get(intChoice) + AssignmentResult.get(intChoice) + ExamResult.get(intChoice)) /3;
+			if (TestResult.get(intChoice) > dblHigh)
+				dblHigh = TestResult.get(intChoice); 
+			
+			if (AssignmentResult.get(intChoice) > dblHigh)
+				dblHigh = TestResult.get(intChoice); 
+			
+			if (ExamResult.get(intChoice) > dblHigh)
+				dblHigh = TestResult.get(intChoice); 
+				
+			if (TestResult.get(intChoice) < dblLow)
+				dblLow = TestResult.get(intChoice); 
+			
+			if (AssignmentResult.get(intChoice) < dblLow)
+				dblLow = TestResult.get(intChoice); 
+			
+			if (ExamResult.get(intChoice) < dblLow)
+				dblLow = TestResult.get(intChoice); 
+			
+			lblAverageResult.setText(dblAvg); //need to format the values, decimal places, etc. 
+			lblHighResult.setText(dblHigh);
+			lblLowResult.setText(dblLow);
+		}
+	}
+
+	public void loadFromTextFile(){
+		try{
+			InputStream input = new BufferedInputStream(Files.newInputStream(file));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+			s = reader.readLine();
+			intNumStud = 0; 
+			
+			while(s != null){
+				array = s.split(delimiter);
+
+				StudentNumber.add(array[0]);
+				TestResult.add(array[1]);
+				AssignmentResult.add(array[2]);
+				ExamResult.add(array[3]);
+				
+				intNumStud++; // count the students
+				s = reader.readLine();
+			}
+			reader.close();
+		}
+		catch(Exception e){
+			System.out.println("Message: " + e);
+		}
+	}
+
+}
+
+//----------------------------------------------------------
+public class Exam2017Q2{
+	public static void main(String[] args){
+		grid1 frmGridLayout = new grid1();
+
+		frmGridLayout.setVisible(true);
+	}
+}
+
+//----------------------------------------------------------
+/* 
+Content of the text file - 
+   instead of the layout given in the picture - you will notice 
+   a slight difference I have opted for - the idea is that 
+   1 whole line contains the information for one contact - so 
+   in similar style to files in a database - 1 line is one record
+   ** the comma is used as a delimiter - a separator of the data
+*/
+//----------------------------------------------------------
+// 10111,35,55,75
+// 10112,30,30,30
+// 10113,75,55,88 
+//----------------------------------------------------------

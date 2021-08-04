@@ -1,0 +1,124 @@
+package PastPaper2018; //useStudent
+
+import java.util.Scanner; 
+
+public class PastPaper2018{ //useStudent
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner (System.in);
+		String strStudentN; 
+		double dblTest, dblAssign, dblExam; 
+
+		System.out.println("Please enter the required information");
+		
+		System.out.print("Student Number - " );
+		strStudentN = sc.nextLine();		
+		System.out.println();
+
+		System.out.print("Test Mark - " );
+		dblTest = sc.nextDouble();		
+		System.out.println();
+
+		System.out.print("Assignment Mark - " );
+		dblAssign = sc.nextDouble();		
+		System.out.println();
+
+		System.out.print("Exam Mark - " );
+		dblExam = sc.nextDouble();		
+		System.out.println();			
+		
+		Student_Report stud1 = new Student_Report(strStudentN, dblTest, dblAssign, dblExam);
+		
+		stud1.print_report();
+	
+	}
+} 
+
+//****************************************************************************************************
+package PastPaper2018;
+
+public interface iReport{
+
+	public void print_report();
+
+}
+//****************************************************************************************************
+package PastPaper2018;
+
+public abstract class Student {
+	protected String _studentNum; 
+	protected double _testMark; 
+	protected double _assignMark; 
+	protected double _examMark; 
+
+	public String getStudentNum(){return _studentNum;}
+	public double getTestMark(){return _testMark;}
+	public double getAssignMark(){return _assignMark;}
+	public double getExamMark(){return _examMark;}
+
+	public Student(String studentNum, double testMark, double assignMark, double examMark){
+		_studentNum = studentNum; 
+		_testMark = testMark; 
+		_assignMark = assignMark; 
+		_examMark = examMark; 		
+	}
+
+	//public void print_Report();	
+}
+
+//****************************************************************************************************
+package PastPaper2018;
+
+public class Student_Report extends Student implements iReport{
+
+	public Student_Repor(String studentNum, double testMark, double assignMark, double examMark){
+		super(studentNum, testMark, assignMark, examMark); 		
+	}
+
+	
+	public void print_Report(){
+		/*
+		double dblFinalMark, dblTestW, dblAssignW, dblExamW;
+
+		dblTestW = super._testMark * 0.25; 
+		dblAssignW = super._assignMark * 0.25;
+		dblExamW = super._examMark * 0.5;
+
+		dblFinalMark = dblTestW + dblAssignW + dblExamW; 
+		
+		System.out.println("STUDENT REPORT");
+		System.out.println("*******************************");
+		System.out.println("STUDENT NUMBER: " + super._studentNum);
+		System.out.println("TEST WEIGHTING: " + dblTestW);
+		System.out.println("ASSIGNMENT WEIGHTING: " + dblAssignW);
+		System.out.println("EXAM WEIGHTING: " + dblExamW);
+		System.out.println("FINAL MARK: " + dblFinalMark);
+		System.out.println("*******************************");		
+		*/
+	}
+
+	@Override
+	public void print_Report(){
+		double dblFinalMark, dblTestW, dblAssignW, dblExamW;
+
+		dblTestW = super._testMark * 0.25; 
+		dblAssignW = super._assignMark * 0.25;
+		dblExamW = super._examMark * 0.5;
+
+		dblFinalMark = dblTestW + dblAssignW + dblExamW; 
+		
+		System.out.println("STUDENT REPORT");
+		System.out.println("*******************************");
+		System.out.println("STUDENT NUMBER: " + super._studentNum);
+		System.out.println("TEST WEIGHTING: " + dblTestW);
+		System.out.println("ASSIGNMENT WEIGHTING: " + dblAssignW);
+		System.out.println("EXAM WEIGHTING: " + dblExamW);
+		System.out.println("FINAL MARK: " + dblFinalMark);
+		System.out.println("*******************************");		
+	}
+}
+
+
+
+
+

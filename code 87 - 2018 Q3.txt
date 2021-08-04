@@ -1,0 +1,152 @@
+/*
+	Program: 2018 Q3
+*/
+package Exam2018Q3; 
+
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
+
+import java.nio.file.*;
+import java.io.*;
+
+public class grid1 extends JFrame implements ActionListener {
+	
+	String[] strContact; 
+	String[] strMobile; 
+	String[] strWork; 
+	String[] strEmail; 
+	String[] array = new String[4]; //4 fields in each record
+	String s = ""; 
+	String delimiter = ",";
+	Path file = Paths.get("C:\\Whatever\\Location\\Contacts.txt");
+
+	int intNumContacts;
+
+	GridLayout g1 = new GridLayout(4,2,10,10); 
+	Container con = getContentPane();
+
+	//row 1
+	JLabel lblTitle = new JLabel("Select Contact"); 
+
+	//row 2
+	JList lstContacts; //add the contacts in the constructor 
+
+	JPanel pnlDetails = new JPanel();
+	GridLayout g2 = new GridLayout(3,2); 	
+	
+	JLabel lblMobile = new JLabel("Mobile");
+	JTextField txtMobile = new JTextField();
+	
+	JLabel lblWork = new JLabel("Work");
+	JTextField txtWork = new JTextField();
+	
+	JLabel lblEmail = new JLabel("Email");
+	JTextField txtEmail = new JTextField();	
+	
+	//row 3
+	JLabel lblNumberDisplay = new JLabel();	
+	
+	//row 4
+	JButton btnSearch = new JButton("SEARCH");
+	
+	public grid1(){
+		//Call Method to retrieve all information from the text file
+		loadFromTextFile();
+		
+		lstContacts = new JList(strContact); // load contacts into the listbox
+
+		super("Contacts Application");
+		setSize(400,350); // would have to experiment to know the proper size
+			
+		con.setLayout(g1); //using the grid layout because its easier to visualize & doing this manually
+
+		con.add(lblTitle);
+		con.add(""); // adding nothing here so the title should take up the whole 1st row
+
+		con.add(lstContacts);
+				
+		pnlDetails.setLayout(g2); 
+		pnlDetails.add(lblMobile);
+		pnlDetails.add(txtMobile);
+
+		pnlDetails.add(lblWork);
+		pnlDetails.add(txtWork);
+
+		pnlDetails.add(lblEmail);
+		pnlDetails.add(txtEmail);
+		con.add(pnlDetails); 
+
+		lblNumberDisplay.setText("Number of contacts: " + intNumContacts); // **** needed
+		con.add(lblNumberDisplay);
+		con.add("");	
+
+		con.add(btnSearch);
+		con.add("");
+		
+		btnSearch.addActionListener(this);	
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		Object source = e.getSource();
+	
+		if (source == btnSearch){
+			int intChoice = lstContacts.getSelectedIndex();
+			txtMobile.setText(strMobile[intChoice]);
+			txtWork.setText(strWork[intChoice]);
+			txtEmail.setText(strEmail[intChoice]);
+		}
+	}
+
+	public void loadFromTextFile(){
+		try{
+			InputStream input = new BufferedInputStream(Files.newInputStream(file));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+			s = reader.readLine();
+			intNumContacts = 0; 
+			
+			while(s != null){
+				array = s.split(delimiter);
+
+				strContact[intNumContacts] = array[0];
+				strMobile[intNumContacts] = array[1];
+				strWork[intNumContacts] = array[2];
+				strEmail[intNumContacts] = array[3];
+				
+				intNumContacts++; // count the contacts
+				s = reader.readLine();
+			}
+			reader.close();
+		}
+		catch(Exception e){
+			System.out.println("Message: " + e);
+		}
+	}
+
+}
+
+//----------------------------------------------------------
+public class Exam2018Q2{
+	public static void main(String[] args){
+		grid1 frmGridLayout = new grid1();
+
+		frmGridLayout.setVisible(true);
+	}
+}
+
+//----------------------------------------------------------
+/* 
+Content of the text file - 
+   instead of the layout given in the picture - you will notice 
+   a slight difference I have opted for - the idea is that 
+   1 whole line contains the information for one contact - so 
+   in similar style to files in a database - 1 line is one record
+*/
+//----------------------------------------------------------
+// Joe Blog,082 555 5678,011 555 1234,jb@gmail.com
+// Jeff Jones,072 555 6547,021 555 9871,jj@gmail.com
+// Jane Porter,083 555 1452,011 555 1987,jp@gmail.com 
+//----------------------------------------------------------

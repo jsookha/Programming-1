@@ -1,0 +1,74 @@
+/*
+	Program: 2018 Q1
+*/
+package Exam2018Q1; 
+
+import java.util.Scanner; 
+
+public class Exam2018Q1{
+	
+	static String[] strArtists; 
+	static double[][] dblSales = new double[5][3]; 
+
+	static Scanner sc = new Scanner(System.in);	
+
+	public static void main(String[] args){
+		loadArrays();
+		searchArtist();
+	}
+
+	public static searchArtist(){
+		int intSearch, intFlag, intFound; 
+		double dblTotalSales;
+ 
+		dblTotalSales = 0;
+		intFlag = 0; 
+		intFound = -1;
+
+		System.out.print("Enter a position (between 1 and 5) to view the artist CD, DVD and Blu Ray Sales for 2017: ");
+		intSearch = sc.nextInt();
+
+		for (int intCount = 0; intCount <= 4; intCount++){
+			if ((intSearch - 1) == intCount){ //Search - 1 b/c we need to refer to right index - Ed is in position 1 but index 0 etc.
+				intFound = intCount; 
+				intFlag = 1; 				
+			}
+		} 
+		
+		if (intFlag == 0){
+			System.out.println("Artist does not exist in current list");
+		}
+		else{
+			for (int intCount2 = 0; intCount2 <= 2; intCouunt2++){
+				dblTotalSales = dblTotalSales + dblSales[intFound][intCount2]; 
+			}
+			System.out.println(strArtist[intFound] + " was in position " + intSearch " + for 2017 sales");
+			System.out.println("CD SALES: " + dblSales[intFound][0]); //still needs to be formatted
+			System.out.println("DVD SALES: " + dblSales[intFound][1]);
+			System.out.println("BLU RAY SALES: " + dblSales[intFound][2]);
+			System.out.println("TOTAL: " + dblTotalSales);  
+		}
+	}
+	public static void loadArrays(){
+		strArtists = new String[]{"Ed Sheeran", "Pink", "Bruno Mars", "Foo Fighters", "Taylor Swift"}
+		dblSales[0][0] = 900000; 
+		dblSales[0][1] = 800000;
+		dblSales[0][2] = 500000;
+
+		dblSales[1][0] = 700000; 
+		dblSales[1][1] = 500000;
+		dblSales[1][2] = 500000;
+	
+		dblSales[2][0] = 800000; 
+		dblSales[2][1] = 100000;
+		dblSales[2][2] = 50000;
+
+		dblSales[3][0] = 100000; 
+		dblSales[3][1] = 200000;
+		dblSales[3][2] = 200000;
+
+		dblSales[4][0] = 300000; 
+		dblSales[4][1] = 100000;
+		dblSales[4][2] = 50000;
+	}
+}

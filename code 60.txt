@@ -1,0 +1,33 @@
+/*
+ * Program: recursionex
+ * Date: 29/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package recursionex;
+
+import java.util.Scanner; 
+
+public class recursionex{
+
+`	public static void main(String[] args){
+		int intNumber; 
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter number - ");
+		intNumber = sc.nextInt();
+
+		int intAnswer; 
+		intAnswer = 1; 
+
+		for (int intCount = intNumber; intCount >= 1; intCount--){
+			intAnswer = intAnswer * intNumber; 
+		}			
+		
+		System.out.println("The answer for " + intNumber + "! is " + intAnswer);	
+	}
+
+}
+
+
+4 * (3 * (2 * (1))

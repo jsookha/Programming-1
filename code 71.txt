@@ -1,0 +1,289 @@
+/*
+ * Program: 2D Arrays
+ * Date: 28/9/2019
+ * Programmer: J.Sookha
+ * Description: Storing and manipulating information in a 2D array 
+		
+*/
+
+package twodimensionalarrays;
+
+import java.util.Scanner; 
+
+public class twodimensionalarrays{
+
+	static int[][] intNum = new int[3][3]; // 3 x 3 2D Array declaration (9 values stored)
+	static int intCount1, intCount2; 
+	static int intCounter;
+	
+	static double dblGrandTotal, dblSumRow, dblSumCol, dblGrandAverage, dblAvgRow, dblAvgCol; 
+
+	static int intHigh, intLow, intHighRow, intLowRow, intHighCol, intLowCol; 
+	static int intHighRIndex, intHighCIndex, intLowRIndex, intLowCIndex; 
+
+	public static void main(String[] args){
+		LoadArrayValues();
+		PrintValues();
+		SumAndAverages();
+		HighestAndLowest(); 
+	}
+	
+	public static void HighestAndLowest(){
+		// going to work out the highest and lowest values in the 2D array along with the highest and lowest 
+		// in each row and in each column 
+		// what needs to be noticed is that I am going to combine all the decisions into one set of 2 for loops 
+		// again - this works only because of the dimensions of the array being the same (3x3 4x4 5x5 etc.)
+
+		intHigh = -1; 
+		intLow = 999; 
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			intHighRow = -1;
+			intLowRow = 999;
+
+			intHighCol = -1; 
+			intLowCol = 999; 
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				if (intNum[intCount1][intCount2] > intHigh){
+					intHigh = intNum[intCount1][intCount2];
+					intHRIndex = intCount1; 
+					intHCIndex = intCount2;
+				}
+				if (intNum[intCount1][intCount2] < intLow){
+					intLow = intNum[intCount1][intCount2];
+					intLRIndex = intCount1; 
+					intLCIndex = intCount2;
+				}
+
+				//*****************
+				if (intNum[intCount1][intCount2] > intHighRow){
+					intHighRow = intNum[intCount1][intCount2];	
+				}
+				if (intNum[intCount1][intCount2] < intLowRow){
+					intLowRow = intNum[intCount1][intCount2];	
+				}
+				//*****************
+				if (intNum[intCount2][intCount1] > intHighCol){
+					intHighCol = intNum[intCount2][intCount1];
+				}
+				if (intNum[intCount2][intCount1] < intLowCol){
+					intLowCol = intNum[intCount2][intCount1];
+				}
+			}
+			//Print the answers for each row and each column
+		} 
+
+		// Print the answers for the grand set
+	
+			
+	}
+
+	public static void SumAndAverages(){
+		// Calculating the grand total & average of all the values in the array 
+		dblGrandTotal = 0; // remember that the reason for the variable being double is because the calculation for the average must give us a decimal value
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				dblGrandTotal = dblGrandTotal + intNum[intCount1][intCount2];
+			}
+		} 
+		dblGrandAverage = dblGrandTotal / 9; // I know that it is 9 values in this array - so hard coding the 9 is fine for now  		
+		System.out.println("Grand Total of all 9 values is " + dblGrandTotal + " with an average of " + dblGrandAverage); 	
+
+		// since this is a 3x3 array - the following code will allow me to calculate the sum of the rows and columns together in 
+		// one set of 2 for loops -- BUT -- the following code will not work if the array is of an odd size, like a 4x5 or 10x15 
+
+		/* Calculating the sum and average for each row and each column - the most important thing is that we need to initialize 
+		   the sum variables at the start of every row and at every column for the other sum
+		   -- in order to acheive this - we need to use the 2 for loops better 
+
+				  0   0   0 
+				_____________
+				  0   1   2 	sum	avg	
+				+---+---+---+
+	     		0   |0	| 1 | 2 | 3 |	6	2
+			    |	+---+---+---+
+	     		0   |1	| 4 | 5 | 6 |	15	5
+			    |	+---+---+---+
+	     		0   |2	| 7 | 8 | 9 |	24	8
+				+---+---+---+
+
+			sum	 12  15  18  
+			avg	  4   5   6
+		*/
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			dblSumRow = 0; 
+			dblSumCol = 0;
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				dblSumRow = dblSumRow + intNum[intCount1][intCount2];
+				dblSumCol = dblSumCol + intNum[intCount2][intCount1];
+			}
+			dblAvgRow = dblSumRow / 3;
+			dblAvgCol = dblSumCol / 3;
+			System.out.println("The sum of row " + intCount1 + " is " + dblSumRow + " with an average of " + dblAvgRow);
+			System.out.println("The sum of column " + intCount1 + " is " + dblSumCol + " with an average of " + dblAvgCol);
+		} 
+	}
+
+	public static void PrintValues(){
+		
+		// Printing all the values - one line at a time 
+		
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				System.out.println("Cell [" + intCount1 + "][" + intCount2 + "] = " + intNum[intCount1][intCount2]);
+			}
+		} 
+
+		//-----------------------------------------------------------------------------------------------------------------------------
+		// Printing all the values - but this time including the row number in a heading (still printing 1 value at a time & one row at a time)
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			System.out.println("Row " + intCount1);
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				System.out.println("Cell [" + intCount1 + "][" + intCount2 + "] = " + intNum[intCount1][intCount2]);
+			}
+			System.out.println("\n End of Row " + intCount1); 	
+		} 
+
+		//-----------------------------------------------------------------------------------------------------------------------------
+		// Printing all the values - but this time including the column number in a heading (still printing 1 value at a time & one column at a time)
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			System.out.println("Column " + intCount1);
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				System.out.println("Cell [" + intCount2 + "][" + intCount1 + "] = " + intNum[intCount2][intCount1]);
+			}
+			System.out.println("\n End of Column " + intCount1); 	
+		}
+		//-----------------------------------------------------------------------------------------------------------------------------
+		// Take note of the above code - the indexes were swapped to acheive the idea of going through the array a column at a time
+
+		// so the pattern of indexes when reading by rows would look like this 
+		00 01 02 10 11 12 20 21 22 
+
+		// and the pattern of indexes when reading by columns would look like this 
+		00 10 20 01 11 21 02 12 22
+
+		//-----------------------------------------------------------------------------------------------------------------------------  
+
+		// Another idea when printing is using 1 loop only - we would consider this when we need to print out the entire row 
+		// in one go - but this would also mean that since this one loop is going to handle the rows - the column index will 
+		// be hardcoded  
+ 
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			System.out.println("Row " + intCount1);
+			System.out.println(intNum[intCount1][0] + " - " + intNum[intCount1][1] + " - " + intNum[intCount1][2]);
+		}
+
+ 						
+	}
+
+	public static void LoadArrayValues(){
+		//loading the array in 3 different ways
+
+		//-------------------------------------------------------------------------------------------------		
+		// manually loading each cell with a value 
+		// remember that the first index is the row and the second index is the column
+		intNum[0][0] = 1; 
+		intNum[0][1] = 2; 
+		intNum[0][2] = 3; 
+
+		intNum[1][0] = 4;
+		intNum[1][1] = 5; 
+		intNum[1][2] = 6; 
+
+		intNum[2][0] = 7; 
+		intNum[2][1] = 8; 
+		intNum[2][2] = 9; 
+
+		//-------------------------------------------------------------------------------------------------
+		// loading the array using a counter
+		
+		intCounter  = 1; 
+
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				intNum[intCount1][intCount2] = intCounter; //loading the array using the counter
+				intCounter++; //incrementing the counter to load the next value
+			}
+		} 
+		//-------------------------------------------------------------------------------------------------
+		// loading the array by asking the user for the values	
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Please enter the values for the following cells");
+		
+		for (intCount1 = 0; intCount1 <= 2; intCount1++){
+			for (intCount2 = 0; intCount2 <= 2; intCount2++){
+				System.out.print("Cell [" + intCount1 + "] [" + intCount2 + "] - ");		
+				intNum[intCount1][intCount2] = sc.nextInt(); 
+			}
+		}
+
+		// if you need to use JOptionPane - sure you can adapt the code accordingly		
+		
+		// Please note that the outside loop in these examples handles the rows and the inside 
+		// loop handles the columns 
+
+		// But as mentioned in the notes at the bottom - this logic can change and the understanding 
+		// of the loops can be different 
+	}
+}
+
+//****************************************************************************************************************************************
+/*
+	2D Arrays contain 2 indexes to reference a cell - a row index and a column index
+	
+		  0   1   2 	
+		+---+---+---+
+	     0	| 1 | 2 | 3 |	
+		+---+---+---+
+	     1	| 4 | 5 | 6 |
+		+---+---+---+
+	     2	| 7 | 8 | 9 |
+		+---+---+---+
+
+	a 2D array is visually drawn as a grid - in the case of the above example - 
+	it is a 3x3 array - because of the indexes starting from 0 (zero) - that is why we have 0, 1 and 2
+	
+	a 3x3 grid is the simplest form from which we can learn almost all the ideas within 2D arrays  
+	the 9 numbers - 1 to 9 - sum is 45 / average is 5 / highest is 9 (in cell 2,2) and loweest is 1 (in cell 0,0)
+
+	when referencing a cell in a 2D array - it is always the row index first, then the column index 
+	so try to stay away from naming the variables needed for the indexes as intRow or intCol, would
+	prefer you namaing the variables, intCount1 and intCount2
+	
+	The reason for the naming is because there will come a time to swap the indexes and you do not want the 
+	confusion of row and column, kind of looking like they are in the wrong order 
+
+	Using the above array - it will become evident that 2 for loops is the best way to run through the values 
+	in a 2D array (remember the nested loops that we did for the times tables)
+
+	Using nested for loops - we achieve the idea of going through the array a row at a time ... so this means
+	that the usual style of reading (running through the values) the cells is by row 
+	While the row remains constant - the column will increment and we'll be able to read the cells for one entire row 
+	When the row is done, the counter will increment and we'll be able to read the next row and start the columns all 
+	over again - please take a look at the at the next piece and notice the pattern that forms with the indexes while 
+	reading each row 
+ 
+	Row	Column	Value  
+	0	0	1
+	0	1	2
+	0	2	3
+
+	1	0	4
+	1	1	5
+	1	2	6
+	
+	2	0	7
+	2	1	8
+	2	2 	9
+
+	If we are expected to read a column at a time - then the logic changes and so to will the code change slightly 
+	There are variations to this and will become applicable when dealing with "odd sized" 2D Arrays - so what might 
+	work for a equal sized array (3x3 or 5x5 etc.) might not work for an odd sized array (3x4 or 15x10 etc.)		
+
+*/

@@ -1,0 +1,142 @@
+package PastPaper2016Q2;
+
+import java.util.Scanner; 
+
+public class PastPaper2016Q2{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner (System.in);
+
+		// Bird 				
+		Bird brd = new Bird();
+
+		System.out.println("Bird Information Input");
+		
+		System.out.print("Please enter the bird ID: ");
+		brd.setIDtag(sc.nextInt());
+
+		System.out.print("Please enter the bird species: ");
+		brd.setSpecies(sc.nextLine());
+
+		System.out.print("Please enter the bird feather colour: ");
+		brd.setFeatherColour(sc.nextInt());
+
+		int intID; 
+		String strSpecies; 
+		double dblBloodTemp; 
+
+		System.out.print("Please enter the bird ID: ");
+		intID = sc.nextInt();
+
+		System.out.print("Please enter the bird species: ");
+		strSpecies = sc.nextLine();
+
+		System.out.print("Please enter the bird feather colour: ");
+		dblBloodTemp = sc.nextDouble();
+
+		//Reptile
+		Reptile rept = new Reptile(intID, strSpecies, dblBloodTemp);
+
+		//Printing Information 
+
+		brd.printInfo();
+
+		rept.printInfo();
+		
+	}
+} 
+
+//****************************************************************************************************
+package PastPaper2016Q2;
+
+public class Animal{
+
+	protected int _IDtag; 
+	protected String _species; 
+
+	public void setIDtag(int IDtag){ _IDtag = IDtag; }
+	public int getIDtag(){ return _IDtag; }
+
+	public void setSpecies(String species){ _species = species; }
+	public String getSepcies(){ return _species; }
+
+	public void printInfo(){
+		System.out.println("ID Tag : " + _IDtag);
+		System.out.println("Sepcies: " + _species);
+	}
+			
+}
+
+//****************************************************************************************************
+package PastPaper2016Q2;
+
+public class Bird extends Animal{
+
+	private int _featherColour; // 1 = grey, 2 = white, 3 = black
+
+	public void setFeatherColour(int featherColour){ _featherColour = featherColour; }
+	public int getFeatherColour(){ return _featherColour; }
+
+	public Bird(){
+		//empty constructor - no parameters
+	}
+
+	public Bird(int IDtag, String species, int featherColour){
+		super._IDtag = IDtag; 
+		super._species = species; 
+		_featherColour = featherColour; 
+	} 
+	
+	@Override
+	public void printInfo(){
+		System.out.println("ID Tag : " + super._IDtag);
+		System.out.println("Sepcies: " + super._species);
+
+		String colour; 
+		colour = ""; 
+
+		if (_featherColour == 1)
+			colour = "grey";		
+		if (_featherColour == 2)
+			colour = "white";		
+		if (_featherColour == 3)
+			colour = "black";
+
+		System.out.println("Feather Colour : " + _featherColour);
+				
+	}
+		
+}
+
+//****************************************************************************************************
+package PastPaper2016Q2;
+
+public class Reptile extends Animal{
+
+	private double _bloodTemp; 
+
+	public void setBloodTemp(double bloodTemp){ _bloodTemp = bloodTemp; }
+	public int getBloodTemp(){ return _bloodTemp; }
+
+	public Reptile(){
+		//empty constructor - no parameters
+	}
+
+	public Reptile(int IDtag, String species, double bloodTemp){
+		super._IDtag = IDtag; 
+		super._species = species; 
+		_bloodTemp = bloodTemp; 
+	} 
+	
+	@Override
+	public void printInfo(){
+		System.out.println("ID Tag     : " + super._IDtag);
+		System.out.println("Sepcies    : " + super._species);
+		System.out.println("Blood Temp : " + _bloodTemp);
+	}
+	
+}
+
+
+
+

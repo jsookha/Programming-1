@@ -1,0 +1,102 @@
+package useCell;
+
+import java.util.Scanner; 
+
+public class useCell{
+
+	public static void main(String[] args){
+		Scanner sc = new Scanner (System.in);
+		String strCustomerName; 
+		double dblTalkTime, dblPricePerMinute;  
+
+		System.out.println("Please enter the required information");
+		
+		System.out.print("Enter the customer name: " );
+		strCustomerName = sc.nextLine();		
+
+		System.out.print("Enter the talk time in minutes: " );
+		dblTalkTime = sc.nextDouble();		
+		
+		System.out.print("Enter the price per minute: " );
+		dblPricePerMinute = sc.nextDouble();		
+		
+		System.out.println();			
+		
+		Cell cell1 = new Cell_Billing(strCustomerName, dblTalkTime, dblPricePerMinute);
+		
+		// if you needed to print the output here 
+		System.out.println("CUSTOMER: " + cell1.getCustName());
+		System.out.println("TALK TIME: " + cell1.getTalkTime());
+		System.out.println("PRICE PER MINUTE: " + cell1.getPriceMin());
+		cell1.print_bill();
+	
+	}
+} 
+
+//****************************************************************************************************
+
+package useCell;
+
+interface iPrintable{
+
+	public void print_bill();
+}
+
+//****************************************************************************************************
+
+package useCell;
+
+abstract class Cell implements iPrintable{
+	protected String _custName; 
+	protected double _talkTime; 
+	protected double _priceMin; 
+
+	public String getCustName(){
+		return _custName;
+	}
+	
+	public double getTalkTime(){
+		return _talkTime;
+	}
+
+	public double getPriceMin(){
+		return _priceMin;
+	}
+
+	public Cell(String custName, double talkTime, double priceMin){
+		_custName = custName; 
+		_talkTime = talkTime; 
+		_priceMin = priceMin; 
+		 		
+	}
+
+}
+
+//****************************************************************************************************
+package UseCell;
+
+public class Cell_Billing extends Cell{
+
+	public Cell_Billing(String custName, double talkTime, double priceMin){
+		super(custName, talkTime, priceMin); 		
+	}
+
+	// ??? 
+	//@Override
+
+	public void print_bill(){
+		double dblTotalDue;
+
+		dblTotalDue = super._talkTime * super._priceMin; 
+		
+		System.out.println("CUSTOMER: " + super._custName);
+		System.out.println("TALK TIME: " + super._talkTime);
+		System.out.println("PRICE PER MINUTE: " + super._priceMin);
+		System.out.println("TOTAL BILL: " + dblTotalDue); //need to format the answer, decimal places, R for Rands etc.
+	}
+}
+
+
+
+
+

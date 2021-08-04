@@ -1,0 +1,167 @@
+1. Write a function which takes as input a string (from the user) that consists only of the digits from 0 to 9 and 
+   outputs a distribution showing how many times each digit appears in the string. 
+    
+   "01223334444566" - should produce the following output:
+	0: 1
+	1: 1
+	2: 2
+	3: 3
+	4: 4
+	5: 1
+	6: 2
+	7: 0	
+	8: 0
+	9: 0
+
+2. Create a Class that will accept the relevant parameters (into functions) to calculate the area of the following shapes:
+   - Rectangle, Square, Circle. 
+   The main program will request using a menu of options, which 'area' the user wishes to calculate, after which will request
+   the values needed and then proceed to display the area of the shape chosen. 
+
+3. Create a program to read in a decimal value and output the binary and hexadecimal equivalent values of the input. 
+
+4. A program is needed that will calculate and display the amount payable and the kilometres per litre when a customer is filling
+   their petrol tank at a garage. The amount payable is calculated by multiplying the amount of litres needed to fill the tank by
+   the price per litre. The kilometres per litre are calculated by dividing the kilometres driven by the amount of litres needed 
+   to fill the tank. The amount of litres needed to fill the tank, the price per litre and the amount of kilometres driven since 
+   the last filling are to be entered by an operator. Define the problem by constructing an :-
+	Hierarchy Chart (making use of methods/modules)		
+	Input Processing Output Chart	
+	Flowchart			
+ 	Complete the pseudocode and the java program as well 
+
+5. Draw a flowchart, code the pseudo code & the java program for the following problem: 
+   Mr. Brown has given 3 tests to his class of 50 students. He would like to have the average mark of the 3 tests for each student, 
+   a class average, and the highest and lowest average of the 3 tests. Develop a solution to calculate and display out these values. 
+   In your processing he would also like you to display the symbol achieved(next to the student number and the average of the 3 tests) 
+   by each student. Symbol allocation is as follows: 
+	75 – 100 	= A
+	70 – 74   	= B
+ 	60 – 69   	= C
+	50 – 59   	= D
+	Below 50 	= F
+
+6. The Salary department of ThisClothing Co. would like their employee’s new salaries (with a tax deduction) printed out in a formal 
+   report and thereby eliminating the human error factor. Unfortunately the company lost count of the number of employees in their company. 
+
+   Design a flowchart (and pseudo code and a java program (in the Java program use JOptionPane)) that will prompt an operator for an 
+   employee’s number, their name and age (Use the “#” character to stop the processing of the employees). Your program must then 
+   calculate the salary with the necessary tax deduction and display it to the screen. The Basic salary for all employees is R3500.00. 
+
+   A tax deduction needs to be calculated and subtracted from the basic salary. The percentage of the tax deduction is allocated according 
+   to their age. Here are the percentages of tax deductions allocated for the various age groups. 
+	Age		Percentage
+	<= 18		0%
+	19 - 24		5%
+	25 - 30		10%
+	31 - 35		15%
+	>= 36		20%
+
+   You are to display the Employee's Name, their Age, the Basic Salary, the Tax Deduction and the New Salary to the screen. 
+   After you have calculated the list of employee’s the company would like to know 
+	- The number of employees you have calculated salaries for, 
+	- The total salaries payable to all the employees and,
+	- The total tax payable.
+
+7. DO NOT CODE THE JAVA PROGRAM FOR THIS QUESTION - ONLY THE PSEUDO CODE AND THE FLOWCHART
+	Given an integer array (numArr) that contains 20 elements, write an algorithm to solve the following problem:
+	•	Read values into the array
+	•	Insertion sort the array into descending order
+	•	Bubble sort the array into ascending order
+	•	Print the sorted array
+	•	Add together all the numbers that are < 10
+	•	Print out the sum of the numbers < 10, and the average with an appropriate message.
+
+8. Draw a flowchart, code the pseudo code & the java program for the following problem: 
+   The Municipality needs to bill residents of their city for the use of water and electricity. A structure has been set up 
+   whereby residents that are large consumers of water and electricity are charged at a higher rate than those that use a 
+   minimal amount. There is also a discount for Senior citizens. The Usage is being measured in kilo-litres. 
+ 
+	The rates are as follows:
+	Usage				Charge
+	0 – 250 litres			R0-00 / litre		
+	251 – 500 litres		R10-00 / litre
+	501- 2000 litres		R25-00 / litre	
+	2001 and above			R30-00 / litre
+ 
+   Your input will be: 
+   The person’s account number, 
+   Whether the person is a senior citizen or not (Resident, with the value of “S” for senior citizen or “N” for normal citizen) and 
+   Their monthly water and electricity consumption. 
+
+   If the resident is a senior citizen then a discount of 5% is deducted from their TOTAL AMOUNT owing.
+
+   You need to output 
+   The Account Number, 
+   Whether the person is a Senior citizen or a Normal citizen.
+   VAT - charged on the amount charged, at 14%.
+   The water and electricity consumption and the amount owing to the municipality.	
+
+9. Draw a flowchart, code the pseudo code & the java program for the following problem:  
+   A lecturer on campus would like a program that calculates the average mark his class has achieved for a specific test. 
+   Along with the average mark he would also like to know which student got the highest mark in the class and which student got 
+   the lowest mark in the class. Besides calculating the average, highest and lowest, he wants to show his students what grades 
+   they achieved. 
+
+   The most important thing is that he wants the program to work for any size class, so you must use a sentinel value of 999 
+   for the test mark, to stop the processing of the loop.
+
+   You are required to enter the following details:
+   Student Number, Student Name, Test Mark 
+
+   From the above values you are required to calculate and output:
+   	1. Each Student’s name and number with the grade they achieved
+		This grade is decided as follows:
+			mark		grade
+			75 – 100	A
+			70 – 74		B
+			60 – 69		C
+			50 – 59		D
+			40 - 49		E
+			< 40 		F
+	2. The average mark for the test.
+	3. The Highest Mark with the Students’ Name and Student Number.
+	4. The Lowest Mark with the Students’ Name and Student Number.
+	5. How many students are in the class.
+*Use JOptionPane to read in all relevant values, and display all the values using System.out.print/ln
+
+10. Write an algorithm for the following problem in negative logic:
+    You are required to read in the sales and output the commission. 
+
+	The commission is based on the sales as follows:
+	Sales					Commission
+	Less than R15 000			5% of sales
+	R15 001 - R30 000			8% of sales
+	R30 001 - R40 000			10% of sales
+	More than R40 000			15% of sales
+
+11. Oom Piet van Donnor sells second-hands cars (obviously you could find fifth-hands too) at a very reasonable price,
+    at least that what he says. His motto is: I DON’T SELL CHEAP CARS; I SELL CARS CHEAP. 
+
+    There is extra amount paid depending on the colour and sound system (with no radio or with radio) on a car. All red and 
+    black cars have an additional 5% on their original price and the radio adds an extra R450.
+
+    There is also a discount based on the deposit paid follows:
+	Deposit 					Discount
+	Less than R10 000				R300
+	R1 000.01 to R15 000				5% of original price
+	R15 000.01 to R25 000				R500 + 2% of every R200 above R15000
+	Above R25 000					15% of original price
+
+    He has asked you the best TWR programmer to write a program that reads the following:
+	Original price of a car
+	Amount paid 	
+	Vehicle colour  
+	Sound system, yes or no 
+
+	Your program must calculate:
+	1.	The radio price if any.
+	2.	The colour price if any.
+	3.	The new price, after taking into consideration the above prices and the original price, this must also be output.
+	4.	Calculate the discount.
+	5.	Total disc given to all customers, this must also be output.
+	6.	Remaining balance for each customer, this must also be output.
+	7.	Number of customers served; this must also be output.
+
+    The numbers of customers is unknown and hence use a sentinel value of –111 on a deposit to end your program.
+

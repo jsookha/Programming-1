@@ -1,0 +1,70 @@
+// Average calculated similar to the example from the PRLD exam 
+// All code is in the main method - 
+
+package exampratice1; 
+
+import java.util.Scanner; 
+
+public class exampractice1{
+
+	public static void main(String[] args){
+
+		Scanner sc = new Scanner(System.in);
+	
+		int intNumber, intCount; 
+		Double dblAvg, dblTotal; 
+
+		dblTotal = 0.0; 
+		intCount = 0; 
+
+		System.out.print("Please enter a number <999 to stop>: ");
+		intNumber = sc.nextInt();
+
+		while (intNumber != 999){
+			dblTotal = dblTotal + intNumber; 
+			intCount++; 
+			System.out.print("Please enter a number <999 to stop>: ");
+			intNumber = sc.nextInt();
+		}
+
+		dblAvg = dblTotal / intCount; 
+
+		System.out.println("The total is " + intTotal + " with an average of " + dblAvg);
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------
+// same program as above except the average is calculated in a function (method that returns a value)
+package exampratice1; 
+
+import java.util.Scanner; 
+
+public class exampractice1{
+
+	public static void main(String[] args){
+
+		Scanner sc = new Scanner(System.in);
+	
+		int intNumber, intCount; 
+		Double dblAvg, dblTotal; 
+
+		dblTotal = 0.0; 
+		intCount = 0; 
+
+		System.out.print("Please enter a number <999 to stop>: ");
+		intNumber = sc.nextInt();
+
+		while (intNumber != 999){
+			dblTotal = dblTotal + intNumber; 
+			intCount++; 
+			System.out.print("Please enter a number <999 to stop>: ");
+			intNumber = sc.nextInt();
+		}
+
+		System.out.println("The total is " + intTotal + " with an average of " + CalcAvg(dblTotal, intCount));
+	}
+
+	public double CalcAvg(double dblTotal, int intCount){
+		return (dblTotal/intCount);	
+	}
+}

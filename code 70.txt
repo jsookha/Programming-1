@@ -1,0 +1,132 @@
+package exampracticearrays;
+
+import javax.swing.JOptionPane; 
+
+public class exampracticearrays{
+
+	static String[] strParts = new String[5]; 
+	
+	//static Double[] dblPrice = new Double[5]; 
+	static Double[] dblPrice; 
+
+	// regarding the above declaration - try changing the spelling of Double - using the small d - double 
+	// just want you to know if it will still work 
+
+	public static void main(String[] args){
+		loadArrays();
+		
+		int intRepeat; 
+		intRepeat = 1; 
+		
+		while (intRepeat == 1){
+			intRepeat = 0; 
+
+			String strSearch = JOptionPane.showInputDialog(null, "Please enter the part name");
+			searchArrays(strSearch);
+
+			int intDecide = JOptionPane.showConfirmDialog(null,"Do you want to search again?");
+			if (intDecide == 0)
+				intRepeat = 1; 
+		}
+		
+		
+		CalcTotal(); 
+		HighLow();	
+		//HighLow(dblPrice);	
+	}
+
+	// public static void HighLow(Double[] dblThisPrice){
+
+	public static void HighLow(){
+		int intCount; 
+		double dblHigh, dblLow; 
+		int intHIndex, intLIndex; 
+
+		dblHigh = -1.00; 
+		dblLow = 99999.00; 
+	
+		intHIndex = -1; 
+		intLIndex = -1; 
+
+		for (intCount = 0; intCount <= 4; intCount++){
+			if (dblPrice[intCount] > dblHigh){
+				dblHigh = dblPrice[intCount]; 
+				intHIndex = intCount;
+			}
+
+			if (dblPrice[intCount] < dblLow){
+				dblLow = dblPrice[intCount]; 
+				intLIndex = intCount;
+			}
+		}
+		
+		JOptionPane.showMessageDialog(null, "Highest Priced Part is " + strParts[intHIndex] + " - price of " + dblPrice[intHIndex] + "\n" + 
+						    "Lowest Priced Part is " + strParts[intLIndex] + " - price of " + dblPrice[intLIndex]);
+
+	}
+	
+	public static void CalcTotal(){
+		int intCount; 
+		Double dblTotal; 
+		dblTotal = 0.0; 
+
+		for (intCount = 0; intCount <= 4; intCount++){
+			dblTotal = dblTotal + dblPrice[intCount];
+		}
+		
+		JOptionPane.showMessageDialog(null,"The total price of all the parts is " + dblTotal);			
+	}
+
+	public static void searchArrays(String strSearch){
+		int intFlag, intFoundIndex; 
+		int intCount; 
+
+		intFlag = 0; // value set to zero to tell me the value has not been found 
+		intFoundIndex = -1; 		
+
+		for (intCount = 0; intCount <= 4; intCount++){
+			//String strLCSearch, strLCParts; 
+			
+			//strLCSearch = convert to lowercase 
+			//strLCParts = convert to lowercase 
+
+			//if (strLCSearch.equals(strLCParts))
+	
+			if (strSearch.equals(strParts[intCount])) {
+				intFlag = 1; 
+				intFoundIndex = intCount; 
+			}
+		}
+
+		if (intFlag == 0){
+			JOptionPane.showMessageDialog(null,"The part you are looking for does not exist");
+		}
+		else {
+			JOptionPane.showMessageDialog(null,strParts[intFoundIndex] + " has the price of " + dblPrice[intFoundIndex]);		
+		}
+	}
+
+	public static void loadArrays(){
+		strParts[0] = "RAM"; 
+		strParts[1] = "CPU"; 
+		strParts[2] = "Graphics Card"; 
+		strParts[3] = "USB Port"; 
+		strParts[4] = "HDD"; 
+	
+		dblPrice = new Double[]{1500.00,2500.00,5000.00,200.00,1200.00};	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

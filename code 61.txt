@@ -1,0 +1,106 @@
+package exam2015question4; 
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat; 
+public class exam2015question4{
+
+	static String[] strItems = new String[3]; 
+	static double[] dblPrices = new double[3]; 	
+	static DecimalFormat df = new DecimalFormat("R ####.00");
+	
+	public static void main(String[] args){
+		loadArray();
+		double dblTotal; 
+		dblTotal = 0.0; 
+
+		int intInput; 
+
+		intInput = MenuChoice();
+
+		while (intInput != 0){
+			dblTotal = dblTotal + dblPrices[intInput - 1]; 
+			intInput = MenuChoice();			
+		}
+		
+		JOptionPane.showMessageDialog(null,"Your total came to " + df.format(dblTotal));				
+			
+	}
+	
+	public static void loadArrays(){
+
+		strItems[0] = "Chicken Mayo Sandwich";
+		strItems[1] = "Vienna and Chips"; 
+		strItems[2] = "Tuna Tramezini"; 
+
+		dblPrices[0] = 32.95;
+		dblPrices[1] = 29.95; 
+		dblPrices[2] = 30.95; 
+
+	}
+
+	public static int MenuChoice(){
+		int intMenuChoice; 
+		String strDisplayMenu; 
+
+		strDisplayMenu = String.format("%25s %7s \n %25s %7s \n %25s %7s \n %35s", strItems[0], df.format(dblPrices[0]), strItems[1], df.format(dblPrices[1]), strItems[2], df.format(dblPrices[2]), "Make Selection [Type 0 to quit]");
+
+		intMenuChoice = Integer.parseInt(JOptionPane.showInputDialog(null, strDisplayMenu);
+		return intMenuChoice; 
+	
+	}
+			
+}
+
+/*
+package exam2015question4; 
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat; 
+public class exam2015question4{
+
+	static String strItem1, strItem2, strItem3; 
+	static double dblPrice1, dblPrice2, dblPrice3; 
+	static DecimalFormat df = new DecimalFormat("R ####.00");
+	
+	public static void main(String[] args){
+		strItem1 = "Chicken Mayo Sandwich";
+		strItem2 = "Vienna and Chips"; 
+		strItem3 = "Tuna Tramezini"; 
+		dblPrice1 = 32.95;
+		dblPrice2 = 29.95; 
+		dblPrice3 = 30.95; 
+
+		double dblTotal; 
+		dblTotal = 0.0; 
+
+		int intInput; 
+
+		intInput = MenuChoice();
+
+		while (intInput != 0){
+			switch (intInput){
+				case 1: dblTotal = dblTotal + dblPrice1; 
+					break;
+				case 2: dblTotal = dblTotal + dblPrice2; 
+					break;
+				case 3: dblTotal = dblTotal + dblPrice3; 
+					break;
+			}
+			intInput = MenuChoice();			
+		}
+		
+		JOptionPane.showMessageDialog(null,"Your total came to " + df.format(dblTotal));				
+			
+	}
+
+	public static int MenuChoice(){
+		int intMenuChoice; 
+		String strDisplayMenu; 
+
+		strDisplayMenu = String.format("%25s %7s \n %25s %7s \n %25s %7s \n %35s", strItem1, df.format(dblPrice1), strItem2, df.format(dblPrice2), strItem3, df.format(dblPrice3), "Make Selection [Type 0 to quit]");
+
+		intMenuChoice = Integer.parseInt(JOptionPane.showInputDialog(null, strDisplayMenu);
+		return intMenuChoice; 
+	
+	}
+			
+}
+*/

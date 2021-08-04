@@ -1,0 +1,160 @@
+/*
+	Program: 2018 Q2
+*/
+package Exam2018Q2; 
+
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
+import javax.swing.JOptionPane; 
+
+public class grid1 extends JFrame implements ActionListener {
+
+	GridLayout g1 = new GridLayout(5,2,10,10); // 5 rows 2 columns - 10 10 gaps
+	Container con = getContentPane();
+
+	//row 1
+	JLabel lblTitle = new JLabel("AREA CODE LOOKUP"); //still needs to be formatted like the picture
+
+	//row 2
+	JLabel lblCountry = new JLabel("Select Country");
+	JComboBox cboCountry = new JComboBox();
+	
+	//row 3
+	JLabel lblTown = new JLabel("Select Town");	
+	JComboBox cboTown = new JComboBox();
+	
+	//row 4
+	JLabel lblItems = new JLabel("Items to lookup");	
+	JRadioButton rdoPhnCode = new JRadioButton("Phone Code");
+	JRadioButton rdoPstCode	= new JRadioButton("Postal Code");
+	ButtonGroup bgCodes = new ButtonGroup();	
+	// just thought its needed to layout the radio buttons 	
+	JPanel pnlLookup = new JPanel();
+	GridLayout g2 = new GridLayout(2,1); 	
+	
+	//row 5
+	JButton btnSubmit = new JButton("Submit");
+	JButton btnExit = new JButton("Exit");
+
+	// as you will see - none of the controls have been customized in terms of size, colour, etc. - something you could consider 
+	
+	public grid1(){
+		super("Country Lookup");
+		setSize(400,350); // would have to experiment to know the proper size
+			
+		con.setLayout(g1); //using the grid layout because its easier to visualize & doing this manually
+
+		con.add(lblTitle);
+		con.add(""); // adding nothing here so the title should take up the whole 1st row
+
+		con.add(lblCountry);
+		con.add(cboCountry);	
+		
+		con.add(lblTown);
+		con.add(cboTown);	
+
+		con.add(lblItems);
+		pnlLookup.setLayout(g2); 	
+		bgCodes.add(rdoPhnCode);
+		bgCodes.add(rdoPstCode);		
+		pnlLookup.add(rdoPhnCode);
+		pnlLookup.add(rdoPstCode);		
+		con.add(pnlLookup);
+		
+		con.add(btnSubmit);
+		con.add(btnExit);
+		
+		cboCountry.addItem("South Africa");
+		cboCountry.addItem("United Kingdom");
+		
+		cboCountry.addActionListener(this);
+
+		btnSubmit.addActionListener(this);
+		btnExit.addActionListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		Object source = e.getSource();
+	
+		if (source == cboCountry){
+			if ("South Africa".equals(cboCountry.getSelectedItem()){
+				cboTown.addItem("Cape Town");
+				cboTown.addItem("Johannesburg");
+				cboTown.addItem("Durban");
+			}
+			if ("United Kingdom".equals(cboCountry.getSelectedItem()){
+				cboTown.addItem("London");
+				cboTown.addItem("Oxford");
+				cboTown.addItem("Southhampton");
+			}
+		}
+
+		if (source == btnSubmit){
+			String strSelectedTown = cboTown.getSelectedItem();
+			String strSelectedCountry = cboCountry.getSelectedItem();
+			if (rdoPhnCode.isSelected()){
+				switch (strSelectedTown){
+					case "Cape Town":
+						JOptionPane.showMessageDialog(null,"Phone code for " + strSelectedTown + " in " + strSelectedCountry + " is 021";
+						break;
+					case "Johannesburg":
+						JOptionPane.showMessageDialog(null,"Phone code for " + strSelectedTown + " in " + strSelectedCountry + " is 011";
+						break;
+					case "Durban":
+						JOptionPane.showMessageDialog(null,"Phone code for " + strSelectedTown + " in " + strSelectedCountry + " is 031";
+						break;
+					case "London":
+						JOptionPane.showMessageDialog(null,"Phone code for " + strSelectedTown + " in " + strSelectedCountry + " is 020";
+						break;
+					case "Oxford":
+						JOptionPane.showMessageDialog(null,"Phone code for " + strSelectedTown + " in " + strSelectedCountry + " is 01865";
+						break;
+					case "Southampton":
+						JOptionPane.showMessageDialog(null,"Phone code for " + strSelectedTown + " in " + strSelectedCountry + " is 023";
+						break;
+				}
+			}
+
+			if (rdoPstCode.isSelected()){
+				switch (strSelectedTown){
+					case "Cape Town":
+						JOptionPane.showMessageDialog(null,"Postal code for " + strSelectedTown + " in " + strSelectedCountry + " is 8000";
+						break;
+					case "Johannesburg":
+						JOptionPane.showMessageDialog(null,"Postal code for " + strSelectedTown + " in " + strSelectedCountry + " is 2000";
+						break;
+					case "Durban":
+						JOptionPane.showMessageDialog(null,"Postal code for " + strSelectedTown + " in " + strSelectedCountry + " is 4000";
+						break;
+					case "London":
+						JOptionPane.showMessageDialog(null,"Postal code for " + strSelectedTown + " in " + strSelectedCountry + " is WC2N5DU";
+						break;
+					case "Oxford":
+						JOptionPane.showMessageDialog(null,"Postal code for " + strSelectedTown + " in " + strSelectedCountry + " is OX13PN";
+						break;
+					case "Southampton":
+						JOptionPane.showMessageDialog(null,"Postal code for " + strSelectedTown + " in " + strSelectedCountry + " is SO147DW";
+						break;
+				}
+			}
+		}
+
+		if (source == btnExit){
+			System.exit(0);		
+		} 				
+	}
+
+}
+
+//----------------------------------------------------------
+public class Exam2018Q2{
+	public static void main(String[] args){
+		grid1 frmGridLayout = new grid1();
+
+		frmGridLayout.setVisible(true);
+	}
+}
+

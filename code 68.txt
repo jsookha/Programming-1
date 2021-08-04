@@ -1,0 +1,170 @@
+// Program using a class called Student that can store 4 marks 
+// and using methods - calculate the CASS Mark, decide on exam entry
+// and calculate the final mark 
+
+package exampractice2; 
+
+import java.util.Scanner; 
+
+public class exampractice2{
+
+	public static void main(String[] args){
+
+		Student stud1 = new Student();
+
+		// Using the Scanner - we would read in values 
+		// stud1.setStudNum(strNum); // and we would call the set (mutator method) to load the value into the object 
+		// another 5 more lines like above to load the other values - if that is what we were going for 
+
+		// load some values into the stud1 object 
+		stud1.setStudNum("19000123");		
+		stud1.setName("John Grey");
+		stud1.setTest(50);
+		stud1.setICE(100);
+		stud1.setAssignment(80);
+		stud1.setExam(50);
+
+		// Printing the student's info along with the values returned from the methods 
+		System.out.println("Student " + stud1.getName() + " - " + stud1.getStudNum() + "\n" + 
+				   "got a CASS mark of " + stud1.CalcCASS() + " with " + stud1.DecideExamEntry() + " \n" + 
+				   " and a final mark of " + stud1.CalcFinalMark());
+
+		// creating another student - but this time - accessing the constructor that has 2 parameters 
+		Student stud2 = new Student("18525252", "James White"); // (strNum, strName);
+
+		// creating another student - but this time - accessing the constructor that has 6 parameters 		
+		Student stud3 = new Student("1878787","Janet Dyne", 15,82,98,99);
+
+		// creating an array of objects - in this case - an array of 5 students 
+		// note that even though we create the array - we still need to instantiate each cell as a Student object
+		Student[] studArr = new Student[5]; 
+			
+		// studArr[0] = new Student(); // if I was going to instantiate each cell - I could do this - but if there 
+		// are a lot of students - duplicating the above line is going to take some time 
+		
+		// so below - I use a loop to run through the cells of the array - instantiate each cell and then load 
+		// the cells with the information given by the user 
+
+		for (int intCount = 0; intCount <= 4; intCount++){ 
+			studArr[intCount] = new Student();
+
+			System.out.print("Enter student number [cell " + intCount + "]: ");
+			studArr[intCount].setStudNum(sc.nextLine()); // reading in the value and sending it to the object 
+
+			System.out.print("Enter student name [cell " + intCount + "]: ");
+			studArr[intCount].setName(sc.nextLine()); // reading in the value and sending it to the object 
+
+			System.out.print("Enter the test mark for " +  studArr[intCount].getName() + " [cell " + intCount + "]: ");
+			studArr[intCount].setTest(sc.nextDouble()); 
+
+			System.out.print("Enter the ICE mark for " +  studArr[intCount].getName() + " [cell " + intCount + "]: ");
+			studArr[intCount].setICE(sc.nextDouble()); 
+
+			System.out.print("Enter the Assignment mark for " +  studArr[intCount].getName() + " [cell " + intCount + "]: ");
+			studArr[intCount].setAssignment(sc.nextDouble()); 
+
+			System.out.print("Enter the Exam mark for " +  studArr[intCount].getName() + " [cell " + intCount + "]: ");
+			studArr[intCount].setExam(sc.nextDouble()); 
+
+
+			// instead of doing the above line - studArr[intCount] = new Student();
+			// you could read in the values from the user and then consider this line below
+			// instantiate each cell and use the constructor that has the 6 parameters - 
+			// so instead of accessing each set method - we load all 6 values in one go 	
+			// studArr[intCount] = new Student(strStudentNumber, strName, dblTestMark, dblICEMark, dblAssignmentMark, dblExamMark);
+
+			// if we needed to get the properties - then we could use the line below 
+			// studArr[intCount].getStudNum()
+			// if we needed to get the values from the methods - then the following line would be used
+			// studArr[intCount].CalcFinalMark() 
+		}
+	}
+}
+
+//------------------------------------------------------------------------------------------------------
+
+package exampractice2; 
+
+public class Student{
+	// private fields
+	private String strStudNum; 
+	private String strName; 
+
+	private double dblTest;
+	private double dblAssignment;
+	private double dblICE;
+	private double dblExam;
+
+	// public properties
+	public void setStudNum(String strNumber){ strStudNum = strNumber; }
+	public String getStudNum(){ return strStudNum; }
+
+	public void setName(String strStudName){ strName = strStudName; }
+	public String getName(){ return strName; }
+
+	public void setTest(double dblTest1){ dblTest = dblTest1; }
+	public String getTest(){ return dblTest; }
+		
+	public void setAssigment(double dblAssigment1){ dblAssigment = dblAssigment1; }
+	public String getAssigment(){ return dblAssigment; }
+
+	public void setICE(double dblICE1){ dblICE = dblICE1; }
+	public String getICE(){ return dblICE; }
+	
+	public void setExam(double dblExam1){ dblExam = dblExam1; }
+	public String getExam(){ return dblExam; }
+
+	// public constructors
+	public Student(){
+		// empty constructor - means no parameters 
+		// but we could do whatever programming inside the method if we wanted to 
+		// like this random code here
+		strStudNum = "9999"; 
+		strName = "NoOne"; 
+	}
+
+	public Student(String strNumber1, String strName1){
+		// overloaded constructor 
+		strStudNum = strNumber1; 
+		strName = strName1; 
+	}
+
+
+	public Student(String strNumber1, String strName1, double dblT1, double dblA1, double dblI1, double dblE1){
+		// another overloaded constructor
+		strStudNum = strNumber1; 
+		strName = strName1; 
+
+		dblTest = dblT1;
+		dblAssignment = dblA1;
+		dblICE = dblI1;
+		dblExam = dblE1; 		
+	} 
+
+	//public methods 
+
+	public double CalcCASS(){
+		double dblCASS; 
+
+		dblCASS = (dblTest * 0.3) + (dblIce * 0.1) + (dblAssignment * 0.2);
+
+		return dblCASS; 
+	}
+
+
+	public String DecideExamEntry(){
+		String strAnswer = ""; 
+
+		if (CalcCASS() >= 40)
+			strAnswer = "Exam Entry"; 
+		else 
+			strAnswer = "No Exam Entry";
+
+		return strAnswer; 
+	}
+
+	public double CalcFinalMark(){
+		
+		return (CalcCASS() + (dblExam * 0.4));
+	}
+}

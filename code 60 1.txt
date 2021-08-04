@@ -1,0 +1,55 @@
+/*
+ * Program: recursionex
+ * Date: 29/5/2019
+ * Programmer: J.Sookha
+ * Description: 
+*/
+package recursionex;
+
+import java.util.Scanner; 
+
+public class recursionex{
+
+	public static void main(String[] args){
+		/*
+			4! = 4 * 3 * 2 * 1	= 24
+			5! = 5 * 4 * 3 * 2 * 1 	= 120
+		*/	
+
+		int intAnswer; 
+
+		//Scanner sc = new Scanner(System.in);
+		//System.out.print("Please enter a number: ");
+		//int intNum = sc.nextInt();
+
+		int intNum = 4;
+		intAnswer = 1; 
+
+		for (int intCount = intNum; intCount >= 1; intCount--){
+			intAnswer = intAnswer * intCount; 			
+		}	
+
+		System.out.println("The answer for " + intNum + "! is - " + intAnswer);
+
+		int intOtherAnswer = Factorial(intNum);
+		System.out.println("The answer for " + intNum + "! is - " + intOtherAnswer);
+
+	}
+
+	public static int Factorial(int intNumber){
+		if (intNumber == 0)
+			return 1;
+		else 
+			return (intNumber * Factorial(intNumber - 1));
+		
+	}
+}
+
+
+
+
+
+
+
+
+

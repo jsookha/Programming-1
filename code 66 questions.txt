@@ -1,0 +1,114 @@
+1. Ubiquitous Technology Incorporated has decided to invest in students to code a simple program to be 
+   used on larger scale at a later date. This program is to be created for the field of one-day-international 
+   cricket matches and the scores. 
+
+   The company wishes to implement this program with the following requirements:
+	-	The ability to calculate the average runs scored for each match.
+	-	The ability to calculate the average runs scored by each player for three matches.
+	-	To know what the highest and lowest runs scored was, and who scored those runs.
+
+ID Number	Name			Match 1 	Match 2 	Match 3 
+5654		Jake Gallan		69		48		25
+3453		Jack Christo		99		10		5
+2314		John Gates		65		45		85
+6785		Joe Mariot		75		55		68
+9090		Joey Tribianni		74		58		26
+5647		Jackson Trait		67		67		67
+1598		Joseph Forman		95		69		54
+2674		Jarrod Quake		26		50		35
+6742		James Beaty		57		59		58
+3415		Jacob Holmes		85		58		85
+
+
+In the loadValues() method, you are required to do the following:
+1. Copy the following code to load the values into their respective arrays
+intIDNum, strPlayer, intMatch1, intMatch2 and intMatch3.
+
+intIDNum[0]= 5654;
+strPlayer[0] = "Jake Gallan";
+intMatch1[0] = 69;
+intMatch2[0] = 48;
+intMatch3[0] =	25;
+
+intIDNum[1]= 3453;
+strPlayer[1] = "Jack Christo";
+intMatch1[1] = 99;
+intMatch2[1] = 10;
+intMatch3[1] = 5;
+
+intIDNum[2]= 2314;	
+strPlayer[2] = "John Gates";		
+intMatch1[2] = 65;		
+intMatch2[2] = 45;	
+intMatch3[2] = 85;
+
+intIDNum[3]= 6785;	
+strPlayer[3] = "Joe Mariot";		
+intMatch1[3] = 75;		
+intMatch2[3] = 55;	
+intMatch3[3] = 68;
+
+intIDNum[4]= 9090;	
+strPlayer[4] = "Joey Tribianni";	
+intMatch1[4] = 74;		
+intMatch2[4] = 58;	
+intMatch3[4] = 26;
+
+intIDNum[5] = 5647;	
+strPlayer[5] = "Jackson Trait";		
+intMatch1[5] = 67;		
+intMatch2[5] = 67;	
+intMatch3[5] = 67;
+
+intIDNum[6] = 1598;	
+strPlayer[6] = "Joseph Forman";		
+intMatch1[6] = 95;		
+intMatch2[6] = 69;	
+intMatch3[6] = 54;
+
+intIDNum[7] = 2674;	
+strPlayer[7] = "Jarrod Quake";		
+intMatch1[7] = 26;		
+intMatch2[7] = 50;	
+intMatch3[7] = 35;
+
+intIDNum[8]= 6742;	
+strPlayer[8] = "James Beaty";		
+intMatch1[8] = 57;		
+intMatch2[8] = 59;	
+intMatch3[8] = 58;
+
+intIDNum[9]= 3415;	
+strPlayer[9] = "Jacob Holmes";		
+intMatch1[9] = 85;		
+intMatch2[9] = 58;
+intMatch3[9] = 85;
+----------------------------------------------------------------------------------------------------------------------------------------
+In the AverageScore() method, you are required to do the following:
+2. Calculate the average score of each player for the 3 matches they have played in. Store the average score for each of the players in an array named sngAvgPlayer.
+(4)
+
+In the SearchID() method, you are required to do the following:
+1. Perform the binary search on the ID Number of the players, Validate the ID number, and if the information entered is incorrect, produce an error message.
+
+After the search, if the information about the player is not found, display a message box stating the relevant message. If the ID Number has been found, display the ID Number, the Players Name, and the corresponding 3 match scores and the average score of the 3 matches
+(15)
+----------------------------------------------------------------------------------------------------------------------------------------
+In the AverageMatch() method, you are required to do the following:
+1. Calculate the average score for each match and store the averages in variables that you have created.
+(7)
+
+In the HighLowMatch() method, you are required to do the following:
+2. Calculate the highest score for Match 1 and store both the score and the corresponding name of the player.
+
+3. Calculate the lowest score for Match 3 and store both the score and the corresponding name of the player.
+(12)
+
+In the DisplayInfo() method, you are required to do the following:
+4. Display the information from the above 3 instructions answers
+(4)
+----------------------------------------------------------------------------------------------------------------------------------------
+In the HigherAverage() method, you are required to do the following:
+5. Display the players names who acquired runs scored in Match 2 that was higher than the average runs scored for the match.
+(4)
+

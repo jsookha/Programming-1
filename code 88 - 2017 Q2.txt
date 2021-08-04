@@ -1,0 +1,69 @@
+/*
+	Program: 2017 Q2
+*/
+package Exam2017Q2; 
+
+public class Exam2017Q2{
+	
+	static String[] strSeries; 
+	static double[][] dblRatings = new double[5][3]; 
+	static double[] dblAverage = new double[5]; 
+
+
+	public static void main(String[] args){
+		loadArrays();
+		CalcPrint();
+	}
+
+	public static void CalcPrint(){
+		double dblSum; 
+
+		for (int intCount1 = 0; intCount1 <= 4; intCount1++){
+			dblSum = 0;
+			for (int intCount2 = 0; intCount2 <= 2; intCount2++)
+			{
+				dblSum = dblSum + dblRatings[intCount1][intCount2];
+			}
+			dblAverage[intCount1] = dblSum / 3; 
+		}
+		
+		String strFormat = "%-30s %-20s %-30s";
+		String strDisplay, strContinuation; 
+
+		strDisplay = String.format(strFormat, "TV SHOW", "RATING", "SERIES CONTINUATION");
+		System.out.println(strDisplay);
+
+		for (int intCount1 = 0; intCount1 <= 4; intCount1++){
+			if (dblAverage[intCount1] >= 7)
+				strContinuation = "Yes";
+			else 
+				strContinuation = "No";
+
+			strDisplay = String.format(strFormat, strSeries[intCount1], dblAverage[intCount1], strContinuation);
+			System.out.println(strDisplay);
+		}
+	}	
+	
+	public static void loadArrays(){
+		strSeries = new String[]{"Big Bang Theory", "Scandal", "Modern Family", "Dexter", "Grand Designs"}
+		dblRatings[0][0] = 9; 
+		dblRatings[0][1] = 8;
+		dblRatings[0][2] = 5;
+
+		dblRatings[1][0] = 7; 
+		dblRatings[1][1] = 5;
+		dblRatings[1][2] = 5;
+	
+		dblRatings[2][0] = 8; 
+		dblRatings[2][1] = 8;
+		dblRatings[2][2] = 8;
+
+		dblRatings[3][0] = 10; 
+		dblRatings[3][1] = 7;
+		dblRatings[3][2] = 8;
+
+		dblRatings[4][0] = 3; 
+		dblRatings[4][1] = 1;
+		dblRatings[4][2] = 5;
+	}
+}
